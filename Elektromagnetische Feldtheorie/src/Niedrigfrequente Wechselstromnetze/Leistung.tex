@@ -1,0 +1,31 @@
+\begin{sectionbox}
+    \subsection{Komplexe Leistungsrechnung}
+
+    \textbf{Effektivwerte von Spannung und Strom}
+    \begin{equation*}
+        X_{eff} = \sqrt{\frac{1}{T}\int_0^Tx(t)^2 \mathrm dt}
+    \end{equation*}
+
+    \textbf{Falls sinusförmig:} \\
+    $P_W = P_m = U_{eff}I_{eff}\cos(\Delta\varphi)$ \qquad $X_{eff} = \frac{1}{\sqrt 2}\hat X$
+    
+    \textbf{Momentanleistung}:
+    \begin{equation*}
+        p(t) = u(t)i(t)=\underbrace{\frac{1}{2}\hat U \hat I \cos(\Delta \varphi)}_{\text{zeitl. Mittelwert } P_m}-\frac{1}{2}\hat U \hat I \cos(2\omega t + \varphi_u + \varphi_i)
+    \end{equation*}
+    
+    \textbf{Energie einer Periode}: $E=\int_0^Tu(t)i(t)dt$\\
+    \textbf{Komplexe Leistung}: $P = \frac{1}{2}\hat{\underline U} \hat{\underline I^*} = \frac{1}{2}\hat U e^{j\varphi_u} \hat I e^{-j\varphi_i} = U_{\text{eff}} I_{\text{eff}} e^{j(\varphi_u-\varphi_i)}$\\
+    \textbf{Scheinleistung}: $S = |P|$\\
+    \textbf{Wirkleistung}: $P_w = \text{Re}\{P\} = \frac{1}{2}\hat U\hat I\cos \varphi$\\
+    \textbf{Blindleistung}: $P_B = \text{Im}\{P\} = \frac{1}{2}\hat U\hat I\sin \varphi$
+    \end{sectionbox}
+
+    \subsection{Grundlagen Wechselstromlehre}
+    periodische, sinusförmige Strom- \& Spannungsverläufe:\\
+    \begin{itemize}
+        \item Transformierbarkeit(Energieübertragung)
+        \item Modulierbarkeit (Informations- und Nachrichtentechnik)
+        \item Anpassung an Generatoren und Motoren
+    \end{itemize}
+$\varphi(t) = \omega t + \varphi_0$

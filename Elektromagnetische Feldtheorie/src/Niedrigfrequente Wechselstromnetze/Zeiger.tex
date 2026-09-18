@@ -1,0 +1,36 @@
+\begin{equation*}
+    \hat U e^{j\varphi_u} = |Z|e^{j\arg{Z}} \hat I e^{j\varphi_i}
+\end{equation*}
+
+\begin{sectionbox}
+    \subsection{Komplexe Zeigergrößen}
+    \begin{emphbox}
+
+        \begin{tabular}{ll}
+            \textbf{Zeitfunktion} & $a(t) = \hat A \sin(\omega t+\varphi)$                  \\
+            \textbf{Zeiger}       & $\underline A = \alpha + j\beta = \hat A  e^{j\varphi}$ \\
+                                  & $=\hat A  (\cos \varphi+j\sin \varphi)$                 \\
+            \textbf{Maximum}      & $\hat A = |A| = \sqrt{\alpha^2+\beta^2} = \sqrt{AA^*}$  \\
+            \textbf{Phase}        & $\varphi = \begin{cases}
+                                            \arctan\frac{\beta}{\alpha}     & \alpha>0 \\
+                                            \arctan\frac{\beta}{\alpha}+\pi & \alpha<0
+                                        \end{cases}$
+        \end{tabular}
+    \end{emphbox}
+
+    % ---------------------------------------------------------
+    Differentialoperator: $\frac{\diff}{\diff t} = j \omega$\qquad
+    $\frac{d}{dt} e^{j(\omega t + \varphi)} = j\omega e^{j(\omega t + \varphi)}$\\
+    \begin{tablebox}{l@{\extracolsep\fill}ccc} \ctrule
+        & \textbf{Widerstand} & \textbf{Kondensator} & \textbf{Spule}\\ \cmrule
+        Impedanz $Z = \frac{U}{I} $ & $R$ & $\frac{1}{j \omega C}$ & $j \omega L$\\
+        Admittanz $Y = \frac{I}{U} $ & $G = \frac{1}{R}$ & $j \omega C$ & $\frac{1}{j \omega L}$ \\[0.5em]
+        $\Delta \varphi = \varphi_u - \varphi_i$ & 0 & $-\frac{\pi}{2}$ & $\frac{\pi}{2}$ \\
+        \cbrule
+    \end{tablebox}
+\end{sectionbox}
+
+\begin{tabular}[\columnwidth]{l@{\hspace{4em}}l}
+    $\underset{\text{Impedanz}}{\cx Z(j\omega)} = \underset{\text{Resistanz}}{R(j\omega)} + \underset{\text{Reaktanz}}{jX(j\omega)}$     & $\cx U = \cx Z  \cx I$ \\[1em]
+    $\underset{\text{Admittanz}}{\cx Y(j\omega)} = \underset{\text{Konduktanz}}{G(j\omega)} + \underset{\text{Suszeptanz}}{jB(j\omega)}$ & $\cx I = \cx Y  \cx U$ \\
+\end{tabular}

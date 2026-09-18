@@ -1,0 +1,30 @@
+\subsection{Komplexe Zeiger}
+\begin{itemize}
+    \item $\underline U = U_1 + jU_2$
+    \item $\underline U = \hat U (\cos\varphi + j\sin\varphi)=\hat U e^{j\varphi}$
+    \item $\varphi = \arctan(\frac{U_2}{U_1})$
+\end{itemize}
+
+\begin{equation*}
+    \cos(x) = \sin(x + \frac{\pi}{2}) \quad \sin(x) = \cos(x - \frac{\pi}{2})
+\end{equation*}
+
+\subsection{Konstanten}
+\begin{tabular*}{\columnwidth}{@{\extracolsep\fill}ll@{}} \trule
+    Lichtgeschwind. & $c = \frac{1}{\sqrt{\varepsilon_0 \mu_0}} = \SI{299 792 458}{\meter\per\second}$\\
+    Elektr. Feldkonst. & $\varepsilon_0 = \SI{8.854 188e-12}{\farad\per\meter}$\\
+    Magn. Feldkonst. & $\mu_0 = 4\pi \times \SI{e-7}{\henry\per\meter}$\\
+\end{tabular*}
+
+\subsection{Mathematik}
+\hspace{-20pt}
+\scalebox{0.77}
+{
+    $\begin{array}{c|c|c|c|c|c|c|c|c|c|c|c}
+            x    & 0 & \pi / 6            & \pi / 4            & \pi / 3           & \pi / 2 & \frac{2}{3}\pi    & \frac{3}{4}\pi     & \frac{5}{6}\pi      & \pi & \frac{3}{2}\pi & 2 \pi \\ \hline
+            \sin & 0 & \frac{1}{2}        & \frac{1}{\sqrt{2}} & \frac{\sqrt 3}{2} & 1       & \frac{\sqrt 3}{2} & \frac{1}{\sqrt{2}} & \frac{1}{2}         & 0   & -1             & 0     \\
+            \cos & 1 & \frac{\sqrt 3}{2}  & \frac{1}{\sqrt 2}  & \frac{1}{2}       & 0       & -\frac{1}{2}      & -\frac{1}{\sqrt 2} & -\frac{\sqrt 3}{2}  & -1  & 0              & 1     \\
+            \tan & 0 & \frac{\sqrt{3}}{3} & 1                  & \sqrt{3}          &         & -\sqrt{3}         & -1                 & -\frac{1}{\sqrt{3}} & 0   &                & 0     \\
+        \end{array}$
+}
+$r=|z|=\sqrt{a^2+b^2}\quad\varphi=\arg(z)=\begin{cases}+\arccos \left( \frac{a}{r}\right),  & b\ge0   \\  -\arccos \left( \frac{a}{r}\right), & b<0\end{cases}$
