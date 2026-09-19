@@ -1,0 +1,53 @@
+\subsection{elektrische Feldgrößen}
+\subsubsection{Energie(dichte)}
+Energie die zum Aufbau dieser Ladungsverteilung nötig ist, wenn die Ladungen aus dem Unendlichen an ihre Position gebracht werden. Ladungen werden in einer bestimmten Reihenfolge gebracht, zuerst $q_1$, $q_2$, ..., $q_k$\\
+$W_{el} = \sum\limits_{k=2}^N \Delta W_{el}^{(k)} = \frac{1}{8\pi\varepsilon} \sum\limits_{\scriptscriptstyle \begin{matrix}\scriptscriptstyle i,k=1 \\[-0.3em] \scriptscriptstyle i \ne k\end{matrix}}^N \frac{q_i q_k}{|\vec r_i - \vec r_k|} = \iiint\limits_V \iiint\limits_V \frac{\rho(\vec r) \rho(\vec r')}{|\vec r - \vec r'|} \diff^3 r \diff^3 r'=\frac{1}{2}\iiint_V \Phi(\vec r)\rho(\vec r)\diff^3 r$\\
+$\delta W_{el} = \iiint\limits_V \Phi(\vec r) \delta\rho(\vec r) \diff^3 r = \iiint\limits_V \vec E  \delta \vec D \diff^3 r$\\
+
+
+Die Gesamtenergie einer Ladungsverteilung mit $n$ Ladungen besteht aus $\frac{1}{2}(n^2 + n)$ summierten Termen.\\
+\begin{tabular*}{\columnwidth}{@{\extracolsep\fill}lll@{}} \trule
+    & \large Elektrisch & \large Magnetisch\\ \mrule
+    & $\delta w_{\ir el} = \vec E  \delta \vec D$ & $\delta w_{\ir mag} = \vec H  \delta \vec B$\\
+    Energiedichte: & \boxed{ w_{\ir el} = \int\limits_0^{\vec D} \vec E' \diff \vec D' } & \boxed{ w_{\ir mag} = \int\limits_0^{\vec B} \vec H' \diff \vec B' }\\ \mrule
+    $\begin{array}{@{}l} \text{Falls} \\ \varepsilon = \const \\ \mu = \const \end{array}$ &
+    $\begin{array}{@{}l} w_{\ir el} = \frac{1}{2} \vec E \vec D = \\ = \frac{\varepsilon}{2} \vec E^2 = \frac{1}{2\varepsilon} \vec D^2 \end{array}$ &
+    $\begin{array}{@{}l} w_{\ir mag} = \frac{1}{2} \vec H \vec B = \\ = \frac{\mu}{2} \vec H^2 = \frac{1}{2\mu} \vec B^2 \end{array}$\\ \mrule
+    Energie: & $W_{\ir el} = \int\limits_V w_{\ir el} \diff V$ & $W_{\ir mag} = \int\limits_V w_{\ir mag} \diff V$\\ \brule
+\end{tabular*}\\
+\textbf{Dem EM-Feld zugeführte Leistung:} $P_{\ir em} = \int_V \Pi_{\ir em} \diff V = - \iint\limits_V \vec j(\vec r)  \vec E(\vec r) \diff V$\\
+
+Energie eines Teilchens beim durchlaufen einer Spannung: $E = U  Q$\\
+Energie des el. Feldes im Plattenkondensator: $E = \frac{1}{2} E D V = \frac{1}{2} U Q$\\
+
+\subsection{Allgemeine Bilanzgleichung}
+Extensive Größe $X$ besitzt eine Volumendichte $x(\vec r,t)$, so dass für jedes Kontrollvolumen $V \subset \R^3$ gilt:
+$X(V) = \int_V x(\vec r,t) \diff V$\\ % ist die in V enthaltene Menge von $X$
+Extensive Größe ist eine Größe die man abzählen kann.\\
+\\
+Beispiele für extensive Größen:\\
+\begin{tabular*}{\columnwidth}{@{\extracolsep\fill}llll@{}} \mrule
+    phys. Größe & $X$ & Volumendichte & $x$\\
+    Ladung & $Q$ & Ladungsdichte & $\rho_{el}$\\
+    Masse & $m$ & Massendichte & $\rho_m$\\
+    Teilchenzahl & $N$ & Konzentration & $n$\\
+    Energie & $W$ & Energiedichte & $w$\\
+\end{tabular*}	\\
+$X$ besitzt Stromdichte $\vec J_X(\vec r,t)$ mit $\diff X = \vec J_X(\vec r,t) \diff \vec a$ die Menge, welche die Kontrollfläche pro Zeiteinheit passiert. $\diff X > 0 \Leftrightarrow $ Abfluss aus $V$\\
+$X$ hat Produktionsrate $\Pi_X(\vec r,t)$ für Zeit und Volumen, $\Pi_X > 0 \Leftrightarrow$ Erzeugung innerhalb $V$\\
+Bilanzgleichung: \boxed{ \frac{\diff X(V)}{\diff t} = -\int\limits_{ \partial V} \vec J_X \diff \vec a + \int\limits_V \Pi_X  \diff V}\\
+Differentielle Form: \boxed{\underset{\text{Akkummulationsrate}}{\frac{\partial x}{\partial t}} + \underset{\text{Zu-/Abfluss}}{\div \vec J_X} = \underset{\text{Generation}}{\Pi_X } }\\
+\\
+Halbleiter:\\
+Elektronen $\frac{\partial n}{\partial t} = -\div \vec J_n + G_n$\\
+Löcher $\frac{\partial p}{\partial t} = -\div \vec J_p + G_p$ mit $G_n = G_p$\\
+
+
+\subsection{Energie im elektromagnet. Feld}
+\textbf{Poynting Vektor}: $\vec S := \vec E \times \vec H$, Leistungsflussdichte, wenn $\vec E, \vec H$ dynamisch miteinander gekoppelt\\
+Leistungsflussdichte: $\vec J_{\text{elmag}} = \vec E \times \vec H + \vec S_0$ ($\vec S_0 = 0$, falls voneinander unabhängige Quellen)\\
+\\
+Energiebilanz des El.mag.-Feldes:\\
+\boxed{\frac{\partial w_{em}}{\partial t} + \div \vec J_{em} = \Pi_{em}}\\
+mit $w_{em} = w_{el} + w_{mag}$; $\vec J_{em} = \vec E \times \vec H + \vec S_0$, mit $\div \vec S_0 = 0$\\
+$\Pi_{em} = -\vec j  \vec E$\\

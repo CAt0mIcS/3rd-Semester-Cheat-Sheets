@@ -1,0 +1,46 @@
+Elektromagnet. Vektorpotential $\boxed{ \vec A(\vec r, t)$: $\vec B(\vec r,t) = \rot \vec A(\vec r,t) }$\\
+\begin{itemize}
+    \item Es gilt $\div \vec B = \div(\rot \vec A) = 0$
+    \item $\vec B$ stetig diffb. in $\Omega \subset \mathbb R^3$ und $\div \vec B = 0 \Rightarrow$ Es existiert Vektorpotential
+    \item Vektorpotential bis auf additives Gradientenfeld eindeutig bestimmt: $\vec B = \rot(\vec A) = \rot (\vec A') \Rightarrow \rot(\vec A - \vec A') = 0$ \\
+          Folglich existiert ein Skalarfeld $\chi(\vec r, t)$ mit $\vec A - \vec A' = \nabla \chi(\vec r, t)$
+\end{itemize}
+Elektromagnet. Skalarpotential $\boxed{ \Phi(\vec r, t)$: $\vec E(\vec r,t) = - \nabla \Phi - \frac{\partial \vec A}{\partial t}(\vec r,t) }$\\
+\begin{itemize}
+    \item $\rot(\vec E + \frac{\partial\vec A}{\partial t}) = 0 \Rightarrow $ Ex existiert Gradientenfeld zu $\vec E + \frac{\partial A}{\partial t} \Rightarrow \vec E + \frac{\partial\vec A}{\partial t} = -\nabla \Phi$
+\end{itemize}
+
+Umeichen: $\vec A' = \vec A - \nabla \chi$ \qquad $\Phi' = \Phi + \partial_t \chi$ \\
+
+Eichfunktion $\chi(\vec r, t)$: Riemansche Räume haben an jedem Punkt ein anderes Längenmaß. Die Eichfunktion gibt an, welches Längenmaß an welchem Punkt verwendet werden muss.\\
+
+\subsection{Maxwell Gleichungen in Potentialdarstellung}
+\boxed{\div(\varepsilon \nabla\Phi) + \frac{\partial}{\partial t} \div(\varepsilon \vec A) = - \rho}\\
+\boxed{\rot(\frac{1}{\mu} \rot A) + \varepsilon \frac{\partial^2 \vec A}{\partial t^2} + \varepsilon \nabla \frac{\partial \Phi}{\partial t} = \vec j }\\
+\\
+\textbf{Lorenzeichung:} $\div \vec A + \varepsilon \mu \frac{\partial \Phi}{\partial t} = 0$\\
+\\
+$\Rightarrow$ Wellengleichungen: \boxed{\left(\Delta - \varepsilon\mu \frac{\partial^2}{\partial t^2}\right) \vect{\Phi \\ \vec A} = - \vect{\frac{\rho}{\varepsilon} \\ \mu \vec j }}\\
+\\
+\textbf{Coulombeichung:} $\div A = 0$\\
+$\Rightarrow$ Wellengleichungen:
+\boxed{
+    \begin{array}{lcl}
+        \div\left( \varepsilon \nabla \Phi(\vec r,t) \right) = -\rho(\vec r, t) \text{ (Poisson)} \\ \\
+        \Delta\vec A - \epsilon\mu\frac{\partial^2\vec A}{\partial t^2} = -\mu\left(\vec j - \epsilon\frac{\partial}{\partial t}(\nabla \Phi)\right)
+    \end{array}
+}
+Die Poissongleichung folgt der Zeit instantan, beschreibt also keine Wellenausbreitung (quasistatischer Teil des $\vec E$-Feldes) \\
+Die untere Gleichung beschreibt den Ausbreitungsanteil des EM-Feldes \\
+
+\textbf{Homogene Wellengleichungen:}\\
+$\vec E$-Feld: $\epsilon \mu \frac{\delta}{\delta t^2} \vec E (\vec r, t) - \Delta \vec E (\vec r, t) = \vec 0$\\
+$\vec B$-Feld: $\epsilon \mu \frac{\delta}{\delta t^2} \vec B (\vec r, t) - \Delta \vec B (\vec r, t) = \vec 0$\\
+Elektromagn. Skalarpot. $\Phi(\vec r,t)$ folgt $\rho(\vec r, t)$ ohne Verzögerung!\\
+\\
+NF Anteil: $-\nabla \Phi$ \qquad HF Anteil: $\frac{\partial \vec j}{\partial t}$\\
+Transversale Stromdichte: $\vec j_t = \vec j - \varepsilon\frac{\partial \nabla \Phi}{\partial t}$\\
+
+%Fuck-Tor des Fickeschen Gesetzes:\\ 
+Biot-Savart Gesetz für konstanten, homogenen Strom:\\
+$\vec H(\vec r) = \frac{I}{4 \pi } \int\limits_\gamma \frac{\diff \vec r \times (\vec r - \vec r')}{|\vec r - \vec r'|^3}$\\
