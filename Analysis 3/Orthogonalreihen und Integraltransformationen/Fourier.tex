@@ -1,0 +1,66 @@
+\begin{sectionbox}
+    \subsection{Fourierpolynom}
+    \begin{description}
+        \item[Periode] betragsmäßig kleinste Zahl, wo sich die Funktion $\forall t$ wiederholt,
+              z.B. $f(t)=\cos(k\omega t) + i\sin(k\omega t)$ wiederholt sich für $|k|\omega T_k=2\pi \Rightarrow T_k=\frac{2\pi}{|k|\omega}$
+        \item[T-periodisch] Falls $f(t + T)=f(t) \quad \forall t\in\mathbb R$
+        \item[Kreisfrequenz] $\omega = \frac{2\pi}{T}$ mit Periode $T$
+    \end{description}
+
+    Sei $\omega > 0, c_k \in \mathbb C, -n \le k \le n, n \in \mathbb N$. Dann heißt
+    \begin{equation*}
+        S_n(t)=\sum_{k=-n}^{n}c_ke^{ik\omega t}, t\in\mathbb R
+    \end{equation*}
+    Fourierpolynom bzw. trigonometrisches Polynom.
+
+    \subsubsection{Eigenschaften}
+    \begin{itemize}
+        \item $T_1$ ist die größte auftretende Periode aller Summanden $\Rightarrow S_n$ ist $T_1$-periodisch
+        \item $T_k= \frac{T_1}{|k|}$
+        \item $\omega$ ist für alle Summanden gleich, $k$ variiert
+    \end{itemize}
+\end{sectionbox}
+
+\subsection{Fourierreihe}
+Jedes Fourierpolynom ist gleichzeitig eine Fourierreihe, wenn man alle nicht benötigten $c_k=0$ setzt.
+\begin{emphbox}
+    \begin{equation*}
+        S(t)=\lim_{n\rightarrow\infty}S_n(t)=\sum_{k\in\mathbb Z}c_ke^{ik\omega t}=\sum_{k=-\infty}^{\infty}c_ke^{ik\omega t}
+    \end{equation*}
+\end{emphbox}
+
+\begin{sectionbox}
+    \subsubsection{Bestimmung der Fourierkoeffizienten}
+    Sei eine $T$-periodische Funktion $f: \mathbb R \rightarrow \mathbb C$ gegeben und $k\in\mathbb Z$. Dann heißt
+    \begin{equation*}
+        c_k=\frac{1}{T}\int_a^{a+T} f(t)e^{-ik\omega t}\diff t, \quad a \text{ bel.}
+    \end{equation*}
+    der $k$-te Fourierkoeffizient von $f$. \\
+    \textbf{Fourierspektrum} Familie $\{c_k\}_{k\in\mathbb Z}$ aller Fourierkoeffizienten. Beschreibt Amplituden und Phasenverschiebungen der Teilschwingungen in $f$.
+
+    \subsubsection{Konvergenz der Fourierreihe}
+    \begin{sectionbox}
+        $f:\mathbb R \rightarrow \mathbb C$ ist stückweise stetig, falls $\forall t \in \mathbb R$ die rechts- und linksseitigen Grenzwerte existieren und $f$ auf jedem beschränkten Interval nur in endlich vielen Punkten unstetig ist (Sprungstellen)
+    \end{sectionbox}
+
+    \begin{sectionbox}
+        $f$ stückweise stetig ist stückweise stetig differenzierbar, falls $f$ auf jedem beschränkten Intervall nur in endlich vielen Punkten nicht stetig differenzierbar ist und die rechts- und linksseitigen Grenzwerte von $f'$ auch existieren
+    \end{sectionbox}
+
+    \begin{description}
+        \item[Punktweise Konvergenz] Fourierreihe konvergiert $\forall t$ gegen $\frac{f(t^-) + f(t^+)}{2}$
+        \item[Gleichmäßige Konvergenz] Auf jedem abgeschlossenen Intervall ohne Sprungstellen konvergiert die Fourierreihe gegen $f$
+    \end{description}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Orthogonalreihenrelationen}
+    Für $k_1, k_2 \in \mathbb Z$ gilt:
+    \begin{equation*}
+        \frac{1}{T}\int_0^Te^{ik_1\omega t}e^{-ik_2\omega t}\diff t = \delta_{k_1,k_2}=\begin{cases}
+            1, & k_1=k_2    \\
+            0, & k_1\ne k_2
+        \end{cases}
+    \end{equation*}
+    $\Rightarrow f_k(t)=e^{ik\omega t}$ hat Fourierspektrum $c_{k'}=\delta_{k,k'} \; \forall k' \in \mathbb Z$
+\end{sectionbox}
