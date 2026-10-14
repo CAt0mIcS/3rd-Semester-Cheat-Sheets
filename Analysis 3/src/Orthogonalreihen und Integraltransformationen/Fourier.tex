@@ -25,7 +25,7 @@
 Jedes Fourierpolynom ist gleichzeitig eine Fourierreihe, wenn man alle nicht benötigten $c_k=0$ setzt.
 \begin{emphbox}
     \begin{equation*}
-        S(t)=\lim_{n\rightarrow\infty}S_n(t)=\sum_{k\in\mathbb Z}c_ke^{ik\omega t}=\sum_{k=-\infty}^{\infty}c_ke^{ik\omega t}
+        S_f(t)=\lim_{n\rightarrow\infty}S_n(t)=\sum_{k\in\mathbb Z}c_ke^{ik\omega t}=\sum_{k=-\infty}^{\infty}c_ke^{ik\omega t}
     \end{equation*}
 \end{emphbox}
 
@@ -47,10 +47,61 @@ Jedes Fourierpolynom ist gleichzeitig eine Fourierreihe, wenn man alle nicht ben
         $f$ stückweise stetig ist stückweise stetig differenzierbar, falls $f$ auf jedem beschränkten Intervall nur in endlich vielen Punkten nicht stetig differenzierbar ist und die rechts- und linksseitigen Grenzwerte von $f'$ auch existieren
     \end{sectionbox}
 
+    Sei $f$ stückweise stetig differenzierbar:
     \begin{description}
         \item[Punktweise Konvergenz] Fourierreihe konvergiert $\forall t$ gegen $\frac{f(t^-) + f(t^+)}{2}$
         \item[Gleichmäßige Konvergenz] Auf jedem abgeschlossenen Intervall ohne Sprungstellen konvergiert die Fourierreihe gegen $f$
     \end{description}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Umrechnung zu sin-/cos-Darstellung}
+    \begin{emphbox}
+        \begin{equation*}
+            S_f(t)=\frac{a_0}{2}+\lim_{n\rightarrow\infty}\sum_{k=1}^{n}(a_k\cos(k\omega t) + b_k\sin(k\omega t))
+        \end{equation*}
+    \end{emphbox}
+    mit $k\in\mathbb N$:
+    \begin{equation*}
+        a_0=2c_0 \quad a_k=c_k+c_{-k} \quad b_k=i(c_k-c_{-k})
+    \end{equation*}
+    bzw.
+    \begin{align*}
+        a_k=\frac{2}{T}\int_0^Tf(t)\cos(k\omega t)\diff t \quad k \in \mathbb N_0 \\
+        b_k=\frac{2}{T}\int_0^Tf(t)\sin(k\omega t)\diff t \quad k \in \mathbb N
+    \end{align*}
+
+    Falls $f$ reel: $c_{-k} = \overline{c_k}$,
+    \begin{equation*}
+        a_0=2c_0 \quad a_k=2\Re{c_k} \quad b_k=-2\Im{c_k}
+    \end{equation*}
+\end{sectionbox}
+
+\begin{sectionbox}
+    Bei $T$-periodischem $f$: \\
+    $f$ gerade $\Leftrightarrow f(\frac{T}{2}+t) = f(\frac{T}{2}-t)$ \\
+    $f$ ungerade $\Leftrightarrow f(\frac{T}{2}+t) = -f(\frac{T}{2}-t)$
+
+    Seien $f,g:\mathbb R \rightarrow\mathbb C \; T$-periodisch. Sei $\{c_k\}_{k\in\mathbb Z}$ das Fourierspektrum von $f$ und $\{d_k\}_{k\in\mathbb Z}$ von $g$
+    \subsubsection{Eigenschaften}
+    \begin{itemize}
+        \item $f$ gerade $\Rightarrow c_k=c_{-k}$ bzw. $b_k=0 \; \forall k \in\mathbb N$. Fourierreihe besteht nur aus $\cos$-Termen
+        \item $f$ ungerade $\Rightarrow c_k=-c_{-k}$ bzw. $a_k=0 \; \forall k \in\mathbb N_0$. Fourierreihe besteht nur aus $\sin$-Termen
+        \item Das Fourierspektrum von $\alpha f(t) + \beta g(t)$ ist $\{\alpha c_k + \beta d_k\}_{k\in\mathbb Z}$
+        \item Das Fourierspektrum von $\overline{f(t)}$ ist $\{\overline{c_{-k}}\}_{k\in\mathbb Z}$
+        \item Das Fourierspektrum von $f(-t)$ ist $\{c_{-k}\}_{k\in\mathbb Z}$
+        \item Das Fourierspektrum von $f(t + a)$ (Verschiebung im Zeitbereich) ist $\{e^{ik\omega a}c_k\}_{k\in\mathbb Z}$
+        \item Das Fourierspektrum von $e^{in\omega t}f(t) \quad n\in\mathbb Z$ (Amplitudenmodulation) ist $\{c_{k-n}\}_{k\in\mathbb Z}$
+        \item Das Fourierspektrum von $f(\gamma t)$ (Streckung) ist $\{c_k\}_{k\in\mathbb Z}$
+        \item Sei $f$ stetig und $f'$ stückweise stetig: Das Fourierspektrum von $f'(t)$ ist $\{ik\omega c_k\}_{k\in\mathbb Z}$
+        \item Sei f stückweise stetig und $c_0=0$: Das Fourierspektrum von $F(t)=\int_0^t f(s)\diff s$ ist
+              \begin{equation*}
+                  s_k=\begin{cases}
+                      -\frac{1}{T}\int_0^Ttf(t)\diff t & k=0    \\
+                      \frac{c_k}{ik\omega}             & k\ne 0
+                  \end{cases}
+              \end{equation*}
+    \end{itemize}
 \end{sectionbox}
 
 \begin{sectionbox}
