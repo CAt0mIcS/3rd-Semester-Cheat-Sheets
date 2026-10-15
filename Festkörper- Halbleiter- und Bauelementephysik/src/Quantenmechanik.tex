@@ -51,3 +51,102 @@
         \item Wahrscheinlichkeitsdichte gegeben durch $|\Psi(\vec r)|^2 \Rightarrow \int_V |\Psi(\vec r)|^2 \diff \vec r = 1$
     \end{itemize}
 \end{sectionbox}
+
+\subsection{Polarisation}
+\begin{emphbox}
+    Beliebige Welle gegeben durch
+    \begin{equation*}
+        \vec E(\vec r, t) = \begin{pmatrix}
+            |E_{0x}| \\ |E_{0y}|e^{i\delta} \\ 0
+        \end{pmatrix}e^{i(kz-\omega t)}
+    \end{equation*}
+\end{emphbox}
+\begin{sectionbox}
+    % https://w.sharetechnote.com/html/WebProgramming/Websim_EMPolarization.html
+    \begin{description}
+        \item[lineare Polarisation $\delta = 0$] Die einzelnen Komponenten der Welle zeigen immer in die gleiche (und ihre negative) Richtung
+              \begin{itemize}
+                  \item \textbf{horizontal:} $E_y(\vec r, t)=0$
+                  \item \textbf{vertikal:} $E_x(\vec r, t)=0$
+              \end{itemize}
+        \item[elliptische Polarisation $\delta \ne k\pi, \; k \in \mathbb Z$] Die einzelnen Komponenten der Welle rotieren im Raum. In der $xy$-Ebene (Wellenausbreitung in $z$-Richtung) sieht man eine Ellipse
+              \begin{equation*}
+                  \left(\frac{E_x}{E_{0x}}\right)^2 + \left(\frac{E_y}{E_{0y}}\right)^2 = 1
+              \end{equation*}
+              \textbf{Drehrichtung in der $xy$-Ebene}
+              \begin{equation*}
+                  \tan(\theta)=\mp\frac{|E_{0y}|}{|E_{0x}|}\tan(kz-\omega t)
+              \end{equation*}
+    \end{description}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{linear horizontal (h) polarisiert}
+
+    \begin{equation*}
+        \vec E_h(\vec r, t) = \begin{pmatrix}
+            |A_{0x}| \\ 0 \\ 0
+        \end{pmatrix}e^{i(kz-\omega t)}=\begin{pmatrix}
+            1 \\ 0
+        \end{pmatrix} = |h\rangle
+    \end{equation*}
+    \subsubsection{linear vertikal (v) polarisiert}
+    \begin{equation*}
+        \vec E_v(\vec r, t) = \begin{pmatrix}
+            0 \\ |B_{0y}| \\ 0
+        \end{pmatrix}e^{i(kz-\omega t)}=\begin{pmatrix}
+            0 \\ 1
+        \end{pmatrix} = |v\rangle
+    \end{equation*}
+    \subsubsection{zirkular rechts (r) polarisiert}
+    \begin{equation*}
+        \vec E_r(\vec r, t) = \begin{pmatrix}
+            |C_{0x}| \\ i|C_{0y}| \\ 0
+        \end{pmatrix}e^{i(kz-\omega t)}=\frac{1}{\sqrt 2}\begin{pmatrix}
+            1 \\ i
+        \end{pmatrix} = |r\rangle
+    \end{equation*}
+    \subsubsection{zirkular links (l) polarisiert}
+    \begin{equation*}
+        \vec E_l(\vec r, t) = \begin{pmatrix}
+            |C_{0x}| \\ -i|C_{0y}| \\ 0
+        \end{pmatrix}e^{i(kz-\omega t)}=\frac{1}{\sqrt 2}\begin{pmatrix}
+            1 \\ -i
+        \end{pmatrix} = |l\rangle
+    \end{equation*}
+
+    Die Paare $|h\rangle, |v\rangle$ und $|r\rangle, |l\rangle$ bilden Basisvektoren. $|r\rangle$ und $|l\rangle$ kann in einen (v)- und (h)-Anteil aufgespalten werden
+\end{sectionbox}
+
+\subsection{Superpositionsprinzip}
+\begin{sectionbox}
+    Sendet man $|r/l\rangle$-polarisierte Lichtwellen in einen Polarisationssplitter, wird die Hälfte danach $|v\rangle$-polarisiert und die andere Hälfte $|h\rangle$-polarisiert sein (da $|r/l\rangle$-polarisierte Wellen sowohl $|v\rangle$- als auch $|h\rangle$-Anteile besitzen, kann ein Polarisationssplitter diese in verschiedene Richtungen ableiten $\Rightarrow |v\rangle$-Teile und $|h\rangle$-Teile sind nicht mehr am gleichen Ort unterwegs). \\
+    Hat man ein einzelnes $|r/l\rangle$-polarisiertes Photon, so kann es sich nicht aufspalten $\Rightarrow$ es wird entweder $|v\rangle$-oder $|h\rangle$-polarisiert sein. \\
+    Davor war es in einer Superposition beider Zustände.
+
+    \subsubsection{Wahrscheinlichkeitsaufteilung}
+    \begin{equation*}
+        |r\rangle = \frac{1}{\sqrt 2}|h\rangle + \frac{i}{\sqrt 2}|v\rangle
+    \end{equation*}
+    \begin{equation*}
+        p(|h\rangle) = \left|\left(\frac{1}{\sqrt 2}\right)\right|^2=\frac12 \quad p(|v\rangle) = \left|\left(\frac{i}{\sqrt 2}\right)\right|^2=\frac12
+    \end{equation*}
+\end{sectionbox}
+
+
+\subsection{Schrödinger-Gleichung}
+\begin{emphbox}
+    allgemeine, zeitabhängige Schrödingergleichung für die Gesamtenergie eines Teilchens (TODO: Herleitung)
+    \begin{equation*}
+        i\hbar\partial_t \Psi(\vec r, t)=-\frac{\hbar^2}{2m}\Delta\Psi(\vec r, t) + \underbrace{V(\vec r, t)}_{E_{\ir kin}}\Psi(\vec r, t)
+    \end{equation*}
+\end{emphbox}
+
+\begin{emphbox}
+    zeitunabhängige Schrödingergleichung mit Energie $E$
+    \begin{equation*}
+        E\varphi(\vec r) = -\frac{\hbar^2}{2m}\Delta\varphi(\vec r) + V(\vec r)\varphi(\vec r)
+    \end{equation*}
+\end{emphbox}
+
+TODO: Rest bis Kapitel 3
