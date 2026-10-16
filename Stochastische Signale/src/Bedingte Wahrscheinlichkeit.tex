@@ -7,12 +7,27 @@
 \end{emphbox}
 
 \begin{sectionbox}
-    \subsubsection{Satz von Bayes}
-
+    \subsubsection{Satz der totalen Wahrscheinlichkeit}
+    $A$ kann als Vereinigung von disjunkten Partitionen dargestellt werden (s. Partitionierung, grüner Bereich $A$)
+    \begin{equation*}
+        A=A\cap B_1 \cup A\cap B_2 \cup \dots \cup A\cap B_n
+    \end{equation*}
+    \begin{equation*}
+        P(A)=\sum_{i=1}^{n}P(A\cap B_i)=\sum_{i=1}^{n}P(A|B_i)P(B_i)
+    \end{equation*}
+    wobei $B_i$ eine Partitionierung von $\Omega$ (z.B. $B$ und $B^C$, oder $B_1, B_2, ..., B_n$)
 \end{sectionbox}
-
 
 \begin{sectionbox}
-    \subsubsection{Satz der totalen Wahrscheinlichkeit}
+    \subsubsection{Satz von Bayes}
+    Z.B.: Weiße und schwarze Kugeln in einem Topf. Ziehen ohne Zurücklegen. \\
+    $A = \{1.\text{ Kugel ist weiß}\} \quad B = \{2.\text{ Kugel ist weiß}\}$,
+    \begin{equation*}
+        P(A|B)=\frac{P(B|A)P(A)}{P(B)}=\frac{P(B|A)P(A)}{\sum_{i=1}^{n}P(B|A_i)P(A_i)}
+    \end{equation*}
+
+    Wahrscheinlichkeit, dass die erste Kugel weiß war, wenn man als zweite Kugel eine weiße gezogen hat.
+
 
 \end{sectionbox}
+

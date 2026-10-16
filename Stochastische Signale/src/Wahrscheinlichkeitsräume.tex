@@ -15,30 +15,25 @@
 \end{sectionbox}
 
 \begin{sectionbox}
-    \subsubsection{Ereignismenge ($\sigma$-Algebra)}
-    Teilmengen $A$ von $\Omega$. Ausgänge, die uns interessieren (z.B. Augenzahl gerade) \\
+    \subsubsection{Ereignis $A$}
+    Teilmenge von $\Omega$, die eine bestimmte Eigenschaft beschreibt (z.B. Augenzahl gerade)
 
-    \textbf{Partition} Disjunkte Teilmengen, welche zusammen $\Omega$ ergeben (TODO: Mitschrift)
-
-    \textbf{Komplement}
-    $A^C = \Omega\setminus A \qquad A \cup A^C = \Omega$ \\
-
-    \textbf{Überlappen von verschiedenen Ereignismengen} \\
-    Falls $A\cap B = \emptyset$ hat man 8 verschieden Fälle. Falls $A\cap B \ne \emptyset$ hat man 16 (TODO: Mitschrift) \\
-    $2^{\text{Menge an Partitionen}}$ \\
-
-    $\mathbb F$ ist eine konsistente Ereignismenge (Menge von Teilmengen), wenn gilt: (TODO)
+    \subsubsection{(konsistente) Ereignismenge $\mathbb F$ ($\sigma$-Algebra)}
+    Die Menge aller Ereignisse, die im Wahrscheinlichkeitsmodell auftreten können (muss nicht alle möglichen Teilmengen von $\Omega$ enthalten, solange die unteren Bedingungen erfüllt sind)
     \begin{itemize}
         \item $\Omega \in \mathbb F$
         \item $A \in \mathbb F \Rightarrow A^C \in \mathbb F$
         \item $A_i\in\mathbb F \Rightarrow A_1\cup A_2 \cup ... \in \mathbb F$
     \end{itemize}
 
+    % \textbf{Überlappen von verschiedenen Ergebnissen} \\
+    %  $2^{\text{Menge an Partitionen}}$ Möglichkeiten TODO
 \end{sectionbox}
 
 \begin{sectionbox}
-    \subsubsection{De-Morgan}
-    $(A^C \cup B^C)^C=A\cap B$
+    \subsubsection{Partitionierung von $\Omega$}
+    $\Omega$ wird in disjunkte Teilmengen $B_i$ eingeteilt, wobei $\bigcup_{i=1}^n B_i=\Omega$ \\
+    \includegraphics[width=\columnwidth]{img/Mengenpartitionierung.png}
 \end{sectionbox}
 
 
