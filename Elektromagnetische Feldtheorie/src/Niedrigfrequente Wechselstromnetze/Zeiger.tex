@@ -1,3 +1,9 @@
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
+    $\hat U \in \mathbb R$                              & Länge des Zeigers (Maximalwert)                                                                     \\
+    $\underline{\hat U} = \hat Ue^{j\varphi_u}$         & Anfangszeiger (zeitunabh.) mit Anfangsphase $\varphi_u$                                             \\
+    $\underline{U} = \underline{\hat U}e^{j\varphi(t)}$ & Komplexer zeitabh. Zeiger. Dreht sich mit $\varphi(t)$ von $\varphi_u$ aus gegen den Uhrzeigersinn.
+\end{tabularx}
+
 \begin{equation*}
     \hat U e^{j\varphi_u} = |Z|e^{j\arg{Z}} \hat I e^{j\varphi_i}
 \end{equation*}
@@ -21,6 +27,7 @@
     % ---------------------------------------------------------
     Differentialoperator: $\frac{\diff}{\diff t} = j \omega$\qquad
     $\frac{d}{dt} e^{j(\omega t + \varphi)} = j\omega e^{j(\omega t + \varphi)}$\\
+    (TODO: cos to sin, sin to cos) \\
     \begin{tablebox}{l@{\extracolsep\fill}ccc} \ctrule
         & \textbf{Widerstand} & \textbf{Kondensator} & \textbf{Spule}\\ \cmrule
         Impedanz $Z = \frac{U}{I} $ & $R$ & $\frac{1}{j \omega C}$ & $j \omega L$\\
