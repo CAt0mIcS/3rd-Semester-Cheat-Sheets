@@ -25,8 +25,9 @@
 
     \textbf{Überlappen von verschiedenen Ereignismengen} \\
     Falls $A\cap B = \emptyset$ hat man 8 verschieden Fälle. Falls $A\cap B \ne \emptyset$ hat man 16 (TODO: Mitschrift) \\
+    $2^{\text{Menge an Partitionen}}$ \\
 
-    $\mathbb F$ ist eine konsistente Ereignismenge, wenn gilt: (TODO)
+    $\mathbb F$ ist eine konsistente Ereignismenge (Menge von Teilmengen), wenn gilt: (TODO)
     \begin{itemize}
         \item $\Omega \in \mathbb F$
         \item $A \in \mathbb F \Rightarrow A^C \in \mathbb F$
@@ -43,6 +44,15 @@
 
 \begin{sectionbox}
     \subsubsection{Wahrscheinlichkeitsmaß $P$}
-    $P$ ist eine Funktion $P : \mathbb F \rightarrow [0,1] \subset \mathbb R$. \\
+    $P$ ist eine Funktion $P : \mathbb F \rightarrow [0,1] \subset \mathbb R$ mit folgenden Eigenschaften
+    \begin{itemize}
+        \item $P(\emptyset) = 0, P(\Omega) = 1, P(A)\in[0,1]$
+        \item $P(A\cup B) = P(A) + P(B) - P(A\cap B)$
+    \end{itemize}
+
+    Weitere Eigenschaften
+    \begin{itemize}
+        \item $P(A\setminus B)=P(A)-P(A\cap B)$
+    \end{itemize}
 
 \end{sectionbox}
