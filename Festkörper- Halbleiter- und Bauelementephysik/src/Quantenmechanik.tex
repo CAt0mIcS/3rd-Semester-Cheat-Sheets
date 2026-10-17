@@ -49,6 +49,7 @@
     \begin{itemize}
         \item Wahrscheinlichkeitsamplitude für alle Punkte in Raum und Zeit $\Psi(\vec r, t)$
         \item Wahrscheinlichkeitsdichte gegeben durch $|\Psi(\vec r)|^2 \Rightarrow \int_V |\Psi(\vec r)|^2 \diff \vec r = 1$
+        \item Normierung durch $\int_V |\Psi(\vec r)|^2d\vec r = 1$
     \end{itemize}
 \end{sectionbox}
 
@@ -136,9 +137,9 @@
 
 \subsection{Schrödinger-Gleichung}
 \begin{emphbox}
-    allgemeine, zeitabhängige Schrödingergleichung für die Gesamtenergie eines Teilchens (TODO: Herleitung)
+    allgemeine, zeitabhängige Schrödingergleichung für die Gesamtenergie eines Teilchens (TODO: Herleitung). Linear in $\Psi$
     \begin{equation*}
-        i\hbar\partial_t \Psi(\vec r, t)=-\frac{\hbar^2}{2m}\Delta\Psi(\vec r, t) + \underbrace{V(\vec r, t)}_{E_{\ir kin}}\Psi(\vec r, t)
+        i\hbar\partial_t \Psi(\vec r, t)=\underbrace{-\frac{\hbar^2}{2m}\Delta\Psi(\vec r, t)}_{E_{\ir kin}} + \underbrace{V(\vec r, t)\Psi(\vec r, t)}_{E_{\ir pot}}
     \end{equation*}
 \end{emphbox}
 
@@ -149,4 +150,33 @@
     \end{equation*}
 \end{emphbox}
 
-TODO: Rest bis Kapitel 3
+\begin{sectionbox}
+    \subsubsection{Korrespondenzprinzip}
+    Assoziation klassischer Größen (Observablen) mit quantenmechanischen Operatoren
+    \begin{tablebox}{cc||c}
+    klass. & qm & 3D \\ \hline
+    $x$ & $x$ & $\vec r$ \\
+    $p_x$ & $\frac{\hbar}{i}\frac{\partial}{\partial x}$ & $\frac{\hbar}{i} \vec\nabla$ \\
+    $E$ & $i\hbar\frac{\partial}{\partial t}$ \\
+    $H$ & $-\frac{\hbar^2}{2m}\frac{\partial}{\partial x} + V(x)$ & $-\frac{\hbar^2}{2m}\Delta + V(\vec r)$
+    \end{tablebox}
+
+    \textbf{Kommutatoren} \\
+    Differenzen von Operatoren, z.B. $[x,p_x]=xp_x-p_xx=i\hbar\ne 0$, $p_x$ ist der Operator, der auf eine Wellenfunktion $\psi(x, t)$ wirkt: \\
+    \begin{equation*}
+        xp_x\psi = x(\frac{\hbar}{i}\frac{\partial}{\partial x}\psi) \ne \frac{\hbar}{i}\frac{\partial}{\partial x)}(x\psi) = p_xx\psi
+    \end{equation*}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Erwartungswert}
+    \begin{equation*}
+        \overline B = \int_V \psi^*B\psi \diff V
+    \end{equation*}
+    \subsubsection{Unschärfe (Streuung) um den Erwartungswert}
+    \begin{equation*}
+        (\Delta B)^2=\overline{(B-\overline{B})^2}=\int_V\psi^*(B-\overline B)^2\psi\diff V
+    \end{equation*}
+\end{sectionbox}
+
+TODO: Potentialtopf, konstantes Potential, Potentialstufen
