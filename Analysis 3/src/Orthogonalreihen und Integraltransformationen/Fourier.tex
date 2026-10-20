@@ -97,13 +97,25 @@ Jedes Fourierpolynom ist gleichzeitig eine Fourierreihe, wenn man alle nicht ben
         \item Das Fourierspektrum von $e^{in\omega t}f(t) \quad n\in\mathbb Z$ (Amplitudenmodulation) ist $\{c_{k-n}\}_{k\in\mathbb Z}$
         \item Das Fourierspektrum von $f(\gamma t)$ (Streckung) ist $\{c_k\}_{k\in\mathbb Z}$
         \item Sei $f$ stetig und $f'$ stückweise stetig: Das Fourierspektrum von $f'(t)$ ist $\{ik\omega c_k\}_{k\in\mathbb Z}$
-        \item Sei f stückweise stetig und $c_0=0$: Das Fourierspektrum von $F(t)=\int_0^t f(s)\diff s$ ist
+        \item Sei $f$ stückweise stetig mit $c_0=0$: Das Fourierspektrum von $F(t)=\int_0^t f(s)\diff s$ ist
               \begin{equation*}
                   s_k=\begin{cases}
                       -\frac{1}{T}\int_0^Ttf(t)\diff t & k=0    \\
                       \frac{c_k}{ik\omega}             & k\ne 0
                   \end{cases}
               \end{equation*}
+        \item Sei $f$ stückweise stetig und $N < \infty$ Sprungstellen auf $[0,T)$ und dazwischen stetig diffb.. $f'$ außerhalb der Sprungstellen hat das Fourierspektrum \begin{equation*}
+                  d_k=ik\omega c_k-\frac{1}{T}\sum_{j=1}^{N}(f(t_j^+ - f(t_j^-)))e^{-ik\omega t_j}
+              \end{equation*}
+    \end{itemize}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Eigenschaften des Fourierspektrums}
+    \begin{itemize}
+        \item $f$ stückweise stetig mit endlich vielen Sprungstellen auf $[0,T] \Rightarrow |c_k| \le C$ (Fourierkoeffizienten beschränkt)
+        \item $f$ stückweise stetig mit endlich vielen Sprungstellen auf $[0,T]$ und dazwischen stetig diffb. $\Rightarrow$ Fourierkoeffizienten von $f'$ beschränkt $|d_k| \le M \Rightarrow |c_k| \le \frac{C}{|k|}$
+        \item $f$ stetig mit stetigen Ableitungen $f', f'', f^{(m-2)}$, $f^{(m-1)}$ stückweise stetig diffb. $\Rightarrow |c_k| \le \frac{C}{|k|^m}$
     \end{itemize}
 \end{sectionbox}
 
@@ -117,4 +129,23 @@ Jedes Fourierpolynom ist gleichzeitig eine Fourierreihe, wenn man alle nicht ben
         \end{cases}
     \end{equation*}
     $\Rightarrow f_k(t)=e^{ik\omega t}$ hat Fourierspektrum $c_{k'}=\delta_{k,k'} \; \forall k' \in \mathbb Z$
+\end{sectionbox}
+
+
+\subsection{Faltung}
+\begin{emphbox}
+    Seien $f,g : \mathbb R \rightarrow\mathbb C$ T-periodisch und stückweise stetig
+    \begin{equation*}
+        (f * g)(t) = \frac{1}{T}\int_0^T f(t-s)g(s)\diff s
+    \end{equation*}
+\end{emphbox}
+Rechenregeln wie Multiplikation
+
+\begin{sectionbox}
+    \subsubsection{Eigenschaften}
+    \begin{itemize}
+        \item $(e^{ik\omega t} * f)(t)=c_ke^{ik\omega t} \Rightarrow k$-te Teilschwingung der Fourierreihe von $f$
+        \item $(f * g)(t)$ ist stetig
+        \item Das Fourierspektrum von $(f * g)(t)$ ist $\{c_kd_k\}_{k\in\mathbb Z}$
+    \end{itemize}
 \end{sectionbox}
