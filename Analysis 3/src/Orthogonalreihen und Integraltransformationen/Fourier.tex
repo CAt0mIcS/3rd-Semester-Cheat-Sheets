@@ -105,7 +105,7 @@ Jedes Fourierpolynom ist gleichzeitig eine Fourierreihe, wenn man alle nicht ben
                   \end{cases}
               \end{equation*}
         \item Sei $f$ stückweise stetig und $N < \infty$ Sprungstellen auf $[0,T)$ und dazwischen stetig diffb.. $f'$ außerhalb der Sprungstellen hat das Fourierspektrum \begin{equation*}
-                  d_k=ik\omega c_k-\frac{1}{T}\sum_{j=1}^{N}(f(t_j^+ - f(t_j^-)))e^{-ik\omega t_j}
+                  d_k=ik\omega c_k-\frac{1}{T}\sum_{j=1}^{N}(f(t_j^+) - f(t_j^-))e^{-ik\omega t_j}
               \end{equation*}
     \end{itemize}
 \end{sectionbox}
@@ -149,3 +149,80 @@ Rechenregeln wie Multiplikation
         \item Das Fourierspektrum von $(f * g)(t)$ ist $\{c_kd_k\}_{k\in\mathbb Z}$
     \end{itemize}
 \end{sectionbox}
+
+
+\subsection{LTI-Systeme}
+\begin{sectionbox}
+    \subsubsection{Impulsantwort}
+    \begin{itemize}
+        \item Sei $a_m\ne 0$ und $y$ die Lösung (Output) der Differentialgleichung $L[y](t) = a_my^{(m)} + a_{m-1}y^{(m-1)}+...+a_1y'+a_0y=x$ mit $x \; T$-periodischer Input.
+              Sei $P(ik\omega) = a_m(ik\omega)^m + ... + a_1(ik\omega) + a_0\ne 0$.
+              Dann ist $x \mapsto y$ ein $T$-periodisches LTI-System mit Frequenzgang $d_k=\frac{1}{a_m(ik\omega)^m + ... + a_1(ik\omega) + a_0}$ und Impulsantwort $h_T(t)=\sum_{k\in\mathbb Z} d_ke^{ik\omega t}$
+        \item Sei $L[h](t) = 0, P(ik\omega) \ne 0$, $h$ bel. oft stetig diffb. und \begin{align*}
+                  h(0^+) = h(T^-)                 \\
+                  h'(0^+) = h'(T^-)               \\
+                  \vdots                          \\
+                  h^{(m-2)}(0^+) = h^{(m-2)}(T^-) \\
+                  h^{(m-1)}(0^+) = h^{(m-1)}(T^-) + \frac{T}{a_m}
+              \end{align*}. Dann ist $h_T$ die Impulsantwort des LTI-Systems \\
+              \textbf{Beispiel} \\
+              \begin{enumerate}
+                  \item System gegeben durch \begin{equation*}
+                            \frac{1}{4}y'(t) + y(t) = x(t)
+                        \end{equation*}
+                  \item Umschreiben zu $L[h](t)$: \begin{equation*}
+                            \frac{1}{4}h'(t) + h(t) = 0
+                        \end{equation*}
+                  \item Diese DGL Lösen $\Rightarrow h(t) = ce^{-4t}$
+                  \item $h$ ist bel. oft stetig diffb. und $m=1$. Daraus folgt \begin{equation*}
+                            h(0^+)=c \quad h(2\pi^-)=ce^{-8\pi} \Rightarrow c=ce^{-8\pi}+\frac{T}{a_1}
+                        \end{equation*}
+                  \item Auflösen nach $c$ ergibt die Impulsantwort \begin{equation*}
+                            h(t) = \underbrace{\frac{8\pi}{1-e^{-8\pi}}}_c e^{-4t}
+                        \end{equation*}
+              \end{enumerate}
+    \end{itemize}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Resonanz}
+    $P(ik\omega) = 0$ für bestimmte $k\in\mathbb Z$
+    \begin{itemize}
+        \item Im Resonanzfall gibt es $T$-periodische Inputs $x$, die in nicht $T$-periodischen Outputs $y$ resultieren
+        \item Keine eindeutige Lösung
+    \end{itemize}
+\end{sectionbox}
+
+
+\subsection{Hilberträume}
+\begin{emphbox}
+    Ein (komplexer) Hilbertraum $\mathcal H$ ist ein $\mathbb C^n$-Vektorraum mit Skalarprodukt $\langle \cdot, \cdot \rangle : \mathcal H \times \mathcal H \rightarrow \mathbb C$, so dass $\mathcal H$ bzgl. der induzierten Norm $||v|| = \sqrt{\langle v,v\rangle}$ vollständig ist.
+\end{emphbox}
+
+\begin{emphbox}
+    \subsubsection{Skalarprodukt im $\mathbb C^n$-Vektorraum $\mathcal V$}
+    \begin{itemize}
+        \item Linearität im 2. Argument \begin{equation*}
+            \langle v, \alpha u + \beta w\rangle = \alpha\langle v,u\rangle + \beta\langle v,w\rangle
+        \end{equation*}
+        \item Hermitizität \begin{equation*}
+            \langle v,w\rangle = \overline{\langle w,v\rangle}
+        \end{equation*}
+        \item Positive Definitheit \begin{equation*}
+            \langle v,v\rangle > 0 \; \forall v\in\mathcal{V}\setminus\{0\} \qquad \langle v,v\rangle = 0 \Leftrightarrow v=0
+        \end{equation*}
+    \end{itemize}
+\end{emphbox}
+
+\begin{emphbox}
+    \subsubsection{Prä-Hilbertraum stückweise stetiger Funktionen}
+    Sei $T>0$. Der Vektorraum 
+    \begin{equation*}
+        \mathcal V := \{f:[0,T]\rightarrow \mathbb C | \text{ f stückweise stetig }\}
+    \end{equation*}
+    mit dem Skalarprodukt
+    \begin{equation*}
+        \langle f, g\rangle := \frac{1}{T}\int_0^T \overline{f(t)}g(t) \diff t
+    \end{equation*}
+    ist ein nicht-vollständiger (Prä-)Hilbertraum
+\end{emphbox}
