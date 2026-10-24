@@ -53,3 +53,41 @@ TODO
 
 
 \section{Elektronen im Festkörper}
+\subsection{Elektronengas}
+\begin{itemize}
+    \item Valenzelektronen in Metallen quasi frei beweglich
+    \item Bewegung der Elektronen in einem Kasten mit unendlich hohen Potentialwänden (Metalloberfläche ist Begrenzung)
+    \item Für großes $L$ liegen die Energieniveaus verschiedener $n$ sehr nahe $\Rightarrow$ Leitungsbänder ähnlicher Energienivenaus, dazwischen verbotene Zonen
+    \item \begin{equation*}
+              E_{n_x,n_y,n_z}=\frac{\hbar^2\pi^2}{2mL^2}(n_x^2+n_y^2+n_z^2)
+          \end{equation*}
+\end{itemize}
+
+\subsection{Zustandsdichte}
+Beschreibt, wie dicht erlaubte Zustände (Leitungsbänder) aneinander gepackt werden können.
+\begin{equation*}
+    n = \int_0^\infty\underbrace{\left(\frac{2m}{\hbar^2}\right)^{\frac{3}{2}}\frac{\sqrt{E}}{2\pi^2}}_{\text{energet. Zustandsdichte pro Volumen } D(E)}f(T, E)\diff E
+\end{equation*}
+
+\subsection{Fermiverteilung $f(T, E)$}
+Besetzungswahrscheinlichkeit für Elektronen im Gleichgewicht. Nähert sich für $T=0$ einer Stufenfunktion an.
+\begin{equation*}
+    f(E,T)=\frac{1}{e^{\frac{E-E_F}{k_BT}} + 1}
+\end{equation*}
+mit $E_F$: Fermienergie. Für $T=0K$ gilt:
+\begin{equation*}
+    n=\int_0^{E_F}\left(\frac{2m}{\hbar^2}\right)^{\frac{3}{2}}\frac{\sqrt{E}}{2\pi^2}\diff E \Longrightarrow E_F=\frac{\hbar^2}{2m}(3\pi^2n)^{\frac32}
+\end{equation*}
+
+\subsection{Thermische Anregung}
+Im quantenmechanischen werden elektronische Prozesse (z.B. Stromtransport, thermisches Aufheizen) als energetische Anregung von Elektronen aufgefasst.
+Hierbei wird das Elektron auf ein höheres Energieniveau gebracht. 
+Es können jedoch nur Elektronen nahe $E_F$ exitiert werden. 
+Für $E<E_F$ gibt es keine freien Zustände und für $E>E_F$ gibt es keine Elektronen mehr. 
+$n_{eff}$ beschreibt die Elektronendichte, die an thermischen Exitierungsprozessen teilnehmen können
+\begin{equation*}
+    n_{eff} \approx 2D(E_F)k_BT \approx \frac{3n}{2E_F}
+\end{equation*}
+\begin{equation*}
+    C_{el}\approx\frac{6nk_B^2T}{E_F} \quad v_F=\sqrt{\frac{2E_F}{m}}
+\end{equation*}
