@@ -1,0 +1,18 @@
+\begin{sectionbox}
+    \subsection{LTI-System}
+    Ein System ist ein LTI-System (Linear, Time Invariant), wenn für beliebige Eingangssignale $x_1(t), x_2(t)$ und Ausgänge $y_1(t), y_2(t)$ gilt:
+    \begin{description}
+        \item[Linearität] $\mathcal{T}(ax_1(t) + bx_2(t)) = ay_1(t) + by_2(t)$
+        \item[Zeitinvarianz] $\mathcal{T}(x(t-t_0))=y(t-t_0)$
+    \end{description}
+
+    \subsubsection{Leistung eines periodischen Signals}
+    \begin{equation*}
+        P=\frac{1}{RT_0}\int_0^{T_0}x^2(t)\diff t=U_{eff}I_{eff}\cos\varphi \quad E=PT_0
+    \end{equation*}
+
+    \subsubsection{Effektivwerte (RMS) eines periodischen Signals}
+    \begin{equation*}
+        X_{\ir eff} = \sqrt{\frac{1}{T_0}\int_0^{T_0}x^2(t)\diff t}
+    \end{equation*}
+\end{sectionbox}

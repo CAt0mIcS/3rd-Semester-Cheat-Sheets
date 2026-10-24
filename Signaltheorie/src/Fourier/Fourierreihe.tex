@@ -1,0 +1,32 @@
+\subsection{Fourierreihe}
+\begin{emphbox}
+    Die komplexe Fourierreihe eines periodischen Signals $x(t)$ lautet
+    \begin{equation*}
+        \begin{array}{@{}cc@{}}
+            \text{Synthese}                                   & \text{Analyse}                                              \\
+            x(t)=\sum_{k=-\infty}^{\infty}c_ke^{jk\omega_0 t} & c_k=\frac{1}{T_0}\int_0^{T_0}x(t)e^{-jk\omega_0 t}
+        \end{array}
+    \end{equation*}
+\end{emphbox}
+
+\begin{sectionbox}
+    \subsubsection{Umrechnungen zu $\cos$/$\sin$-Darstellung}
+    $a_k=2\Re{c_k}=c_k+c_{-k} \quad b_k=-2\Im{c_k}=c_k-c_{-k}$ \\
+    $c_k=\frac{1}{2}(a_k-jb_k) \qquad c_{-k} = c_k^*=\frac{1}{2}(a_k+jb_k)$
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Eigenschaften}
+    \begin{itemize}
+        \item \textbf{Halbwellensymmetrie 1. Art}: Falls $a_0=0$ und $x(t)=-x(t-\frac{T}{2})$, so gilt $a_{2k}=b_{2k}=0$
+        \item $\frac{a_0}{2}$ entspricht dem konstanten Gleichanteil, um die Fourierreihe zum Signaloffset auf der y-Achse zu verschieben
+    \end{itemize}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Parsevalsche Theorem}
+    Leistungsäquivalenz zwischen Leitsungsberechnung im Zeitbereich und Frequenzbereich
+    \begin{equation*}
+        \frac{1}{RT}\int_0^Tx^2(t)\diff t = \frac{1}{R}\sum_{k=-\infty}^{\infty}\underbrace{|c_k|^2}_{P\text{ einer Spektralkomponente}}
+    \end{equation*}
+\end{sectionbox}
