@@ -210,20 +210,20 @@ Rechenregeln wie Multiplikation
     \subsubsection{Skalarprodukt im $\mathbb C^n$-Vektorraum $\mathcal V$}
     \begin{itemize}
         \item Linearität im 2. Argument \begin{equation*}
-            \langle v, \alpha u + \beta w\rangle = \alpha\langle v,u\rangle + \beta\langle v,w\rangle
-        \end{equation*}
+                  \langle v, \alpha u + \beta w\rangle = \alpha\langle v,u\rangle + \beta\langle v,w\rangle
+              \end{equation*}
         \item Hermitizität \begin{equation*}
-            \langle v,w\rangle = \overline{\langle w,v\rangle}
-        \end{equation*}
+                  \langle v,w\rangle = \overline{\langle w,v\rangle}
+              \end{equation*}
         \item Positive Definitheit \begin{equation*}
-            \langle v,v\rangle > 0 \; \forall v\in\mathcal{V}\setminus\{0\} \qquad \langle v,v\rangle = 0 \Leftrightarrow v=0
-        \end{equation*}
+                  \langle v,v\rangle > 0 \; \forall v\in\mathcal{V}\setminus\{0\} \qquad \langle v,v\rangle = 0 \Leftrightarrow v=0
+              \end{equation*}
     \end{itemize}
 \end{emphbox}
 
 \begin{emphbox}
     \subsubsection{Prä-Hilbertraum stückweise stetiger Funktionen}
-    Sei $T>0$. Der Vektorraum 
+    Sei $T>0$. Der Vektorraum
     \begin{equation*}
         \mathcal V := \{f:[0,T]\rightarrow \mathbb C | \text{ f stückweise stetig }\}
     \end{equation*}
@@ -233,3 +233,64 @@ Rechenregeln wie Multiplikation
     \end{equation*}
     ist ein nicht-vollständiger (Prä-)Hilbertraum
 \end{emphbox}
+
+\subsection{Orthonormalsysteme}
+\begin{sectionbox}
+    Die Funktionen $e_k(t)=e^{ik\omega t}$ bilden im Raum der komplexen Funktionen ein Orthonormalsystem, da gleichzeitig
+    \begin{equation*}
+        \langle e_j,e_k\rangle = \delta_{j,k}
+    \end{equation*}
+
+    \subsubsection{Folgerungen}
+    \begin{itemize}
+        \item $\forall n \in \mathbb N_0, \forall \{\gamma_k\}_{k=-n}^{k=n} \subset\mathbb C$ gilt
+              \begin{equation*}
+                  \left|\left| \sum_{k=-n}^{n}\gamma_ke_k \right|\right|^2 = \sum_{k=-n}^{n}|\gamma_k|^2
+              \end{equation*}
+        \item $\forall f \in \mathcal{H}$ und jede endliche Teilmenge $\Omega \subset\mathbb Z$ gilt
+              \begin{equation*}
+                  \sum_{j\in\Omega}|\langle e_j, f\rangle|^2 \le ||f||^2
+              \end{equation*}
+        \item Für $f\in\mathcal{H}$ sei
+              \begin{equation*}
+                  S_f^n=\sum_{k=-n}^{n}c_ke_k \qquad c_k=\langle e_k, f\rangle.
+              \end{equation*} Dann gilt
+              \begin{equation*}
+                  ||f||^2 = ||S_f^n||^2 + ||f-S_f^n||^2
+              \end{equation*}
+    \end{itemize}
+
+    \subsubsection{Vollständigkeit}
+    Ein Orthonormalsystem und Hilbertraum gilt als vollständig, wenn gilt
+    \begin{equation*}
+        \langle e_k, f \rangle = 0 \forall k \in \mathbb Z \Longrightarrow f = 0
+    \end{equation*}
+    
+    \textbf{Äquivalente Aussagen}
+    \begin{itemize}
+        \item $\{e_n\}_{n\in\mathbb Z}$ ist ein vollständiges Orthonormalsystem.
+        \item \begin{equation*}
+                f = \lim_{n\rightarrow\infty}\sum_{k=-n}^{n}\langle e_k, f\rangle e_k \quad \forall f \in \mathcal H
+            \end{equation*}
+        \item Es gilt die Parseval-Identität 
+            \begin{equation*}
+                ||f||^2 = \sum_{k\in\mathbb Z}|\langle e_k, f\rangle|^2
+            \end{equation*}
+    \end{itemize}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Fourierreihenkonvergenz im quadratischen Mittel}
+    Für vollständige Orthonormalsysteme gilt, dass jede stückweise stetige, $T$-periodische Funktion 
+    \begin{equation*}
+        \lim_{n\rightarrow\infty}\frac{1}{T}\int_0^T|f(t) - \sum_{k=-n}^{n}c_ke^{ik\omega t}|^2\diff t = 0
+    \end{equation*}
+    Nach Parseval-Bessel-Gleichung gilt dann
+    \begin{equation*}
+        \sum_{k\in\mathbb Z}|c_k|^2 = \frac{1}{T}\int_0^T|f(t)|^2\diff t
+    \end{equation*}
+    Fourierreihen, die diese Bedingung erfüllen, sind eindeutig. Falls $f,g$ das identische Fourierspektrum haben, so gilt $f(t)=g(t)$
+\end{sectionbox}
+
+
+\subsection{Fouriertransformation auf $\mathbb R$}
