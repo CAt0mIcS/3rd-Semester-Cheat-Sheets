@@ -119,10 +119,11 @@ Jedes Fourierpolynom ist gleichzeitig eine Fourierreihe, wenn man alle nicht ben
 
 \begin{sectionbox}
     \subsubsection{Eigenschaften des Fourierspektrums}
+    Je öfter $f$ differenzierbar ist, desto schneller fallen die $c_k$-Terme ab.
     \begin{itemize}
-        \item $f$ stückweise stetig mit endlich vielen Sprungstellen auf $[0,T] \Rightarrow |c_k| \le C$ (Fourierkoeffizienten beschränkt)
-        \item $f$ stückweise stetig mit endlich vielen Sprungstellen auf $[0,T]$ und dazwischen stetig diffb. $\Rightarrow$ Fourierkoeffizienten von $f'$ beschränkt $|d_k| \le M \Rightarrow |c_k| \le \frac{C}{|k|}$
-        \item $f$ stetig mit stetigen Ableitungen $f', f'', f^{(m-2)}$, $f^{(m-1)}$ stückweise stetig diffb. $\Rightarrow |c_k| \le \frac{C}{|k|^m}$
+        \item $f$ stückweise stetig mit endlich vielen Sprungstellen auf $[0,T] \Leftrightarrow |c_k| \le C$ (Fourierkoeffizienten beschränkt)
+        \item $f$ stückweise stetig mit endlich vielen Sprungstellen auf $[0,T]$ und dazwischen stetig diffb. $\Leftrightarrow$ Fourierkoeffizienten von $f'$ beschränkt $|d_k| \le M \Rightarrow |c_k| \le \frac{C}{|k|}, \; C = \frac{1}{\omega}(M + \frac{1}{T}\sum_{j=1}^{N}\Delta_j)$
+        \item $f$ stetig mit stetigen Ableitungen $f', f'', f^{(m-2)}$, $f^{(m-1)}$ stückweise stetig diffb. $\Leftrightarrow |c_k| \le \frac{C}{|k|^m}$
     \end{itemize}
 \end{sectionbox}
 
@@ -265,23 +266,23 @@ Rechenregeln wie Multiplikation
     \begin{equation*}
         \langle e_k, f \rangle = 0 \forall k \in \mathbb Z \Longrightarrow f = 0
     \end{equation*}
-    
+
     \textbf{Äquivalente Aussagen}
     \begin{itemize}
         \item $\{e_n\}_{n\in\mathbb Z}$ ist ein vollständiges Orthonormalsystem.
         \item \begin{equation*}
-                f = \lim_{n\rightarrow\infty}\sum_{k=-n}^{n}\langle e_k, f\rangle e_k \quad \forall f \in \mathcal H
-            \end{equation*}
-        \item Es gilt die Parseval-Identität 
-            \begin{equation*}
-                ||f||^2 = \sum_{k\in\mathbb Z}|\langle e_k, f\rangle|^2
-            \end{equation*}
+                  f = \lim_{n\rightarrow\infty}\sum_{k=-n}^{n}\langle e_k, f\rangle e_k \quad \forall f \in \mathcal H
+              \end{equation*}
+        \item Es gilt die Parseval-Identität
+              \begin{equation*}
+                  ||f||^2 = \sum_{k\in\mathbb Z}|\langle e_k, f\rangle|^2
+              \end{equation*}
     \end{itemize}
 \end{sectionbox}
 
 \begin{sectionbox}
     \subsubsection{Fourierreihenkonvergenz im quadratischen Mittel}
-    Für vollständige Orthonormalsysteme gilt, dass jede stückweise stetige, $T$-periodische Funktion 
+    Für vollständige Orthonormalsysteme gilt, dass jede stückweise stetige, $T$-periodische Funktion
     \begin{equation*}
         \lim_{n\rightarrow\infty}\frac{1}{T}\int_0^T|f(t) - \sum_{k=-n}^{n}c_ke^{ik\omega t}|^2\diff t = 0
     \end{equation*}
