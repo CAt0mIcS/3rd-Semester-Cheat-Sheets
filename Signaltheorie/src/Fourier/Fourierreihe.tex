@@ -3,7 +3,7 @@
     Die komplexe Fourierreihe eines periodischen Signals $x(t)$ lautet
     \begin{equation*}
         \begin{array}{@{}cc@{}}
-            \text{Synthese}                                   & \text{Analyse}                                              \\
+            \text{Synthese}                                   & \text{Analyse}                                     \\
             x(t)=\sum_{k=-\infty}^{\infty}c_ke^{jk\omega_0 t} & c_k=\frac{1}{T_0}\int_0^{T_0}x(t)e^{-jk\omega_0 t}
         \end{array}
     \end{equation*}
@@ -27,6 +27,10 @@
     \subsubsection{Parsevalsche Theorem}
     Leistungsäquivalenz zwischen Leitsungsberechnung im Zeitbereich und Frequenzbereich
     \begin{equation*}
-        \frac{1}{RT}\int_0^Tx^2(t)\diff t = \frac{1}{R}\sum_{k=-\infty}^{\infty}\underbrace{|c_k|^2}_{P\text{ einer Spektralkomponente}}
+        P=\frac{1}{RT}\int_0^Tx^2(t)\diff t = \frac{1}{R}\sum_{k=-\infty}^{\infty}|c_k|^2=
     \end{equation*}
+    \begin{equation*}
+        =\frac{1}{R}\left(\left(\frac{a_0}{2}\right)^2 + \frac{1}{2}\sum_{k=1}^\infty(a_k^2+b_k^2)\right)
+    \end{equation*}
+    mit $\frac{1}{R} |c_k|^2$: Leistung der $k$-ten Schwingung. Mit $2$ multiplizieren, falls $|c_k|=|c_{-k}|$
 \end{sectionbox}
