@@ -18,8 +18,23 @@
 \begin{sectionbox}
     \subsubsection{Eigenschaften}
     \begin{itemize}
-        \item \textbf{Halbwellensymmetrie 1. Art}: Falls $a_0=0$ und $x(t)=-x(t-\frac{T}{2})$, so gilt $a_{2k}=b_{2k}=0$
-        \item $\frac{a_0}{2}$ entspricht dem konstanten Gleichanteil, um die Fourierreihe zum Signaloffset auf der y-Achse zu verschieben
+        \item $f$ gerade $\Rightarrow c_k\in\mathbb R$
+        \item $f$ ungerade $\Rightarrow c_k\in\mathbb C\setminus\mathbb R$
+        \item Das Fourierspektrum von $f(-t)$ ist $\{c_{-k}\}_{k\in\mathbb Z}$
+        \item Das Fourierspektrum von $f(t + a)$ (Verschiebung im Zeitbereich) ist $\{e^{ik\omega a}c_k\}_{k\in\mathbb Z}$
+        \item Das Fourierspektrum von $e^{in\omega t}f(t) \quad n\in\mathbb Z$ (Amplitudenmodulation) ist $\{c_{k-n}\}_{k\in\mathbb Z}$
+        \item Das Fourierspektrum von $f(\gamma t)$ (Streckung) ist $\{c_k\}_{k\in\mathbb Z}$
+        \item Sei $f$ stetig und $f'$ stückweise stetig: Das Fourierspektrum von $f'(t)$ ist $\{ik\omega c_k\}_{k\in\mathbb Z}$
+        \item Sei $f$ stückweise stetig mit $c_0=0$: Das Fourierspektrum von $F(t)=\int_0^t f(s)\diff s$ ist
+              \begin{equation*}
+                  s_k=\begin{cases}
+                      -\frac{1}{T}\int_0^Ttf(t)\diff t & k=0    \\
+                      \frac{c_k}{ik\omega}             & k\ne 0
+                  \end{cases}
+              \end{equation*}
+        \item \textbf{Halbwellensymmetrie 1. Art}: Falls $a_0=0$ und $x(t)=-x(t-\frac{T}{2})$, so gilt $a_{2k}=b_{2k}=c_{2k}=0$. 
+            Das Signal in der zweiten Periodenhälfte sieht genauso aus wie in der ersten Periodenhälfte mit negativen Vorzeichen
+        \item $\frac{a_0}{2}=c_0$ entspricht dem konstanten Gleichanteil, um die Fourierreihe zum Signaloffset auf der y-Achse zu verschieben
     \end{itemize}
 \end{sectionbox}
 
