@@ -1,0 +1,104 @@
+\begin{emphbox}
+    Sei $f: \mathbb R\rightarrow\mathbb C$. Die Fouriertransformierte von $f$ ist
+    \begin{equation*}
+        \mathcal F[f](\omega) = \hat f(\omega)=\frac{1}{2\pi}\int_{-\infty}^\infty f(t)e^{-i\omega t}\diff t
+    \end{equation*}
+    Die inverse Fouriertransformierte von $f$ ist
+    \begin{equation*}
+        \mathcal F^{-1}[f](t) = \check f(t)=\frac{1}{2\pi}\int_{-\infty}^\infty f(\omega)e^{i\omega t}\diff \omega
+    \end{equation*}
+\end{emphbox}
+
+\begin{sectionbox}
+    \subsubsection{\textcolor{green}{\text{Absolute}}\textbar\textcolor{red}{\text{Quadratische}} Integrierbarkeit}
+    \begin{equation*}
+        ||f||_{\textcolor{green}{1}\vert\textcolor{red}2}=\left(\int_{-\infty}^{\infty}|f(t)|^{\textcolor{red}{2}}\diff t\right)^{\textcolor{red}{1/2}} < \infty.
+    \end{equation*}
+    Man schreibt $L^{\textcolor{green}{1}\vert\textcolor{red}2}(\mathbb R)$ für die Menge der \textcolor{green}{\text{absolut}}\textbar\textcolor{red}{\text{quadratisch}} integrierbaren Funktionen.
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Fourier-Umkehrsatz/Integraltheorem}
+    Sei $f\in L^1(\mathbb R)$ stückweise stetig diffb., dann gilt \begin{equation*}
+        \check{\hat f}(t) = \frac{1}{2}(f(t^+) + f(t^-))
+    \end{equation*} und $f(t) = \mathcal F^{-1}[\hat f](t)=\mathcal F^{-1}[\mathcal F [f]](t)$ an jeder Stetigkeitsstelle
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Parseval-Plancherel-Gleichung}
+    Falls $f\in L^1(\mathbb R) \cap L^2(\mathbb R)$, dann gilt
+    \begin{equation*}
+        \underbrace{\int_{-\infty}^{\infty}|f(t)|^2\diff t}_{\text{Gesamtenergie von } f} = \frac{1}{2\pi}\int_{-\infty}^{\infty}\underbrace{|\hat f(\omega)|^2}_{\text{Energiedichtespektrum}} \diff \omega
+    \end{equation*}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Eigenschaften}
+    \begin{itemize}
+        \item $\hat f(\omega)$ gibt an, mit welcher Amplitude und Phasenverschiebung die Schwingung $e^{i\omega t}$ im Signal $f(t)$ vorkommt
+        \item $f\in L^1(\mathbb R) \Longrightarrow$ es existiert die (inverse) Fouriertransformierte von $f$
+        \item $f\in L^1(\mathbb R)$. $\hat f, \check f$ sind gleichmäßig stetig mit \\
+              $|\hat f(\omega)| \le ||f||_1 \qquad |\check f(t)| \le \frac{1}{2\pi}||f||_1$
+        \item \begin{itemize}
+                  \item $\mathcal F\{\overline{f(t)}\}=\overline{\hat f(-\omega)}$
+                  \item $\mathcal F\{f(-t)\}=\hat f(-\omega)$
+                  \item $\mathcal F\{f(t+a)\}=\hat f(\omega)e^{i\omega a}$
+                  \item $\mathcal F\{e^{i\theta t}f(t)\}=\hat f(\omega - \theta)$
+                  \item $\mathcal F\{f(ct)\}=\frac{1}{|c|}\hat f(\frac{\omega}{c})$
+              \end{itemize}
+        \item Sei $F\in L^1(\mathbb R)$ stückweise stetig mit endl. vielen Sprungstellen $t_1 < t_N$ und dazwischens stetig diffb mit $f' \in L^1(\mathbb R)$.
+              Dann hat $f'$ die Spektraldichte
+              \begin{equation*}
+                  \hat{f'}(\omega) = i\omega \hat f(\omega) - \sum_{k=1}^{N}(f(t_k^+)-f(t_k^-))e^{-i\omega t_k}
+              \end{equation*}
+    \end{itemize}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Gerade und ungerade Eigenschaften}
+    \begin{itemize}
+        \item $f$ ist gerade $\Longleftrightarrow \hat f(\omega)=2\int_0^\infty f(t)\cos(\omega t) \diff t$
+        \item $f$ ist ungerade $\Longleftrightarrow \hat f(\omega) = -2i\int_0^\infty f(t)\sin(\omega t)\diff t$
+    \end{itemize}
+    Man kann jede Funktion in geraden $f_g$ und ungeraden $f_u$ Anteil aufteilen
+    \begin{equation*}
+        f(t)=\underbrace{\frac{1}{2}(f(t)+f(-t))}_{f_g(t)} + \underbrace{\frac{1}{2}(f(t)-f(-t))}_{f_u(t)}
+    \end{equation*}
+    Sei $f\in L^1(\mathbb R), f:\mathbb R \rightarrow \mathbb R$, dann gelten
+    \begin{itemize}
+        \item $\hat f(-\omega) = \overline{\hat f(\omega)}$
+        \item $\hat f(\omega)$ ist reel genau dann wenn $f$ gerade \\ $\Rightarrow \hat f_g(\omega) = \Re{\hat f(\omega)}$
+        \item $\hat f(\omega)$ ist imaginär genau dann wenn $f$ ungerade \\ $\Rightarrow \hat f_u(\omega) = i\Im{\hat f(\omega)}$
+    \end{itemize}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Abklingverhalten der Spektraldichte}
+    Sei $f\in L^1(\mathbb R)$
+    \begin{itemize}
+        \item $f$ stückweise stetig mit endlich vielen Sprungstellen auf $[0,T]$ und dazwischen stetig diffb. $\Leftrightarrow |\hat f(\omega)| \le \frac{C}{\omega}$
+        \item $f$ stetig mit stetigen Ableitungen $f', f'', f^{(m-2)}$, $f^{(m-1)}$ stückweise stetig diffb. mit endlich vielen Sprungstellen und dazwischen stetig diffb. und $f', ..., f^{(m)} \in L^1(\mathbb R) \Leftrightarrow |\hat f(\omega)| \le \frac{C}{|\omega|^m}$
+    \end{itemize}
+\end{sectionbox}
+
+\subsection{LTI-Systeme}
+\begin{equation*}
+    \widehat{L[f]}(\omega) = (a_m(i\omega)^m + ... + a_1(i\omega) + a_0)\hat f(\omega)=P(i\omega)\hat f(\omega)
+\end{equation*}
+TODO: Lemma 1.2.17 und Bsp.
+
+\subsubsection{Faltung}
+\begin{emphbox}
+    Seien $f,g:\mathbb R \rightarrow \mathbb C$,
+    \begin{equation*}
+        (f*g)(t)=\int_{-\infty}^\infty f(t-s)g(s)\diff s
+    \end{equation*}
+    $f,g\in L^1(\mathbb R) \Rightarrow$ Faltung existiert (Umkehrung gilt nicht!)
+\end{emphbox}
+
+\begin{sectionbox}
+    \textbf{Eigenschaften}
+    \begin{itemize}
+        \item $f,g\in L^1(\mathbb R) \Rightarrow (\widehat{f * g})(\omega)=\hat f(\omega)\hat g(\omega)$ und $f*g \in L^1(\mathbb R)$
+    \end{itemize}
+\end{sectionbox}
