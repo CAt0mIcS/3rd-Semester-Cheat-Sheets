@@ -1,0 +1,37 @@
+\begin{emphbox}
+    $f:[0,\infty) \rightarrow \mathbb C$
+    \begin{equation*}
+        \mathcal L[f](s)=\int_0^\infty f(t)e^{-st}\diff t \quad s\in\mathbb C
+    \end{equation*}
+\end{emphbox}
+
+\begin{sectionbox}
+    \subsubsection{Konvergenzabszisse}
+    $f$ ist höchstens exponentiell wachsend, falls $C>0, \sigma\in\mathbb R$ existieren, so dass
+    \begin{equation*}
+        |f(t)|\le Ce^{\sigma t} \; \forall t > 0
+    \end{equation*}
+    Das Infimum $\sigma_0$ aller möglichen $\sigma$-Werte heißt Konvergenzabszisse von $f$.
+
+    \subsection{Existenzsatz der Laplacetransformation}
+    Sei $f$ stückweise stetig mit höchstens exponentiellem Wachstum und $\sigma_0$ die Konvergenzabszisse von $f$. Dann gilt:
+    \begin{itemize}
+        \item $\mathcal L[f](s)$ existiert $\forall s \in\mathbb C$ mit $\Re{s} > \sigma_0$
+        \item $\mathcal L[f](s) \rightarrow 0$ für $\Re{s}\rightarrow \infty$
+        \item Für $\sigma_1 > \sigma_0$ konvergiert das uneigentliche Integral $\mathcal L[f](s)$ gleichmäßig für $\Re{s}\ge \sigma_1$
+    \end{itemize}
+    
+    \subsection{Eindeutigkeitssatz der Laplacetransformation}
+    Sei $f$ stückweise stetig und höchstens exponentiell wachsend. Dann ist $f$ bis auf die Werte an den Unstetigkeitsstellen durch $\mathcal L[f]$ eindeutig bestimmt
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsection{Eigenschaften}
+    \begin{itemize}
+        \item $f$ stückweise stetig und höchstens exponentiell wachsend mit Konvergenzabszisse $\sigma_0$. Dann ist $\mathcal L[f](s)$ für $\Re{s} > \sigma_0$ uendlich oft diffb.
+        \item $\mathcal L[e^{at}f(t)](s)=\mathcal L[f](s-a) \; a\in\mathbb C$
+        \item $\mathcal L[f(ct)](s)=\frac{1}{c}\mathcal L[f](\frac{s}{c}) \; c > 0$
+        \item $\mathcal L[u(t-a)f(t-a)](s)=e^{-as}\mathcal L[f](s) \; a>0, u$ Einheitssprung. 
+        $u(t-a)f(t-a)$ ist das um $a$ verzögert eingeschaltete Signal.
+    \end{itemize}
+\end{sectionbox}

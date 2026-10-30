@@ -4,3 +4,59 @@
         \int_{-\infty}^\infty f(t)\delta(t - a)\diff t = f(a) \quad \forall f:\mathbb R \rightarrow \mathbb C \text{, die bei } a \text{ stetig}
     \end{equation*}
 \end{emphbox}
+
+\begin{sectionbox}
+    \subsubsection{$\delta$-Folge}
+    Folge an Funktionen, für die gilt
+    \begin{itemize}
+        \item[] \begin{equation*}
+                  \int_{-\infty}^{\infty}\delta_n(t)\diff t = 1 \; \forall n \in \mathbb Z
+              \end{equation*}
+        \item[] \begin{equation*}
+                  \lim_{n\rightarrow\infty}\int_{-\infty}^{\infty}f(t)\delta_n(t)\diff t = f(0)
+              \end{equation*} für jede in $0$ stetige Funktion $f$
+    \end{itemize}
+\end{sectionbox}
+
+\subsection{Heaviside Theta/Stufenfunktion}
+\begin{sectionbox}
+    \begin{equation*}
+        \theta(t) = \begin{cases}
+            0           & t < 0 \\
+            \frac{1}{2} & t = 0 \\
+            1           & t > 0
+        \end{cases} = \lim_{n\rightarrow\infty}\theta_n(t)
+    \end{equation*}
+    mit z.B. \begin{equation*}
+        \theta_n(t)=\frac{1}{2}(\tanh(tn) + 1) = \frac{1}{2}\text{sign}(t)e^{-|t|/n} + \frac{1}{2}
+    \end{equation*}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsection{Bekannte Fouriertransformationen}
+    \begin{itemize}
+        \item $\hat \delta(\omega) = 1(\omega) \qquad \hat 1 = 2\pi\delta$
+    \end{itemize}
+\end{sectionbox}
+
+\subsection{Verallgemeinerte Ableitung}
+\begin{emphbox}
+    Sei $f:\mathbb R \rightarrow \mathbb C$, wobei 
+    \begin{itemize}
+        \item $f'(t)$ für alle $t\in\mathbb R\setminus \{t_1 < ... < t_N\}$ existiert ($f'(t_j)=0$)
+        \item Die einseitigen Grenzwerte für alle Unstetigkeitsstellen existieren
+    \end{itemize}
+    Dann gilt
+    \begin{equation*}
+        Df(t) = f'(t) + \sum_{j=1}^{N}(f(t_j^+) - f(t_j^-))\delta(t-t_j)
+    \end{equation*}
+    mit Spektralfunktion $\widehat{Df}(\omega) = i\omega \hat f(\omega)$
+\end{emphbox}
+
+\subsection{Abtasttheorem}
+Sei $f\in L^1(\mathbb R)$ stückweise stetig diffb. und bandbegrenzt ($\hat f(\omega) = 0 \; \forall \omega >\Omega$). 
+Sei $\omega_s=\frac{2\pi}{\Delta t}$ eine Abtastfrequenz mit $\omega_s > 2\Omega$. Dann gilt an jeder Stetigkeitsstelle $t$ von $f$, dass $f$ mittels
+\begin{equation*}
+    f(t)=\sum_{k\in\mathbb Z}f(k\Delta t)\sinc\left[\frac{\pi}{\Delta t}(t-k\Delta t)\right]
+\end{equation*} rekonstruiert werden kann.
+Mit $\sinc x=\sin(x)/x$
