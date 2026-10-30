@@ -1,0 +1,66 @@
+\subsection{Cummulative Distribution Function (CDF)}
+\begin{sectionbox}
+    \begin{emphbox}
+        Wahrscheinlichkeit, dass ein Ergebnis kleiner oder gleich $x$ ist
+        \begin{equation*}
+            F_X:\mathbb R \rightarrow [0,1], \; x\mapsto F_X(x)=P(\{X \le x\})
+        \end{equation*}
+        \begin{itemize}
+            \item $X$: Experiment, von dem wir reden
+            \item $x$: mögliches Ergebnis des Zufallsexperiments, hier die obere Schranke
+            \item $F_X$ beschreibt das Experiment $X$ vollständig
+        \end{itemize}
+    \end{emphbox}
+
+    \subsubsection{Eigenschaften}
+    \begin{itemize}
+        \item $F_X(x)$ monoton wachsend und rechtsseitig stetig: \\
+        $\lim_{h\rightarrow 0^+}F_X(x + h)=F_X(x)$
+        \item $F_X(x) \ge 0$
+    \end{itemize}
+\end{sectionbox}
+
+
+\subsection{Diskrete Wahrscheinlichkeitsverteilungen}
+$X:\Omega\rightarrow \mathbb N$ (oder $\mathbb Z, ...$)
+
+\begin{sectionbox}
+    \subsubsection{Probability Mass Function (PMF)}
+    Wahrscheinlichkeit eines Ergebnisses $z$
+    \begin{equation*}
+        P_X^{(z)}=P(\{X = z\})
+    \end{equation*}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{CDF im diskreten Fall}
+    \begin{equation*}
+        F_X(x)=P(\{X \le x\}) = P(\{\{x_1,x_2,...,x_k\} | x_{1,...,k} \le x\})
+    \end{equation*}
+    \begin{equation*}
+        =\sum_{x_i\le x}P(\{X=x_i\})=\sum_{x_i\le x} P_X(x_i)
+    \end{equation*}
+\end{sectionbox}
+
+\subsection{Stetige Wahrscheinlichkeitsverteilungen}
+\begin{emphbox}
+    Wahrscheinlichkeiten von Intervallen
+    \begin{equation*}
+        P(\{a < X \le b\})=F_X(b) - F_X(a)
+    \end{equation*}
+\end{emphbox}
+
+\subsubsection{Probability Density Function $f_X$ (PDF)}
+\begin{sectionbox}
+    \begin{emphbox}
+        \begin{equation*}
+            f_X(x)=\left.\dfrac{d}{dx}F_X(x)\right|_x \; \Longleftrightarrow \; F_X(x) = \int_{-\infty}^x f_X(x)\diff x
+        \end{equation*}
+    \end{emphbox}
+
+    \textbf{Hauptintegralsatz}
+    \begin{equation*}
+        \int_a^bf_X(x)\diff x = F_X(b) - F_X(a) = P(\{a < X \le b\})
+    \end{equation*}
+
+\end{sectionbox}
