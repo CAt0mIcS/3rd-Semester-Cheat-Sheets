@@ -1,0 +1,71 @@
+\subsection{Fouriertransformation}
+\begin{emphbox}
+    Die Fouriertransformierte von $f$ ist
+    \begin{equation*}
+        \mathcal F[f](\omega) = \hat f(\omega)=\int_{-\infty}^\infty f(t)e^{-j\omega t}\diff t
+    \end{equation*}
+    Die inverse Fouriertransformierte von $f$ ist
+    \begin{equation*}
+        \mathcal F^{-1}[f](t) = \check f(t)=\frac{1}{2\pi}\int_{-\infty}^\infty f(\omega)e^{j\omega t}\diff \omega
+    \end{equation*}
+\end{emphbox}
+
+\begin{sectionbox}
+    \textbf{spektrale Energiedichte des Signals $x(t)$}: $|X(\omega)|^2$ \\
+    Spektrum bei $f=0$ entspricht dem Gleichanteil des Signals
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Bekannte Fouriertransformationen}
+    \textbf{Rechtecksimpuls} \\
+    $X(\omega) = AT\sinc(\frac{\omega T}{2})$, Nullstellen bei $\omega = \frac{2\pi k}{T}$, Maximum bei $X(\omega = 0) = AT$ \\
+
+    \textbf{Gaußimpuls} \\
+    $x(t) = Ae^{-\pi \left(\frac{t}{\Delta t}\right)^2} \FT X(f) = A\Delta te^{-\pi\left(f\Delta t\right)^2}$ \\
+    Eigenschaften: 
+    \begin{itemize}
+        \item Maximum bei $t=0$
+        \item Bei $t=\pm \Delta t$ ist der Impuls auf $\approx 0.456$ des Maximums abgeklungen, bei $t=\pm 2\Delta t$ ist der Signalwert kleiner als $3.5A\cdot 10^{-6}$
+    \end{itemize}
+
+    \textbf{Gleichsignal} $x(t) = A_0 \FT X(f) = A_0\delta(f)$ \\ $\rightarrow X(\omega) = 2\pi A_0\delta(\omega)$ \\
+
+    \textbf{Sinussignal} \\
+    $x(t) = A\sin(2\pi f_0 t) \FT X(f) = j\frac{A}{2}(\delta(f + f_0) - \delta(f - f_0))$ \\
+    $x(t) = A\cos(2\pi f_0 t) \FT X(f) = \frac{A}{2}(\delta(f + f_0) + \delta(f - f_0))$ \\
+    
+    \textbf{Akausale Sprungfunktion} \\
+    Sprung von $-1V$ zu $1V \FT X(f) = \frac{1}{j\pi f}V$
+
+    Unendlich hohe Energie von $x(t) \Longleftrightarrow$ unendlich hoher Dirac-Impuls von $X(f)$
+
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Dirac-Distribution}
+    \begin{equation*}
+        \int_{-\infty}^\infty X(f)\delta(f - a)\diff f = X(f)
+    \end{equation*}
+    \begin{itemize}
+        \item $\delta(af) = \frac{1}{|a|}\delta(f)$
+        \item $[\delta(t)]=s^{-1} \qquad [\delta(f)]=Hz^{-1}$
+    \end{itemize}
+\end{sectionbox}
+
+
+\begin{sectionbox}
+    \subsubsection{äquivalente Impulsdauer}
+    Dauer eines Rechtecksimpuls mit gleicher Amplitude und Fläche wie ein gegebenes impulsförmiges Signal $x(t)$
+    \begin{equation*}
+        \Delta t = \frac{1}{A}\int_{-\infty}^\infty x(t)\diff t
+    \end{equation*}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Parsevalsche Theorem}
+    Energieäquivalenz zwischen Energieberechnung im Zeitbereich und Frequenzbereich
+    \begin{equation*}
+        E_x = \frac{1}{R}\int_{-\infty}^\infty |x(t)|^2 = \frac{1}{2\pi R}\int_{-\infty}^{\infty}|X(\omega)|^2\diff \omega
+    \end{equation*}
+    mit $\frac{1}{R}|X(f)|^2$: Energiedichtespektrum
+\end{sectionbox}
