@@ -36,12 +36,16 @@
     \subsection{Bekannte Fouriertransformationen}
     \begin{itemize}
         \item $\hat \delta(\omega) = 1(\omega) \qquad \hat 1 = 2\pi\delta$
+        \item $\hat\theta(\omega) = \pi\delta(\omega) + \begin{cases}
+                      0           & \omega = 0   \\
+                      1/(i\omega) & \omega \ne 0
+                  \end{cases}$
     \end{itemize}
 \end{sectionbox}
 
 \subsection{Verallgemeinerte Ableitung}
 \begin{emphbox}
-    Sei $f:\mathbb R \rightarrow \mathbb C$, wobei 
+    Sei $f:\mathbb R \rightarrow \mathbb C$, wobei
     \begin{itemize}
         \item $f'(t)$ für alle $t\in\mathbb R\setminus \{t_1 < ... < t_N\}$ existiert ($f'(t_j)=0$)
         \item Die einseitigen Grenzwerte für alle Unstetigkeitsstellen existieren
@@ -54,7 +58,7 @@
 \end{emphbox}
 
 \subsection{Abtasttheorem}
-Sei $f\in L^1(\mathbb R)$ stückweise stetig diffb. und bandbegrenzt ($\hat f(\omega) = 0 \; \forall \omega >\Omega$). 
+Sei $f\in L^1(\mathbb R)$ stückweise stetig diffb. und bandbegrenzt ($\hat f(\omega) = 0 \; \forall \omega >\Omega$).
 Sei $\omega_s=\frac{2\pi}{\Delta t}$ eine Abtastfrequenz mit $\omega_s > 2\Omega$. Dann gilt an jeder Stetigkeitsstelle $t$ von $f$, dass $f$ mittels
 \begin{equation*}
     f(t)=\sum_{k\in\mathbb Z}f(k\Delta t)\sinc\left[\frac{\pi}{\Delta t}(t-k\Delta t)\right]

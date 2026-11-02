@@ -20,7 +20,7 @@
         \item $\mathcal L[f](s) \rightarrow 0$ für $\Re{s}\rightarrow \infty$
         \item Für $\sigma_1 > \sigma_0$ konvergiert das uneigentliche Integral $\mathcal L[f](s)$ gleichmäßig für $\Re{s}\ge \sigma_1$
     \end{itemize}
-    
+
     \subsection{Eindeutigkeitssatz der Laplacetransformation}
     Sei $f$ stückweise stetig und höchstens exponentiell wachsend. Dann ist $f$ bis auf die Werte an den Unstetigkeitsstellen durch $\mathcal L[f]$ eindeutig bestimmt
 \end{sectionbox}
@@ -31,7 +31,35 @@
         \item $f$ stückweise stetig und höchstens exponentiell wachsend mit Konvergenzabszisse $\sigma_0$. Dann ist $\mathcal L[f](s)$ für $\Re{s} > \sigma_0$ uendlich oft diffb.
         \item $\mathcal L[e^{at}f(t)](s)=\mathcal L[f](s-a) \; a\in\mathbb C$
         \item $\mathcal L[f(ct)](s)=\frac{1}{c}\mathcal L[f](\frac{s}{c}) \; c > 0$
-        \item $\mathcal L[u(t-a)f(t-a)](s)=e^{-as}\mathcal L[f](s) \; a>0, u$ Einheitssprung. 
-        $u(t-a)f(t-a)$ ist das um $a$ verzögert eingeschaltete Signal.
+        \item $\mathcal L[u(t-a)f(t-a)](s)=e^{-as}\mathcal L[f](s) \; a>0, u$ Einheitssprung.
+              $u(t-a)f(t-a)$ ist das um $a$ verzögert eingeschaltete Signal.
     \end{itemize}
+
+    \subsubsection{Dualitätsprinzip}
+    \begin{itemize}
+        \item $m\in\mathbb N, f$ und $f^{(n)}, 1 \le n\le m-1$ stetig auf $[0,\infty)$ mit $\sigma_0\in\mathbb R$ und $f^{(m)}$ stückweise stetig.
+              Dann gilt $\forall s\in\mathbb C$ mit $\Re{s} > \sigma_0$
+              \begin{equation*}
+                  \mathcal L[f^{(m)}](s) = s^m\mathcal L[f](s) - s^{m-1}f(0^+) - s^{m-2}f'(0^+)
+              \end{equation*}
+              \begin{equation*}
+                  - ... - sf^{(m-2)}(0^+) - f^{(m-1)}(0^+)
+              \end{equation*}
+        \item $f:[0,\infty)\rightarrow\mathbb C$ stückweise stetig, $\sigma_0\in\mathbb R$.
+              Dann gilt für $\Re{s} > \sigma_0$
+              \begin{equation*}
+                  \mathcal L[(-1)^mt^mf(t)](s) = \mathcal L[f]^{(m)}(s)
+              \end{equation*}
+    \end{itemize}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsection{Wichtige Laplacetransformationen}
+
+    \begin{tabularx}{\linewidth}{lcl}
+        $1$              & $\LT$ & $\frac{1}{s} \quad \Re{s} > 0$                                                    \\
+        $u(t) - u(t-a)$  & $\LT$               & $\frac{1}{s}-\frac{e^{-as}}{s} \quad \Re{s} > 0$ \\
+        $\sin(\omega t)$ & $\LT$               & $\frac{\omega}{s^2 + \omega^2} \quad \Re{s} > 0$ \\
+        $\cos(\omega t)$ & $\LT$               & $\frac{s}{s^2 + \omega^2} \quad \Re{s} > 0$
+    \end{tabularx}
 \end{sectionbox}
