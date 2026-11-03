@@ -47,6 +47,7 @@
 				%Feinstruktur & $\alpha^{-1} = \num{137,035 999}$\\
 				\textsc{Boltzmann}-Konst. & $k_b = \SI{1.380 655e-23}{\joule\per\kelvin}$               \\
 				allg. Gaskonstante        & $R = k_b N_A= 8,3144 \frac{\text{J}}{\text{mol} \text{ K}}$ \\
+				Elektronenvolt            & $[eV]=[J] / |e|$
 			\end{tabular}
 		}
 	}
@@ -55,32 +56,33 @@
 	\section{Aufbau der Materie}
 	%=============================================================================================
 	\sectionbox{
-		\paragraph{Planck'sches Postulat} In der Quantenmechanik kann der harmonische Oszillator mit der Schwingungsfrequenz f nur diskrete Energiewerte annehmen:\\
+		\paragraph{Planck'sches Postulat} In der Quantenmechanik kann der harmonische Oszillator mit der Schwingungsfrequenz $f$ nur diskrete Energiewerte annehmen (gebundener Zustand).
+		Dies passiert, wenn die Welle an beiden Enden eingesperrt ist (es können dann nur ebene Wellen bestimmter Frequenz oszillieren):\\
 		$E_n = hf\left(n + \frac{1}{2}\right) = \hbar \omega \left(n + \frac{1}{2}\right)$
 		\paragraph{Heisenberg'sche Unschärferelation} Ort und Impuls (bzw. Energie und Zeit) können nicht gleichzeitig scharf definiert werden.\\
-		$\Delta x \cdot \Delta p \geq \frac{\hbar}{2}$ und $\Delta t \cdot \Delta E \geq \frac{\hbar}{2}$
+		$\Delta x \Delta p \geq \frac{\hbar}{2}$ und $\Delta t \Delta E \geq \frac{\hbar}{2}$
 	}
 	\sectionbox{
 		\subsection{Quanten}
 		\paragraph{Das Photon} Für das Photon gilt:\\
-		$E_{\ir ph}=f\cdot h= \hbar \cdot \omega = \frac{hc}{\lambda} = m_{\text{ph}}c^2$ \\
-		$m_{\text{ph}} = \frac{\hbar \omega}{c^2}$  \qquad\qquad $p_{\text{ph}} = m_{\text{ph}} \cdot c = \frac{h}{\lambda}$
+		$E_{\ir ph}=fh= \hbar \omega = \frac{hc}{\lambda} = m_{\text{ph}}c^2$ \\
+		$m_{\text{ph}} = \frac{\hbar \omega}{c^2}$  \qquad\qquad $p_{\text{ph}} = m_{\text{ph}} c = \frac{h}{\lambda}$
 	}
 
 	\sectionbox{
 		\subsection{Materiewellen}
-		\subsubsection{Allgemeine Wellenfunktion $\Psi(\vec{r},t) = C \cdot e^{\i(\omega t - \vec{k} \cdot \vec{r})}$}
+		\subsubsection{Allgemeine Wellenfunktion $\Psi(\vec{r},t) = C e^{i(\vec{k}\vec{r} - \omega t)}$}
 		Im eindimensionalen Fall:
-		$\Psi(x,t) = C \cdot e^{\i(\omega t - kx)}$
+		$\Psi(x,t) = C e^{i(kx-\omega t)}$
 
 		\tablebox{
 			\begin{tabular*}{\columnwidth}{@{\extracolsep\fill}ll@{}}
 				\ctrule
 				Größe & Beziehung \\ \cmrule
-				Energie & $E = \frac{1}{2}mv^2 = \hbar \omega$ \\
+				Energie & $E = \frac{1}{2}mv^2 = \frac{p^2}{2m} = \hbar \omega$ \\
 				De-Broglie-Wellenlänge & $\lambda = \frac{h}{p}$ \\
 				Impuls & $\vec{p} = m \vec{v} = \hbar \vec{k}$ \\
-				Kreisfrequenz & $\omega = 2 \pi f = \frac{\hbar}{2m} k^2$ \\
+				Kreisfrequenz (Dispersionsrelation) & $\omega = 2 \pi f = \frac{\hbar}{2m} k^2$ \\
 				Phasengeschwindigkeit & $v_{\text{ph}} = \frac{\omega}{k} = \frac{\hbar k}{2m} = \frac{v_{\text{Teilchen}}}{2}$ \\
 				Wellenzahl & $k = \frac{2 \pi}{\lambda}$ \\
 				\ctrule
@@ -90,13 +92,12 @@
 		Der bewegten Korpuskel wird eine im Raum begrenzte Wellenfunktion zugeordnet, die sich aus der Überlagerung einzelner Wellen zu einem Wellenpaket ergibt. Ein Teilchenstrom entspricht der Folge einzelner Wellenpakete.
 
 		% Teilchenstrom entspricht Folge einzelner Wellenpakete.
-		$\Psi(\vec{r},t) = \int\limits_{k_0 - \Delta k}^{k_0 + \Delta k}{C(k) \cdot e^{\i (\omega t - \vec{k} \vec{r})} \diff k}$
+		$\Psi(\vec{r},t) = \int\limits_{k_0 - \Delta k}^{k_0 + \Delta k}{C(k) e^{i (\vec{k}\vec{r} - \omega t)} \diff k}$
 
-		Gruppengeschwindigkeit des Wellenpakets:
-
+		\textbf{Gruppengeschwindigkeit des Wellenpakets}: \\
 		$v_{\text{gr}} = \frac{\diff \omega}{\diff k} = \frac{\hbar k}{m} = \frac{p}{m} = v_{\ir Teilchen}$
 
-		Phasengeschwindigkeit $v_{\text{ph}} = \frac{\omega}{k}$
+		\textbf{Phasengeschwindigkeit} $v_{\text{ph}} = \frac{\omega}{k}$
 	}
 
 
@@ -104,20 +105,24 @@
 		\subsection{Die Schrödingergleichung}
 		Beschreibt die Dynamik der quantenmech. Zustände eines Systems.
 		\subsubsection*{Allgemeine Schrödingergleichung:}
-		$E = E_{\ir kin} + V_{\ir pot} = \frac{p^2}{2m} + V$ \qquad mit $p = \i \hbar \nabla \Psi$
-		\begin{center}
-			\boxed{-\i \hbar \frac{\partial}{\partial t} \Psi ( \vec r , t ) = - \frac{\hbar^2}{2m} \lpo \Psi (\vec r, t) + V(\vec{r},t) \cdot \Psi (\vec r, t)}
-		\end{center}
+		$E = E_{\ir kin} + V_{\ir pot} = \frac{p^2}{2m} + V$ \qquad mit $p = i \hbar \nabla \Psi$ \\
+		\emphbox{
+			\begin{equation*}
+				-i \hbar \frac{\partial}{\partial t} \Psi ( \vec r , t ) = \underbrace{-\frac{\hbar^2}{2m} \lpo \Psi (\vec r, t)}_{E_{\text{kin}}} + \underbrace{V(\vec{r},t) \Psi (\vec r, t)}_{E_{\text{pot}}}
+			\end{equation*}
+		}
 
 		\subsubsection*{Zeitunabhängige Schrödingergleichung:}
-		\begin{center}
-			\boxed{- \frac{\hbar^2}{2m} \Delta \Psi (\vec r) = (E-V) \Psi(\vec r)}
-		\end{center}
+		\emphbox{
+			\begin{equation*}
+				E\varphi(\vec r) = - \frac{\hbar^2}{2m} \Delta \varphi (\vec r) + V(\vec r)\varphi(\vec r)
+			\end{equation*}
+		}
 
-		\paragraph{Herleitung} 	Durch den Separationsansatz $\Psi(\vec{r},t) = \Psi(\vec{r})\Phi(t)$ lässt sich die Zeitabhängigkeit abtrennen.
-		\paragraph{Aufenthaltswahrscheinlichkeit} $\diff w(\vec{r}) = \Psi^*(\vec{r},t) \cdot \Psi(\vec{r},t) \cdot \diff \tau$
-		% Falls E > V: \Psi = e^{\i k \omega t} (Oszillierende E-Funktion) 
-		% Falls E < V: \Psi = e^{\alpha + \i \beta} (Abklingende E-Funktion) 
+		\paragraph{Herleitung} 	Durch den Separationsansatz $\Psi(\vec{r},t) = \varphi(\vec{r})f(t)$ lässt sich die Zeitabhängigkeit abtrennen.
+		\paragraph{Aufenthaltswahrscheinlichkeit} $\diff w(\vec{r}) = \Psi^*(\vec{r},t) \Psi(\vec{r},t) \diff \tau$
+		% Falls E > V: \Psi = e^{i k \omega t} (Oszillierende E-Funktion) 
+		% Falls E < V: \Psi = e^{\alpha + i \beta} (Abklingende E-Funktion) 
 		% Klausur: Unendlicher Potentialtopf $E = $
 		\paragraph{Normierungsbedingung:}
 		$\int\limits_{\text{Volumen}}^{}{\Psi^* \Psi \diff r'} = 1$ \qquad $\Ra C_i = \sqrt{\frac{2}{L_i}}$
@@ -127,12 +132,36 @@
 			\item Aus De-Broglie-Beziehungen:
 			$\omega = \frac{\hbar}{2m} k^2 \lra \hbar \omega = \frac{\hbar^2}{2m} k^2$
 			\item Multipliziere beide Seiten mit $\Psi$ und ersetze $\omega \ra \frac{\partial}{\partial t}$ sowie $k^2 \ra \div \nabla$ \quad
-			es folgt: $-\i \hbar \frac{\partial}{\partial t} \Psi(\vec{r},t) = - \frac{\hbar^2}{2m} \vec{\Delta} \Psi(\vec{r},t)$
+			es folgt: $-i \hbar \frac{\partial}{\partial t} \Psi(\vec{r},t) = - \frac{\hbar^2}{2m} \vec{\Delta} \Psi(\vec{r},t)$
 			\item In einem Kraftfeld $\vec{F}(\vec{r},t)$ mit $\vec{F}(\vec{r},t) = - \nabla V(\vec{r},t)$ gilt:\\
-			$E = \frac{p^2}{2m} + V(\vec{r},t)$ \qquad mit $p = \i \hbar \nabla \Psi$
-			\item Die allg. Schrödingergleichung folgt aus Multiplikation mit $\Psi$ und den Operatoren $E \ra -\i \hbar \frac{\partial}{\partial t}$ und $\frac{p^2}{2m} \ra - \frac{\hbar^2}{2m} \lpo$
+			$E = \frac{p^2}{2m} + V(\vec{r},t)$ \qquad mit $p = i \hbar \nabla \Psi$
+			\item Die allg. Schrödingergleichung folgt aus Multiplikation mit $\Psi$ und den Operatoren $E \ra -i \hbar \frac{\partial}{\partial t}$ und $\frac{p^2}{2m} \ra - \frac{\hbar^2}{2m} \lpo$
+		}
+
+		\subsubsection{Korrespondenzprinzip}
+		Assoziation klassischer Größen (Observablen) mit quantenmechanischen Operatoren \\
+		\tablebox{
+			\begin{tabular*}{\columnwidth}{@{\extracolsep\fill}ll||l@{}}
+				klass. & qm & 3D \\ \hline
+				$x$ & $x$ & $\vec r$ \\
+				$p_x$ & $\frac{\hbar}{i}\frac{\partial}{\partial x}$ & $\frac{\hbar}{i} \vec\nabla$ \\
+				$E$ & $i\hbar\frac{\partial}{\partial t}$ \\
+				$H$ & $-\frac{\hbar^2}{2m}\frac{\partial}{\partial x} + V(x)$ & $-\frac{\hbar^2}{2m}\Delta + V(\vec r)$
+			\end{tabular*}
 		}
 	}
+
+	\sectionbox{
+		\subsubsection{Erwartungswert}
+		\begin{equation*}
+			\overline B = \int_V \psi^*B\psi \diff V
+		\end{equation*}
+		\subsubsection{Unschärfe (Streuung) um den Erwartungswert}
+		\begin{equation*}
+			(\Delta B)^2=\overline{(B-\overline{B})^2}=\int_V\psi^*(B-\overline B)^2\psi\diff V
+		\end{equation*}
+	}
+
 	\sectionbox{
 		\subsection{Potentialtopf} % Siehe Lösung Tutorübung 2
 		\begin{center}
@@ -155,12 +184,14 @@
 		\subsubsection*{$\delta$-Dim., unendl., zeitinvar. Potentialtopf: $i=\eset{x,y,...,\delta}$}
 
 		Lösung der DGL:
-		$\Psi(\vec r) = \sqrt{\frac{2^\delta}{ \prod L_i }} \prod\limits_{i=1}^\delta \sin(k_i \cdot r_i)$
+		$\Psi(\vec r) = \sqrt{\frac{2^\delta}{ \prod L_i }} \prod\limits_{i=1}^\delta \sin(k_i r_i)$
 
-		Energie:  $E_n = \frac{\hbar^2}{2m} \cdot \sum k_i^2$
+		Energie:  $E_n = \frac{\hbar^2}{2m} \sum k_i^2$
 		\subsubsection*{für $\delta = 1$ (eindimensionaler PT)}
 		\boxed{ E_n = \frac{\hbar^2}{2m} k_n^2 = \frac{h^2 n^2}{8 m L^2} = E_1 n^2 } \quad \boxed{k_n = \frac{n \pi}{L} }
 		\boxed{ E_{nml} = \frac{\hbar^2(k_x^2+k_y^2+k_z^2)}{2m} = \frac{\hbar^2\pi^2}{2ma^2}(n^2+m^2+l^2) }
+
+		TODO: Wasserstoffatom Energieniveaus
 	}
 	% Endlicher Potentialtopf: $k^2 = \frac{2m(E - V)}{\hbar^2}$
 
@@ -389,7 +420,7 @@
 	}
 
 	\sectionbox{
-		Wärmekapazität $C = \frac{\partial U}{\partial T} = c n = c_{\ir m} \cdot m = c_{\ir m} \rho V$
+		Wärmekapazität $C = \frac{\partial U}{\partial T} = c n = c_{\ir m} m = c_{\ir m} \rho V$
 
 		Innere Energie $U = 3 N k_{\ir B} T$ \qquad\quad für 1 mol: $\Delta U = \Delta T c_m$
 
@@ -482,18 +513,18 @@
 	}
 	\sectionbox{
 		Durch thermische Teilchenbewegung entsteht eine Diffusionsstromdichte:\\
-		\boxed{ j_{\ir diff} = -e(n_1 v_{1x} - n_2 v_{2x}) = e \frac{\diff}{\diff T} (D_n \cdot n) \frac{\diff T}{\diff x}}\\
+		\boxed{ j_{\ir diff} = -e(n_1 v_{1x} - n_2 v_{2x}) = e \frac{\diff}{\diff T} (D_n n) \frac{\diff T}{\diff x}}\\
 		Diffusionskoeffizient $D_n = v_x l_x = v_x^2 \tau$, Fermigeschw. $v_x^2 = \frac{1}{3} v_{\ir F}^2$\\
-		Effektive Teilchengeschw. $\frac{1}{2} m^* v^2 = \frac{1}{2} k_{\ir B} T$ \quad $n_{\ir eff} = D(E_F)\cdot 2k_BT$
+		Effektive Teilchengeschw. $\frac{1}{2} m^* v^2 = \frac{1}{2} k_{\ir B} T$ \quad $n_{\ir eff} = D(E_F)2k_BT$
 
 		Seebeck Koeffizient:\\
-		\boxed{ S := - \frac{e}{\sigma} \frac{\diff}{\diff T} (D_n \cdot n) } \quad \boxed{\Delta U = S \cdot \Delta T}
+		\boxed{ S := - \frac{e}{\sigma} \frac{\diff}{\diff T} (D_n n) } \quad \boxed{\Delta U = S \Delta T}
 	}
 	\sectionbox{
 		\subsection{Peltier-Effekt}
 		Aufgeprägter Strom wird benutzt, um Wärme zu transportieren\\
-		Wärmestromdichte \boxed{ w = \Pi \cdot j} \qquad Peltierkonstante: $\Pi = S \cdot T$\\
-		Gütezahl $Z = |\Delta S|^2 \cdot \frac{\sigma}{\lambda}$ mit Gütefaktor $\Delta S = \Pi_1 - \Pi_2$
+		Wärmestromdichte \boxed{ w = \Pi j} \qquad Peltierkonstante: $\Pi = S T$\\
+		Gütezahl $Z = |\Delta S|^2 \frac{\sigma}{\lambda}$ mit Gütefaktor $\Delta S = \Pi_1 - \Pi_2$
 	}
 
 	\sectionbox{
@@ -572,12 +603,12 @@
 				\ctrule
 				\textbf{Leitungsband} & \textbf{Valenzband}\\ \cmrule
 				Elektronendichte & Löcherdichte\\
-				$n = \int\limits_{E_{\ir L}}^\infty D_{\ir L} \cdot f_e \diff E$ & $p = \int\limits_{-\infty}^{E_{\ir V}} D_{\ir V} \cdot f_h \diff E$\\[2em]
+				$n = \int\limits_{E_{\ir L}}^\infty D_{\ir L} f_e \diff E$ & $p = \int\limits_{-\infty}^{E_{\ir V}} D_{\ir V} f_h \diff E$\\[2em]
 				Zustandsdichte  & Zustandsdichte\\
 				$D_{\ir L} = \frac{(2 m_n^*)^{3/2}}{2 \pi^2 \hbar^3} \sqrt{E-E_{\ir L}}$ & $D_{\ir V} = \frac{(2 m_p^*)^{3/2}}{2 \pi^2 \hbar^3} \sqrt{E_{\ir V} - E}$\\[2em]
 				Effektive Zustandsdichte & Effektive Zustandsdichte\\
 				$N^*_{\ir L} = 2 \left( \frac{m_n^* k_{\ir B} T}{2 \pi \hbar^2}\right)^{3/2}$ & $N^*_{\ir V} = 2 \left( \frac{m_p^* k_{\ir B} T}{2 \pi \hbar^2}\right)^{3/2}$\\
-				$n = N^*_{\ir L} \exp\left(-\frac{E_{\ir L} - E_{\ir F}}{k_{\ir B}\cdot T}\right)$ & $p = N^*_{\ir V} \exp\left(-\frac{E_{\ir F} - E_{\ir V}}{k_{\ir B}\cdot T}\right)$ \\
+				$n = N^*_{\ir L} \exp\left(-\frac{E_{\ir L} - E_{\ir F}}{k_{\ir B}T}\right)$ & $p = N^*_{\ir V} \exp\left(-\frac{E_{\ir F} - E_{\ir V}}{k_{\ir B}T}\right)$ \\
 				\cbrule
 			\end{tabular*}
 		}
@@ -586,9 +617,9 @@
 
 	\emphbox{
 		Boltzmann-Näherung: \hfill $f_e(E,T) \approx \exp\left(-\frac{E-E_F}{k_B T}\right)$\\[0.5em]
-		Damit gilt: \hfill $n \cdot p = n^2_{\ir i} = N^*_{\ir L} \cdot N^*_{\ir V} \cdot e^{-\frac{E_{\ir g}}{k_{\ir B} T}} $\\[0.5em]
+		Damit gilt: \hfill $n p = n^2_{\ir i} = N^*_{\ir L} N^*_{\ir V} e^{-\frac{E_{\ir g}}{k_{\ir B} T}} $\\[0.5em]
 		Dotierungs-Bilanzgleichung: \hfill $n + N_{\ir A}^{-} = p + N_{\ir D}^{+}$\\[0.5em]
-		Leitfähigkeit: \hfill $\sigma = n \cdot e \cdot \mu_n + p \cdot e \cdot \mu_p $\\
+		Leitfähigkeit: \hfill $\sigma = n e \mu_n + p e \mu_p $\\
 	}
 
 	\sectionbox{
@@ -627,7 +658,7 @@
 	Unter Einfluss eines elektr. Feldes werden positive und negative Ladungen in entgegengesetzte Richtungen verschoben.
 	\sectionbox{
 
-		$\varepsilon_r = \varepsilon'_r + \i \varepsilon''_r = \abs{\varepsilon_r} e^{\i \delta}$ \qquad \qquad $\varepsilon' = n'^2 - k'^2$
+		$\varepsilon_r = \varepsilon'_r + i \varepsilon''_r = \abs{\varepsilon_r} e^{i \delta}$ \qquad \qquad $\varepsilon' = n'^2 - k'^2$
 		\includegraphics[width = 6cm]{./img/reldie.pdf}
 	}
 	\sectionbox{
@@ -639,16 +670,16 @@
 		Suszeptibilität $\chi^{\ir el} = \varepsilon_r - 1 = \frac{\alpha N}{1- \frac{\alpha N}{3}}$
 
 		\subsubsection*{Elektronische Polarisation} Elektronenhülle verschiebt sich durch äußeres Feld\\
-		$p = \varepsilon_0\alpha\varepsilon_{\ir lok} = \frac{e^2}{m} \frac{1}{\omega_0^2-\omega^2-\i\gamma\omega} \varepsilon_{\ir lok}$ mit $\omega_0 = \sqrt{\frac{c}{m}}$\\
+		$p = \varepsilon_0\alpha\varepsilon_{\ir lok} = \frac{e^2}{m} \frac{1}{\omega_0^2-\omega^2-i\gamma\omega} \varepsilon_{\ir lok}$ mit $\omega_0 = \sqrt{\frac{c}{m}}$\\
 		$\omega_1 = \sqrt{\omega_0^2-\frac{n\e^2}{3\varepsilon_0 m}}$ \qquad $\varepsilon'(w) = 1 + \frac{n\e^2}{\varepsilon_0 m}\frac{\omega_1^2-\omega^2}{(\omega_1^2-\omega^2)^2+\gamma^2\omega^2}$\\
 
 
 
 		\subsubsection*{Ionische Polarisation} Ionen werden durch äußeres Feld verschoben\\
-		$p = q u(t) = \frac{q^2}{\mu}\frac{1}{\omega_0^2-\omega^2-\i\omega\gamma} \varepsilon_{\ir lok}$ \qquad $\varepsilon(\omega) = 1 + \frac{P}{\varepsilon_0\varepsilon}$\\
+		$p = q u(t) = \frac{q^2}{\mu}\frac{1}{\omega_0^2-\omega^2-i\omega\gamma} \varepsilon_{\ir lok}$ \qquad $\varepsilon(\omega) = 1 + \frac{P}{\varepsilon_0\varepsilon}$\\
 		Gesamtpolarisation: $P(t) = nqu(t)+n\varepsilon_0\alpha\varepsilon_{\ir lok}(t)$\\
 		\subsubsection*{Orientierungspolarisation} Permanente Dipole werden durch E-Feld ausgerichtet.\\
-		statisch: $p_0=np\cdot \overline{\cos\Theta} \approx np \frac{p\varepsilon}{3k_BT}$
+		statisch: $p_0=np\overline{\cos\Theta} \approx np \frac{p\varepsilon}{3k_BT}$
 	}
 
 	% SECTION ====================================================================================	
