@@ -30,7 +30,7 @@
         X(0) & =\int_{-\infty}^{\infty}x(t)\diff t                                                           \\
         x(0) & =\int_{-\infty}^{\infty}X(f)\diff f=\frac{1}{2\pi}\int_{-\infty}^{\infty}X(\omega)\diff\omega
     \end{align*}
-    $X(0)$ ist die Fläche bzw. der Gleichanteil von $x(t)$. 
+    $X(0)$ ist die Fläche bzw. der Gleichanteil von $x(t)$.
     \paragraph{spektrale Energiedichte des Signals $x(t)$} $|X(\omega)|^2$
 \end{sectionbox}
 
@@ -52,24 +52,29 @@
     \setlength{\tabcolsep}{3pt}
     \begin{tabularx}{\linewidth}{lll}
         \fthead
-        \ftgroup{Zeitverschiebung (Laufzeit $\Rightarrow$ lineare Phase, $|X|$ bleibt gleich)}             \\
-        $x(t+a)$ & $X(f)\,e^{j2\pi a}$ & $X(\omega)\,e^{j\omega a}$                                     \\
-        \ftgroup{Frequenzverschiebung (komplexer Träger)}                                                  \\
-        $x(t)\,e^{j2\pi f_0t}$ & $X(f-f_0)$ & $X(\omega-\omega_0)$                                               \\
-        \ftgroup{Ähnlichkeitssatz (Streckung/Stauchung, $a\in\mathbb{R}\setminus\{0\}$)}                   \\
-        $x(at)$ & $\frac{1}{|a|}X\Big(\frac{f}{a}\Big)$ & $\frac{1}{|a|}X\Big(\frac{\omega}{a}\Big)$              \\
-        \ftgroup{Spiegelung an der $y$-Achse}                                                      \\
-        $x(-t)$ & $X(-f)$ & $X(-\omega)$                                                                         \\
-        \ftgroup{Faltungssatz}                                                                             \\
-        $x_1(t)*x_2(t)$ & $X_1(f)\,X_2(f)$ & $X_1(\omega)\,X_2(\omega)$                                          \\
-        \ftgroup{Multiplikationssatz (Faltung im Frequenzbereich)}                                         \\
-        $x_1(t)\,x_2(t)$ & $X_1(f)*X_2(f)$ & $\tfrac{1}{2\pi}X_1(\omega)*X_2(\omega)$
+        \ftgroup{Zeitverschiebung (Laufzeit $\Rightarrow$ lineare Phase, $|X|$ bleibt gleich)}                      \\
+        $x(t+a)$               & $X(f)\,e^{j2\pi a}$                   & $X(\omega)\,e^{j\omega a}$                 \\
+        \ftgroup{Frequenzverschiebung (komplexer Träger)}                                                           \\
+        $x(t)\,e^{j2\pi f_0t}$ & $X(f-f_0)$                            & $X(\omega-\omega_0)$                       \\
+        \ftgroup{Ähnlichkeitssatz (Streckung/Stauchung, $a\in\mathbb{R}\setminus\{0\}$)}                            \\
+        $x(at)$                & $\frac{1}{|a|}X\Big(\frac{f}{a}\Big)$ & $\frac{1}{|a|}X\Big(\frac{\omega}{a}\Big)$ \\
+        \ftgroup{Spiegelung an der $y$-Achse}                                                                       \\
+        $x(-t)$                & $X(-f)$                               & $X(-\omega)$                               \\
+        \ftgroup{Faltungssatz}                                                                                      \\
+        $x_1(t)*x_2(t)$        & $X_1(f)\,X_2(f)$                      & $X_1(\omega)\,X_2(\omega)$                 \\
+        \ftgroup{Multiplikationssatz (Faltung im Frequenzbereich)}                                                  \\
+        $x_1(t)\,x_2(t)$       & $X_1(f)*X_2(f)$                       & $\tfrac{1}{2\pi}X_1(\omega)*X_2(\omega)$   \\
+        \ftgroup{Symmetrie reeller Signale $x(t)$: Realt. achsensym., Imag.t. punktsym.}                            \\
+        $x(t) \in \mathbb R$   & $X(f) = X(-f)^*$                      & $X(\omega) = X(-\omega)^*$
     \end{tabularx}
     \textbf{Modulation mit reellem Träger} (Spektrum wird nach $\pm f_0$ verschoben; mit $\omega$ analog, $f_0\to\omega_0$):
     \begin{align*}
         x(t)\cos(2\pi f_0t) & \;\FT\;\tfrac{1}{2}\big[X(f-f_0)+X(f+f_0)\big]  \\
         x(t)\sin(2\pi f_0t) & \;\FT\;\tfrac{1}{2j}\big[X(f-f_0)-X(f+f_0)\big]
     \end{align*}
+
+    \paragraph{Signal ist gerade} $X(f) = \Re{X(f)}$
+    \paragraph{Signal ist ungerade} $X(f) = \Im{X(f)}$
 \end{sectionbox}
 
 \begin{sectionbox}
@@ -88,7 +93,7 @@
     \subsubsection{Integration}
     Im Zeitbereich (dämpft hohe Frequenzen, Tiefpass):
     \begin{align*}
-        \int_{-\infty}^{t}x(\tau)\diff\tau\;\FT\; & \frac{X(f)}{j2\pi f}+\frac{1}{2}X(0)\,\delta(f)                       \\
+        \int_{-\infty}^{t}x(\tau)\diff\tau\;\FT\; & \frac{X(f)}{j2\pi f}+\frac{1}{2}X(0)\,\delta(f)                  \\
                                                   & \text{bzw. }\;\frac{X(\omega)}{j\omega}+\pi X(0)\,\delta(\omega)
     \end{align*}
     Der Dirac-Termbeschreibt den Gleichanteil des Integrals; er entfällt, wenn $x(t)$ die Fläche $X(0)=0$ hat.\\
@@ -105,11 +110,11 @@
     \setlength{\tabcolsep}{3pt}
     \begin{tabularx}{\linewidth}{lll}
         \fthead
-        $\delta(t)$ & $1$ & $1$                                                                                               \\
-        $\delta(t+a)$ & $e^{j2\pi fa}$ & $e^{j\omega a}$                                                              \\
-        $A_0$ & $A_0\delta(f)$ & $2\pi A_0\delta(\omega)$                                                                            \\
-        $e^{j2\pi f_0t}$ & $\delta(f-f_0)$ & $2\pi\delta(\omega-\omega_0)$                                                  \\
-        $u(t)$ & $\frac{1}{2}\delta(f)+\frac{1}{j2\pi f}$ & $\pi\delta(\omega)+\frac{1}{j\omega}$                             \\
+        $\delta(t)$      & $1$                                      & $1$                                   \\
+        $\delta(t+a)$    & $e^{j2\pi fa}$                           & $e^{j\omega a}$                       \\
+        $A_0$            & $A_0\delta(f)$                           & $2\pi A_0\delta(\omega)$              \\
+        $e^{j2\pi f_0t}$ & $\delta(f-f_0)$                          & $2\pi\delta(\omega-\omega_0)$         \\
+        $u(t)$           & $\frac{1}{2}\delta(f)+\frac{1}{j2\pi f}$ & $\pi\delta(\omega)+\frac{1}{j\omega}$ \\
     \end{tabularx}
 
 
