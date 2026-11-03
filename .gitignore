@@ -9,6 +9,8 @@ build/
 *.out
 *.toc
 
+.ignore/
+
 ## Intermediate documents:
 *.dvi
 *-converted-to.*

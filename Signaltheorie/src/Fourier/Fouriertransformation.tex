@@ -1,55 +1,138 @@
-\subsection{Fouriertransformation}
+\newcommand{\ftgroup}[1]{\multicolumn{3}{@{}l@{}}{\color{black!60}\textit{#1}}}
+\newcommand{\fthead}{\textbf{$x(t)$} & \textbf{$X(f)$} & \textbf{$X(\omega)$} \\ \hline}
+
+
 \begin{emphbox}
-    Die Fouriertransformierte von $f$ ist
-    \begin{equation*}
-        \mathcal F[f](\omega) = \hat f(\omega)=\int_{-\infty}^\infty f(t)e^{-j\omega t}\diff t
-    \end{equation*}
-    Die inverse Fouriertransformierte von $f$ ist
-    \begin{equation*}
-        \mathcal F^{-1}[f](t) = \check f(t)=\frac{1}{2\pi}\int_{-\infty}^\infty f(\omega)e^{j\omega t}\diff \omega
-    \end{equation*}
+    \textbf{Analyse} (Hintransformation) mit Frequenz $f$ bzw. Kreisfrequenz $\omega=2\pi f$:
+    \begin{align*}
+        X(f)      & =\int_{-\infty}^{\infty}x(t)\,e^{-j2\pi ft}\diff t  \\
+        X(\omega) & =\int_{-\infty}^{\infty}x(t)\,e^{-j\omega t}\diff t
+    \end{align*}
+    \textbf{Synthese} (Rücktransformation):
+    \begin{align*}
+        x(t) & =\int_{-\infty}^{\infty}X(f)\,e^{j2\pi ft}\diff f                         \\
+        x(t) & =\frac{1}{2\pi}\int_{-\infty}^{\infty}X(\omega)\,e^{j\omega t}\diff\omega
+    \end{align*}
+    Kurzschreibweise: $x(t)\FT X(f)$, \quad $x(t)\FT X(\omega)$
 \end{emphbox}
 
 \begin{sectionbox}
-    \textbf{spektrale Energiedichte des Signals $x(t)$}: $|X(\omega)|^2$ \\
-    Spektrum bei $f=0$ entspricht dem Gleichanteil des Signals
+    \subsubsection{Existenz und Interpretation}
+    \begin{itemize}
+        \item Hinreichend: $x(t)$ bis auf endlich viele Sprungstellen stetig und absolut integrierbar: $\int_{-\infty}^{\infty}|x(t)|\diff t<\infty$
+        \item Sonst ($1$, $\cos$, $u(t)$, periodisch): Distributionen, d.\,h. Faktor $e^{-\varepsilon|t|}$, dann $\varepsilon\to0$ $\Rightarrow$ Diracs im Spektrum
+    \end{itemize}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Flächensätze (Werte bei $f=0$ und $t=0$)}
+    \begin{align*}
+        X(0) & =\int_{-\infty}^{\infty}x(t)\diff t                                                           \\
+        x(0) & =\int_{-\infty}^{\infty}X(f)\diff f=\frac{1}{2\pi}\int_{-\infty}^{\infty}X(\omega)\diff\omega
+    \end{align*}
+    $X(0)$ ist die Fläche bzw. der Gleichanteil von $x(t)$. 
+    \paragraph{spektrale Energiedichte des Signals $x(t)$} $|X(\omega)|^2$
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Dirac-Impuls $\delta(t)$}
+    \begin{itemize}
+        \item $\delta(t)=0$ für $t\neq0$ und $\int_{-\infty}^{\infty}\delta(t)\diff t=1$. Einheit $\frac{1}{\mathrm{s}}$ (bzw. $\delta(f)$ in $\frac{1}{\mathrm{Hz}}$)
+        \item Ausblendeigenschaft: $x(t)\,\delta(t-t_0)=x(t_0)\,\delta(t-t_0)$ und $\int_{-\infty}^{\infty}x(t)\,\delta(t-t_0)\diff t=x(t_0)$
+        \item Faltung: $x(t)*\delta(t-t_0)=x(t-t_0)$, \; $x(t)*\delta(t)=x(t)$
+        \item Skalierung: $\delta(at)=\frac{1}{|a|}\delta(t)$, \; Symmetrie: $\delta(t-t_0)=\delta(t_0-t)$
+        \item $u(t)=\int_{-\infty}^{t}\delta(\tau)\diff\tau$ $\Leftrightarrow$ $\frac{\diff}{\diff t}u(t)=\delta(t)$. Ein Sprung der Höhe $\Delta$ bei $t_0$ wird abgeleitet zu $\Delta\cdot\delta(t-t_0)$
+    \end{itemize}
+\end{sectionbox}
+
+\subsection{Sätze der Fouriertransformation}
+\begin{sectionbox}
+    \subsubsection{Grundlegende Sätze}
+    \renewcommand{\arraystretch}{1.6}
+    \setlength{\tabcolsep}{3pt}
+    \begin{tabularx}{\linewidth}{lll}
+        \fthead
+        \ftgroup{Zeitverschiebung (Laufzeit $\Rightarrow$ lineare Phase, $|X|$ bleibt gleich)}             \\
+        $x(t+a)$ & $X(f)\,e^{j2\pi a}$ & $X(\omega)\,e^{j\omega a}$                                     \\
+        \ftgroup{Frequenzverschiebung (komplexer Träger)}                                                  \\
+        $x(t)\,e^{j2\pi f_0t}$ & $X(f-f_0)$ & $X(\omega-\omega_0)$                                               \\
+        \ftgroup{Ähnlichkeitssatz (Streckung/Stauchung, $a\in\mathbb{R}\setminus\{0\}$)}                   \\
+        $x(at)$ & $\frac{1}{|a|}X\Big(\frac{f}{a}\Big)$ & $\frac{1}{|a|}X\Big(\frac{\omega}{a}\Big)$              \\
+        \ftgroup{Spiegelung an der $y$-Achse}                                                      \\
+        $x(-t)$ & $X(-f)$ & $X(-\omega)$                                                                         \\
+        \ftgroup{Faltungssatz}                                                                             \\
+        $x_1(t)*x_2(t)$ & $X_1(f)\,X_2(f)$ & $X_1(\omega)\,X_2(\omega)$                                          \\
+        \ftgroup{Multiplikationssatz (Faltung im Frequenzbereich)}                                         \\
+        $x_1(t)\,x_2(t)$ & $X_1(f)*X_2(f)$ & $\tfrac{1}{2\pi}X_1(\omega)*X_2(\omega)$
+    \end{tabularx}
+    \textbf{Modulation mit reellem Träger} (Spektrum wird nach $\pm f_0$ verschoben; mit $\omega$ analog, $f_0\to\omega_0$):
+    \begin{align*}
+        x(t)\cos(2\pi f_0t) & \;\FT\;\tfrac{1}{2}\big[X(f-f_0)+X(f+f_0)\big]  \\
+        x(t)\sin(2\pi f_0t) & \;\FT\;\tfrac{1}{2j}\big[X(f-f_0)-X(f+f_0)\big]
+    \end{align*}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Differentiation}
+    Im Zeitbereich (verstärkt hohe Frequenzen, Hochpass):
+    \begin{equation*}
+        \frac{\diff^n x(t)}{\diff t^n}\;\FT\;(j2\pi f)^n\,X(f)\quad\text{bzw.}\quad(j\omega)^n\,X(\omega)
+    \end{equation*}
+    Im Frequenzbereich:
+    \begin{equation*}
+        t^n\,x(t)\;\FT\;\Big(\frac{j}{2\pi}\Big)^n\frac{\diff^n X(f)}{\diff f^n}\quad\text{bzw.}\quad j^n\,\frac{\diff^n X(\omega)}{\diff\omega^n}
+    \end{equation*}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Integration}
+    Im Zeitbereich (dämpft hohe Frequenzen, Tiefpass):
+    \begin{align*}
+        \int_{-\infty}^{t}x(\tau)\diff\tau\;\FT\; & \frac{X(f)}{j2\pi f}+\frac{1}{2}X(0)\,\delta(f)                       \\
+                                                  & \text{bzw. }\;\frac{X(\omega)}{j\omega}+\pi X(0)\,\delta(\omega)
+    \end{align*}
+    Der Dirac-Termbeschreibt den Gleichanteil des Integrals; er entfällt, wenn $x(t)$ die Fläche $X(0)=0$ hat.\\
+    Im Frequenzbereich:
+    \begin{equation*}
+        \frac{x(0)}{2}\,\delta(t)+\frac{j\,x(t)}{2\pi t}\;\FT\;\int_{-\infty}^{f}X(\nu)\diff\nu=\frac{1}{2\pi}\int_{-\infty}^{\omega}X(\Omega)\diff\Omega
+    \end{equation*}
 \end{sectionbox}
 
 \begin{sectionbox}
     \subsubsection{Bekannte Fouriertransformationen}
+
+    \renewcommand{\arraystretch}{1.8}
+    \setlength{\tabcolsep}{3pt}
+    \begin{tabularx}{\linewidth}{lll}
+        \fthead
+        $\delta(t)$ & $1$ & $1$                                                                                               \\
+        $\delta(t+a)$ & $e^{j2\pi fa}$ & $e^{j\omega a}$                                                              \\
+        $A_0$ & $A_0\delta(f)$ & $2\pi A_0\delta(\omega)$                                                                            \\
+        $e^{j2\pi f_0t}$ & $\delta(f-f_0)$ & $2\pi\delta(\omega-\omega_0)$                                                  \\
+        $u(t)$ & $\frac{1}{2}\delta(f)+\frac{1}{j2\pi f}$ & $\pi\delta(\omega)+\frac{1}{j\omega}$                             \\
+    \end{tabularx}
+
+
     \textbf{Rechtecksimpuls} \\
     $X(\omega) = AT\sinc(\frac{\omega T}{2})$, Nullstellen bei $\omega = \frac{2\pi k}{T}$, Maximum bei $X(\omega = 0) = AT$ \\
 
     \textbf{Gaußimpuls} \\
     $x(t) = Ae^{-\pi \left(\frac{t}{\Delta t}\right)^2} \FT X(f) = A\Delta te^{-\pi\left(f\Delta t\right)^2}$ \\
-    Eigenschaften: 
+    Eigenschaften:
     \begin{itemize}
         \item Maximum bei $t=0$
         \item Bei $t=\pm \Delta t$ ist der Impuls auf $\approx 0.456$ des Maximums abgeklungen, bei $t=\pm 2\Delta t$ ist der Signalwert kleiner als $3.5A\cdot 10^{-6}$
     \end{itemize}
 
-    \textbf{Gleichsignal} $x(t) = A_0 \FT X(f) = A_0\delta(f)$ \\ $\rightarrow X(\omega) = 2\pi A_0\delta(\omega)$ \\
-
     \textbf{Sinussignal} \\
     $x(t) = A\sin(2\pi f_0 t) \FT X(f) = j\frac{A}{2}(\delta(f + f_0) - \delta(f - f_0))$ \\
     $x(t) = A\cos(2\pi f_0 t) \FT X(f) = \frac{A}{2}(\delta(f + f_0) + \delta(f - f_0))$ \\
-    
+
     \textbf{Akausale Sprungfunktion} \\
     Sprung von $-1V$ zu $1V \FT X(f) = \frac{1}{j\pi f}V$
 
     Unendlich hohe Energie von $x(t) \Longleftrightarrow$ unendlich hoher Dirac-Impuls von $X(f)$
 
-\end{sectionbox}
-
-\begin{sectionbox}
-    \subsubsection{Dirac-Distribution}
-    \begin{equation*}
-        \int_{-\infty}^\infty X(f)\delta(f - a)\diff f = X(f)
-    \end{equation*}
-    \begin{itemize}
-        \item $\delta(af) = \frac{1}{|a|}\delta(f)$
-        \item $[\delta(t)]=s^{-1} \qquad [\delta(f)]=Hz^{-1}$
-    \end{itemize}
 \end{sectionbox}
 
 
@@ -61,11 +144,15 @@
     \end{equation*}
 \end{sectionbox}
 
-\begin{sectionbox}
-    \subsubsection{Parsevalsche Theorem}
+% ---------------------------------------------------------------------
+\subsection{Energie und Bandbreite}
+% ---------------------------------------------------------------------
+\begin{emphbox}
+    \paragraph{Parseval'sches Theorem} (Energie eines Impulses) \\
     Energieäquivalenz zwischen Energieberechnung im Zeitbereich und Frequenzbereich
-    \begin{equation*}
-        E_x = \frac{1}{R}\int_{-\infty}^\infty |x(t)|^2 = \frac{1}{2\pi R}\int_{-\infty}^{\infty}|X(\omega)|^2\diff \omega
-    \end{equation*}
-    mit $\frac{1}{R}|X(f)|^2$: Energiedichtespektrum
-\end{sectionbox}
+    \begin{align*}
+        E_x & =\frac{1}{R}\int_{-\infty}^{\infty}|x(t)|^2\diff t=\frac{1}{R}\int_{-\infty}^{\infty}|X(f)|^2\diff f \\
+            & =\frac{1}{2\pi R}\int_{-\infty}^{\infty}|X(\omega)|^2\diff\omega
+    \end{align*}
+    $\frac{|X(f)|^2}{R}$ ist das Energiedichtespektrum in $\frac{\mathrm{J}}{\mathrm{Hz}}$
+\end{emphbox}
