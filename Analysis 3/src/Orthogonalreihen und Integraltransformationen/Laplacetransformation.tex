@@ -34,8 +34,23 @@
         \item $\mathcal L[u(t-a)f(t-a)](s)=e^{-as}\mathcal L[f](s) \; a>0, u$ Einheitssprung.
               $u(t-a)f(t-a)$ ist das um $a$ verzögert eingeschaltete Signal.
     \end{itemize}
+\end{sectionbox}
 
-    \subsubsection{Dualitätsprinzip}
+\subsection{Wichtige Laplacetransformationen}
+\begin{sectionbox}
+    \begin{tabularx}{\linewidth}{lcl}
+        $1$              & $\LT$ & $\frac{1}{s} \quad \Re{s} > 0$                   \\
+        $u(t) - u(t-a)$  & $\LT$ & $\frac{1}{s}-\frac{e^{-as}}{s} \quad \Re{s} > 0$ \\
+        $\sin(\omega t)$ & $\LT$ & $\frac{\omega}{s^2 + \omega^2} \quad \Re{s} > 0$ \\
+        $\cos(\omega t)$ & $\LT$ & $\frac{s}{s^2 + \omega^2} \quad \Re{s} > 0$      \\
+        $t^n$            & $\LT$ & $\frac{n!}{s^{n+1}} \quad \Re{s} > 0$            \\
+        $e^{at}$         & $\LT$ & $\frac{1}{s-a}$                                  \\
+        $e^{tA}$         & $\LT$ & $(sI-A)^{-1} \quad |s| > ||A||$
+    \end{tabularx}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Ableitung - Dualitätsprinzip}
     \begin{itemize}
         \item $m\in\mathbb N, f$ und $f^{(n)}, 1 \le n\le m-1$ stetig auf $[0,\infty)$ mit $\sigma_0\in\mathbb R$ und $f^{(m)}$ stückweise stetig.
               Dann gilt $\forall s\in\mathbb C$ mit $\Re{s} > \sigma_0$
@@ -50,16 +65,46 @@
               \begin{equation*}
                   \mathcal L[(-1)^mt^mf(t)](s) = \mathcal L[f]^{(m)}(s)
               \end{equation*}
+        \item $f: [0,\infty) \rightarrow \mathbb C$ stetig mit $\sigma_0\in\mathbb R$ und $f'$ stückweise stetig. Für $\Re{s} > \sigma_0$ gilt
+              \begin{equation*}
+                  f(0^+)=\lim_{\Re{s}\rightarrow\infty}s\mathcal L[f](s)
+              \end{equation*}
+              \begin{equation*}
+                  \lim_{t\rightarrow\infty}f(t) = \lim_{s\rightarrow 0}s\mathcal L[f](s)
+              \end{equation*}
+              falls $\lim_{t\rightarrow\infty}f(t)$ existiert.
     \end{itemize}
 \end{sectionbox}
 
 \begin{sectionbox}
-    \subsection{Wichtige Laplacetransformationen}
+    \subsubsection{Integration}
+    Sei $f$ stückweise stetig $\int_0^t f(\tau)\diff\tau$ höchstens exponentiell wachsend ($\sigma_0\in\mathbb R$). Dann gilt für $s\ne 0, \Re{s} > \sigma_0$
+    \begin{equation*}
+        \mathcal L\left[\int_0^t f(\tau)\diff \tau\right] = \frac{1}{s}\mathcal L[f](s)
+    \end{equation*}
+\end{sectionbox}
 
-    \begin{tabularx}{\linewidth}{lcl}
-        $1$              & $\LT$ & $\frac{1}{s} \quad \Re{s} > 0$                                                    \\
-        $u(t) - u(t-a)$  & $\LT$               & $\frac{1}{s}-\frac{e^{-as}}{s} \quad \Re{s} > 0$ \\
-        $\sin(\omega t)$ & $\LT$               & $\frac{\omega}{s^2 + \omega^2} \quad \Re{s} > 0$ \\
-        $\cos(\omega t)$ & $\LT$               & $\frac{s}{s^2 + \omega^2} \quad \Re{s} > 0$
-    \end{tabularx}
+\subsection{Anfangswertprobleme}
+\begin{sectionbox}
+    Das AWP \begin{equation*}
+        x'(t) = Ax(t) + b(t), \quad x(0) = x_0
+    \end{equation*}
+    hat die Lösung
+    \begin{equation*}
+        x(t)=e^{tA}x_0 + \int_0^t e^{(t-\tau)A}b(\tau)\diff\tau
+    \end{equation*}
+\end{sectionbox}
+
+\subsection{Matrixwerte Reihen}
+\begin{sectionbox}
+    \paragraph{Geometrische Reihe}
+    \begin{equation*}
+        \sum_{k=0}^\infty A^k = (I-A)^{-1} \quad A\in\mathbb C^{n\times n}
+    \end{equation*}
+    konvergiert gleichmäßig für jedes $A$ mit $||A||\le \sigma_0 < 1$
+
+    \paragraph{Exponentialreihe}
+    \begin{equation*}
+        \exp(A)=\sum_{k=0}^{\infty}\frac{A^k}{k!} \qquad \exp(A)^{-1} = \exp(-A)
+    \end{equation*}
 \end{sectionbox}
