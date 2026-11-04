@@ -44,10 +44,11 @@
 				Elektronenmasse           & $m_e = \SI{9,109 383e-31}{\kilogram}$                       \\
 				Protonenmasse             & $m_p = \SI{1,674 927e-27}{\kilogram}$                       \\
 				Neutronenmasse            & $m_n = \SI{1,672 622e-27}{\kilogram}$                       \\
+				Atomradius                & $a_0 = \SI{0,053e-9}{\meter}$                               \\
 				%Feinstruktur & $\alpha^{-1} = \num{137,035 999}$\\
 				\textsc{Boltzmann}-Konst. & $k_b = \SI{1.380 655e-23}{\joule\per\kelvin}$               \\
 				allg. Gaskonstante        & $R = k_b N_A= 8,3144 \frac{\text{J}}{\text{mol} \text{ K}}$ \\
-				Elektronenvolt            & $[eV]=[J] / |e|$
+				Elektronenvolt            & $\SI{1}{\electronvolt}=\frac{\SI{1}{\joule}}{|e|}$
 			\end{tabular}
 		}
 	}
@@ -73,7 +74,8 @@
 		\subsection{Materiewellen}
 		\subsubsection{Allgemeine Wellenfunktion $\Psi(\vec{r},t) = C e^{i(\vec{k}\vec{r} - \omega t)}$}
 		Im eindimensionalen Fall:
-		$\Psi(x,t) = C e^{i(kx-\omega t)}$
+		$\Psi(x,t) = C e^{i(kx-\omega t)}$ \\
+		beschränkt, stetig, stetig differenzierbar
 
 		\tablebox{
 			\begin{tabular*}{\columnwidth}{@{\extracolsep\fill}ll@{}}
@@ -104,7 +106,7 @@
 	\sectionbox{
 		\subsection{Die Schrödingergleichung}
 		Beschreibt die Dynamik der quantenmech. Zustände eines Systems.
-		\subsubsection*{Allgemeine Schrödingergleichung:}
+		\subsubsection*{Allgemeine Schrödingergleichung}
 		$E = E_{\ir kin} + V_{\ir pot} = \frac{p^2}{2m} + V$ \qquad mit $p = i \hbar \nabla \Psi$ \\
 		\emphbox{
 			\begin{equation*}
@@ -112,7 +114,7 @@
 			\end{equation*}
 		}
 
-		\subsubsection*{Zeitunabhängige Schrödingergleichung:}
+		\subsubsection*{Zeitunabhängige Schrödingergleichung}
 		\emphbox{
 			\begin{equation*}
 				E\varphi(\vec r) = - \frac{\hbar^2}{2m} \Delta \varphi (\vec r) + V(\vec r)\varphi(\vec r)
@@ -124,7 +126,7 @@
 		% Falls E > V: \Psi = e^{i k \omega t} (Oszillierende E-Funktion) 
 		% Falls E < V: \Psi = e^{\alpha + i \beta} (Abklingende E-Funktion) 
 		% Klausur: Unendlicher Potentialtopf $E = $
-		\paragraph{Normierungsbedingung:}
+		\paragraph{Normierungsbedingung}
 		$\int\limits_{\text{Volumen}}^{}{\Psi^* \Psi \diff r'} = 1$ \qquad $\Ra C_i = \sqrt{\frac{2}{L_i}}$
 		\\
 
@@ -191,9 +193,29 @@
 		\boxed{ E_n = \frac{\hbar^2}{2m} k_n^2 = \frac{h^2 n^2}{8 m L^2} = E_1 n^2 } \quad \boxed{k_n = \frac{n \pi}{L} }
 		\boxed{ E_{nml} = \frac{\hbar^2(k_x^2+k_y^2+k_z^2)}{2m} = \frac{\hbar^2\pi^2}{2ma^2}(n^2+m^2+l^2) }
 
-		TODO: Wasserstoffatom Energieniveaus
 	}
-	% Endlicher Potentialtopf: $k^2 = \frac{2m(E - V)}{\hbar^2}$
+
+	\sectionbox{
+		\subsection{Endliche Potentialtopf und Potentialbarriere}
+		\paragraph{klassisch erlaubtes Gebiet} Energie des Teilchens größer als das Potential: $E>V(x)$.
+		Für konstantes Potential $V_0$ gilt die Schwingungslösung
+		\begin{center}
+			\boxed{\varphi(x) = Ae^{ikx} + Be^{-ikx} \quad k=\frac{\sqrt{2m(E-V_0)}}{\hbar}}
+		\end{center}
+		\paragraph{klassisch verbotenes Gebiet} Energie des Teilchens kleiner als das Potential: $E<V(x)$.
+		Für konstantes Potential $V_0$ gilt die exponentiell abklingende Lösung
+		\begin{center}
+			\boxed{\varphi(x) = Ae^{\kappa x} + Be^{-\kappa x} \quad \kappa=\frac{\sqrt{2m(V_0-E)}}{\hbar}}
+		\end{center}
+	}
+
+	\sectionbox{
+		\subsection{Energieeigenwerte wasserstoffähnlicher Atome}
+		Atome mit nur einem Elektron und $Z$ Protonen
+		\begin{center}
+			\boxed{E_n=-\frac{m_0Z^2e^4}{2(4\pi\epsilon_0\hbar)^2}\frac{1}{n^2}=-\SI{13,6}{\electronvolt}\frac{1}{n^2}}
+		\end{center}
+	}
 
 
 
@@ -287,15 +309,15 @@
 				Hauptquantenzahl &
 				$n = 1, 2, \ldots (= $ K, L, \ldots - Schale $)$ \\
 				Nebenquantenzahl &
-				$l = 0, \ldots, n-1$ (= s,p,d,f - Zuständen)\\
+				$l \in [0,n-1]$ (= s,p,d,f - Zuständen)\\
 				Magnetische Quantenzahl &
-				$m = -l, -l +1, \ldots, l -1 , l$\\
+				$m \in [-l,l]$\\
 				Spinquantenzahl &
 				$s = \pm \frac{1}{2}$ \\
 				\ctrule
 			\end{tabular*}
 		}
-		Zu jedem Wert n gehören $n^2$ Zustände durch Variation von $l$ und $m$. Außerdem ist jeweils ein Spin $s = \pm \frac 1 2$ möglich.\\
+		Zu jedem Wert n gehören $n^2$ Zustände durch Variation von $l$ und $m$. Außerdem ist jeweils ein Spin $s = \pm \frac 1 2$ möglich $\Rightarrow 2n^2$ Zustände. \\
 		\textbf{Entartungsgrad:} Kombination der QZ mit gleicher Energie: $2 n^2$
 	}
 
@@ -305,8 +327,6 @@
 		\subsection{Atome - Hundsche Regeln}
 		Legen fest, nach welchem Schema jedes einzelne Orbital eines Atoms mit Elektronen besetzt wird.
 		\begin{enumerate}
-			\item Die Spins werden möglichst parallel ausgerichtet: $\abs{\sum s_i} = \max$
-			\item Gesamtdrehinmpuls $\abs{L} = \abs{\sum m_i} = \max$
 			\item Falls die Schale weniger als halbvoll ist:
 			      \begin{itemize}
 				      \item Bahndrehimpuls und Spin antiparallel
@@ -319,19 +339,11 @@
 			      \end{itemize}
 		\end{enumerate}
 		Merke: Volle Schalen liefern keinen Beitrag zu $S$, $L$ und $J$
-		\paragraph{Pauli-Prinzip:}
-		Alle Elektronen unterscheiden sich in mindestens einer Quantenzahl
+		\paragraph{Bahndrehimpuls} $|\vec L| = \sqrt{l(l+1)}\hbar \quad l_z=m\hbar$
+		\paragraph{Pauli-Prinzip} Alle Elektronen unterscheiden sich in mindestens einer Quantenzahl
 		\begin{center}
 			\includegraphics[width = 2cm]{./img/klechkovski.pdf}
 		\end{center}
-		{ \fboxsep0.2em
-			\begin{tabular}{c|ccc}
-				${}_{\color{red}\displaystyle \boldsymbol{n}}\!{\LARGE \diagdown}\!{}^{\color{blue}\displaystyle \boldsymbol{l}}$ & \color{blue}$0 =\textbf{s}$ & \color{blue}$1 = \textbf{p}$                                                      & \color{blue}$2 = \textbf{d}$                                                                                                            \\ \mrule
-				                                                                                                                  & $m = 0$                     & $m=-1,0,1$                                                                        & $m=-2,-1,0,1,2$                                                                                                                         \\
-				\color{red}1:K                                                                                                    & \fbox{$\uparrow\downarrow$} &                                                                                                                                                                                                                             \\[0.2em]
-				\color{red}2:L                                                                                                    & \fbox{$\uparrow\downarrow$} & \fbox{$\uparrow\downarrow$}\fbox{$\uparrow\downarrow$}\fbox{$\uparrow\downarrow$}                                                                                                                                           \\[0.2em]
-				\color{red}3:M                                                                                                    & \fbox{$\uparrow\downarrow$} & \fbox{$\uparrow\downarrow$}\fbox{$\uparrow\downarrow$}\fbox{$\uparrow\downarrow$} & \fbox{$\uparrow\downarrow$}\fbox{$\uparrow\downarrow$}\fbox{$\uparrow\downarrow$}\fbox{$\uparrow\downarrow$}\fbox{$\uparrow\downarrow$} \\
-			\end{tabular} }
 	}
 
 	% SECTION ====================================================================================
@@ -362,6 +374,7 @@
 		\begin{tabular*}{\columnwidth}{@{\extracolsep\fill}lll@{}}
 			$\underset{\text{simple cubic}}{\text{\large SC/PK}}$ & $\underset{\text{body-centered cubic}}{\text{\large BCC/KRZ}}$ & $\underset{\text{face-centered cubic}}{\text{\large FCC/KFZ (dichteste)}}$\\ \mrule
 			\includegraphics[width = 1.6cm]{./img/sc.pdf} & \includegraphics[width = 1.6cm]{./img/bcc.pdf} & \includegraphics[width = 1.6cm]{./img/fcc.pdf}\\
+			$N=\frac{1}{8}8=1$ & $\frac{1}{8}8 + 1=2$ & $N=\frac{1}{8}8+\frac{1}{2}6=4$ \\
 			$P = \frac{\pi}{6} \approx 0.52$ & $P = \frac{\sqrt{3}\pi}{8} \approx 0.68$ & $P = \frac{\sqrt{2}\pi}{6} \approx 0.74$\\[0.5em]
 			$r_{\ir A} = \frac{\sqrt{4}}{4} a_0$ & $r_{\ir A} = \frac{\sqrt{3}}{4} a_0$ & $r_{\ir A} = \frac{\sqrt{2}}{4} a_0$\\[0.5em]
 			KZ $=6$ & KZ $=8$ & KZ $=12$\\
@@ -372,7 +385,10 @@
 			KZ $=6,12$ & KZ $=4$ & KZ $=4$\\ \\
 		\end{tabular*}
 		KZ: \textbf{K}oordinations\textbf{z}ahl (Zahl der nächsten Nachbarn)\\
-		Polymorphie: Ein Stoff hat mehrere Kristallgitterstrukturen.\\
+		$N$: Atome pro Zelle unter Berücksichtigung geteilter Atome \\
+		$r_A$: Radius des Abstandes der Atome \\
+		$P$: Packungsdichte
+		\paragraph{Polymorphie} Ein Stoff hat mehrere Kristallgitterstrukturen.\\
 	}
 
 	\sectionbox{
