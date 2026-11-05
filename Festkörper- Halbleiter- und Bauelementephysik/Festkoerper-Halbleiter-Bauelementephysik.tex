@@ -269,10 +269,7 @@
 		Sonderfall der kovalenten Bindung, bei der die Valenz-Elektronen nicht lokalisiert sind.
 		\begin{itemize}
 			\item Vorwiegend Elemente mit nur wenigen Außenelektronen
-			\item freie Elektronen $\ra $ hohe elektrische Leitfähigkeit, hohe Wärmeleitfähigkeit
 			\item Bindung nicht gerichtet $\rightarrow$ hohe Packungsdichte
-			\item Bindungen mit gleich- und ungleichartigen Metallen eingegangen werden
-			\item Metallische Bindung ist schwächer als die ionische oder kovalente Bindung
 			\item Bindungsstärke hängt von der Zahl der Leitungselektronen ab
 		\end{itemize}
 
@@ -286,19 +283,13 @@
 		\begin{itemize}
 			\item Atome/Moleküle haben kein permanentes Dipolmoment
 			\item Bindung zwischen Dipolen durch statistische Fluktuationen der Ladungsschwerpunkte.
-			\item Sehr schwache Bindung
 		\end{itemize}
 		\subsubsection{Wasserstoffbrückenbindung}
 		\underline{Vorraussetzung:} Äußere Schale $>$ vier Elektronen, zwischen 2 Atomen.
 		\begin{itemize}
-			\item Bindungen über Wasserstoffbrücken der Form A-H-A
-			\item Das H-Atom geht eine kovalente Bindung mit Atom der Sorte A ein und gibt sein Elektron ab. Das Proton bleibt fest an Reaktionspartner gebunden und bindet nun zusätzlich das andere negative Atom
 			\item Bindungsenergie ist gering $(\SI{0,1}{\electronvolt})$
 		\end{itemize}
 	}
-
-
-
 
 
 	\sectionbox{
@@ -519,6 +510,102 @@
 
 	\textbf{Piezoelektrizität}: Mechanische Verformung erzeugt elektrische Spannung in Kristallen.\\
 
+
+	% SECTION ====================================================================================	
+	\section{Magnetische Eigenschaften}
+	% ============================================================================================
+	\symbolbox{
+		\begin{tabular*}{\columnwidth}{@{}lll@{}}
+			Magnetische Flussdichte & $\vec B$ &  $[\si{\tesla}=\si{\volt\second\per\meter\squared}]$ \\
+			Magnetische Feldstärke &  $\vec H = \vec M$ & $[\si{\ampere\per\meter}]$\\
+			Bahndrehimpuls  & $\vec L$ & $[\si{\volt\ampere\second\squared}]$ \\
+			Magnetisches Moment & $\vec m$ & $[ \si{\ampere\meter\squared}]$\\
+			magn. Quantenzahl &$m$ od. $M$ \\
+			Spinquantenzahl &$S$ \\
+			gyromagnetisches Verhältnis & $g$ \\
+			Gesamtdrehimpuls &$\vec J$ & $[\si{\tesla}=\si{\volt\second\per\meter\squared}]$ \\
+			Magnetische Suszepitbilität & $\chi^m$
+		\end{tabular*}
+	}
+	\emphbox{
+		Bohrsches Magneton: $\mu_{\ir B} = \frac{e \hbar}{2 m_{\ir e}} = \SI{9.274e-24}{\ampere\meter\squared}$
+	}
+
+	\sectionbox{
+		\tablebox{
+			\begin{tabular*}{\columnwidth}{@{}lll@{}}
+				\ctrule
+				& Dielektrika & Magnetika\\
+				\cmrule
+				Polarisation & $\vec P = \varepsilon_0 \chi \vec E_{\ir netto}$ & $\vec J = \mu_0 \vec M$\\
+				Flussdichte &$\vec D = \varepsilon_0 \vec E_{\ir netto} + \vec P$ & $\vec B = \mu_0 \vec H + \vec J$\\
+				\cbrule
+			\end{tabular*}
+		}
+
+		\vspace{10pt}
+
+		Gesamtdrehimpuls $J = L + S$
+
+		permanentes mag. Dipolmoment $M_z = g (- \mu_B ) J$
+
+		Magnetische Suszeptibilität $\chi^m = \mu_r - 1 = \frac{1}{\mu_0} \frac{J}{H} = \frac{M}{H}$
+
+		Magnetische Flussdichte $\vec B = \mu_r \mu_0 \vec H = \mu_0 \vec H + \vec J = \mu_0(\vec H + \vec M)$
+	}
+
+	\sectionbox{
+		\subsection*{Elementare Dipole:}
+		Mechanischer Drehimpuls $\vec L = \vec r \times m_0 \vec v = m_0 r^2 \vec \omega$\\
+		Magnetisches Moment $\vec m = I \vec A = -\frac{1}{2} e r^2 \vec \omega = - \frac{e}{2m_0} \vec L$\\
+		g-Faktor:  $g = 1+ \frac{J(J+1) + S(S+1) - L(L+1)}{2J(J+1)}$\\
+		Spezial: $S=0 \Ra g=1$ (unreal) \qquad $L=0 \Ra g=2$
+	}
+
+	\sectionbox{
+		\subsection*{Diamagnetismus ($\mu_{\ir r} < 1$)}
+		Wirkung der Lorentzkraft. Immer aktiv, wird aber von Para- und Ferromag. überlagert. Temperatur\textbf{un}abhängig.\\
+		$\chi_{\ir dia}^{\ir m} = \frac{\vec M}{\vec H} = - \frac{NZ^* e^2 \ol{r^2} \mu_0}{6m_{\ir e}}$ \qquad $\vec M = N\cdot\vec m$ \\
+		$\vec m_{\ir dia} = -\frac{e}{2m_{\ir e}}\vec L_{\ir dia} = -\frac{e^2r^2}{4m_{\ir e}}\mu_0 \vec H$
+	}
+
+	\sectionbox{
+		\subsection*{Paramagnetismus ($\mu_{\ir r} > 1$)}
+		Material besitzt magnetische Dipolmomente. (Unvollständige Elektronenschalen $\Rightarrow J\ne 0$)\\
+		Orientierungsstatistische Verteilung durch Temperatur\\
+		Curiesches Gesetz: $\chi_{\ir para}^{\ir m} = \frac{N \mu_0 g^2 J(J+1)\mu_{\ir B}^2}{3 k_{\ir B} T}$
+	}
+	\sectionbox{
+
+		\subsection*{Paramagnetismus der Leitungselektronen ($\mu_{\ir r} \gg 1$)}
+		(TODO) praktisch temperaturabhängig\\
+		\parbox{2.2cm}{ $\chi_{\ir para,le}^{\ir m} = \frac{3}{2} \frac{n\mu_0\mu_{\ir B}^2}{k_{\ir B} T_{\ir F}}$
+
+			$\chi_{\ir dia,le}^{\ir m} = - \frac{1}{3} \chi_{\ir para,le}^{\ir m}$} $\Bigg\} \chi_{\ir le}^{\ir m} = \chi_{\ir para,le}^{\ir m} + \chi_{\ir dia,le}^{\ir m} = \frac{n\mu_0\mu_{\ir B}^2}{k_{\ir B} T_{\ir F}}$
+
+		(mit $n = \frac{\text{freie } e}{V{\ir ez}}$)
+	}
+
+	\sectionbox{
+		\subsection*{Ferromagnetismus ($\mu_r \gg 1$) $\uparrow\uparrow\uparrow\uparrow$}
+		Ausrichtung der elementaren Dipolmomente im Gitter. Wirkung nur bis Curie-Temp. \\ $E_A = -\mu_0 \int_{V_{Ww}} \vec H_G \vec H_A \diff V$
+
+		Curie-Weiss-Gesetz: $\chi^{\ir m} = \frac{C}{T - \Theta}$ mit $\Theta = \frac{E_{\ir F}}{k_{\ir b}} = \frac{\mu_0\mu}{B_a}$
+
+		Hystereseverluste $w_v = \oint B \diff H$
+	}
+	\sectionbox{
+		\subsection*{Antimagnetismus $\uparrow\downarrow\uparrow\downarrow\uparrow\downarrow$}
+		gekoppelte, antiparallele Ausrichtung, keine Magnetisierung.
+	}
+	\sectionbox{
+		\subsection*{Ferrimagnetismus $\Uparrow\downarrow\Uparrow\downarrow\Uparrow\downarrow$}
+		hohe Magnetisierung, aber schlechter Leiter. \\
+		$\vec m = I A$ ist antiparallel zu $\vec L$
+	}
+	TODO: Domänen, Ferromagnetismus genauer, Hysterese
+
+
 	% SECTION ====================================================================================
 	\section{Thermoelektrische Effekte}
 	%=============================================================================================
@@ -663,7 +750,6 @@
 	}
 
 
-
 	% SECTION ====================================================================================	
 	\section{Dielektrische Eigenschaften}
 	% ============================================================================================
@@ -700,98 +786,6 @@
 		statisch: $p_0=np\overline{\cos\Theta} \approx np \frac{p\varepsilon}{3k_BT}$
 	}
 
-	% SECTION ====================================================================================	
-	\section{Magnetische Eigenschaften}
-	% ============================================================================================
-	\symbolbox{
-		\begin{tabular*}{\columnwidth}{@{}lll@{}}
-			Magnetische Flussdichte & $\vec B$ &  $[\si{\tesla}=\si{\volt\second\per\meter\squared}]$ \\
-			Magnetische Feldstärke &  $\vec H = \vec M$ & $[\si{\ampere\per\meter}]$\\
-			Bahndrehimpuls  & $\vec L$ & $[\si{\volt\ampere\second\squared}]$ \\
-			Magnetisches Moment & $\vec m$ & $[ \si{\ampere\meter\squared}]$\\
-			magn. Quantenzahl &$m$ od. $M$ \\
-			Spinquantenzahl &$S$ \\
-			gyromagnetisches Verhältnis & $g$ \\
-			Gesamtdrehimpuls &$\vec J$ & $[\si{\tesla}=\si{\volt\second\per\meter\squared}]$ \\
-			Magnetische Suszepitbilität & $\chi^m$
-		\end{tabular*}
-	}
-	\emphbox{
-		Bohrsches Magneton: $\mu_{\ir B} = \frac{e \hbar}{2 m_{\ir e}} = \SI{9.274e-24}{\ampere\meter\squared}$
-	}
-
-	\sectionbox{
-		\tablebox{
-			\begin{tabular*}{\columnwidth}{@{}lll@{}}
-				\ctrule
-				& Dielektrika & Magnetika\\
-				\cmrule
-				Polarisation & $\vec P = \varepsilon_0 \chi \vec E_{\ir netto}$ & $\vec J = \mu_0 \vec M$\\
-				Flussdichte &$\vec D = \varepsilon_0 \vec E_{\ir netto} + \vec P$ & $\vec B = \mu_0 \vec H + \vec J$\\
-				\cbrule
-			\end{tabular*}
-		}
-
-		\vspace{10pt}
-
-		Gesamtdrehimpuls $J = L + S$
-
-		permanentes mag. Dipolmoment $M_z = g (- \mu_B ) J$
-
-		Magnetische Suszeptibilität $\chi^m = \mu_r - 1 = \frac{1}{\mu_0} \frac{J}{H} = \frac{M}{H}$
-
-		Magnetische Flussdichte $\vec B = \mu_r \mu_0 \vec H = \mu_0 \vec H + \vec J = \mu_0(\vec H + \vec M)$
-	}
-
-	\sectionbox{
-		\subsection*{Elementare Dipole:}
-		Mechanischer Drehimpuls $\vec L = \vec r \times m_0 \vec v = m_0 r^2 \vec \omega$\\
-		Magnetisches Moment $\vec m = I \vec A = -\frac{1}{2} e r^2 \vec \omega = - \frac{e}{2m_0} \vec L$\\
-		g-Faktor:  $g = 1+ \frac{J(J+1) + S(S+1) - L(L+1)}{2J(J+1)}$\\
-		Spezial: $S=0 \Ra g=1$ (unreal) \qquad $L=0 \Ra g=2$
-	}
-
-	\sectionbox{
-		\subsection*{Diamagnetismus ($\mu_{\ir r} < 1$)}
-		Wirkung der Lorentzkraft. Immer aktiv, wird aber von Para- und Ferromag. überlagert. Temperatur\textbf{un}abhängig.\\
-		$\chi_{\ir dia}^{\ir m} = \frac{\vec M}{\vec H} = - \frac{NZ^* e^2 \ol{r^2} \mu_0}{6m_{\ir e}}$ \qquad $\vec M = N\cdot\vec m$
-	}
-
-	\sectionbox{
-		\subsection*{Paramagnetismus ($\mu_{\ir r} > 1$)}
-		Material besitzt magnetische Dipolmomente. (Unvollständige Elektronenschalen)\\
-		Orientierungsstatistische Verteilung durch Temperatur\\
-		Curiesches Gesetz: $\chi_{\ir para}^{\ir m} = \frac{N \mu_0 g^2 J(J+1)\mu_{\ir B}^2}{3 k_{\ir B} T}$
-	}
-	\sectionbox{
-
-		\subsection*{Leitungselektronen ($\mu_{\ir r} \gg 1$)}
-		praktisch temperaturabhängig\\
-		\parbox{2.2cm}{ $\chi_{\ir para,le}^{\ir m} = \frac{3}{2} \frac{n\mu_0\mu_{\ir B}^2}{k_{\ir B} T_{\ir F}}$
-
-			$\chi_{\ir dia,le}^{\ir m} = - \frac{1}{3} \chi_{\ir para,le}^{\ir m}$} $\Bigg\} \chi_{\ir le}^{\ir m} = \chi_{\ir para,le}^{\ir m} + \chi_{\ir dia,le}^{\ir m} = \frac{n\mu_0\mu_{\ir B}^2}{k_{\ir B} T_{\ir F}}$
-
-		(mit $n = \frac{\text{freie } e}{V{\ir ez}}$)
-	}
-
-	\sectionbox{
-		\subsection*{Ferromagnetismus ($\mu_r \gg 1$) $\uparrow\uparrow\uparrow\uparrow$}
-		Ausrichtung der elementaren Dipolmomente im Gitter. Wirkung nur bis Curie-Temp. \\ $E_A = -\mu_0 \int_{V_{Ww}} \vec H_G \vec H_A \diff V$
-
-		Curie-Weiss-Gesetz: $\chi^{\ir m} = \frac{C}{T - \Theta}$ mit $\Theta = \frac{E_{\ir F}}{k_{\ir b}} = \frac{\mu_0\mu}{B_a}$
-
-		Hystereseverluste $w_v = \oint B \diff H$
-	}
-	\sectionbox{
-		\subsection*{Antimagnetismus $\uparrow\downarrow\uparrow\downarrow\uparrow\downarrow$}
-		gekoppelte, antiparallele Ausrichtung, keine Magnetisierung.
-	}
-	\sectionbox{
-		\subsection*{Ferrimagnetismus $\Uparrow\downarrow\Uparrow\downarrow\Uparrow\downarrow$}
-		In eine Richtung stärkere Magnetisierung (größerer Teil der magnet. Momente richtet sich nach z.B. oben aus, kleinerer Teil nach unten)\\ hohe Magnetisierung, aber schlechter Leiter.
-
-		$\vec m = I A$ ist antiparallel zu $\vec L$
-	}
 
 	\section{pn-Übergang}
 	%TODO Bild Kap 10 Folie 8

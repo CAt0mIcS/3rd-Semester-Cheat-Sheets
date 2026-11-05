@@ -28,7 +28,7 @@ $X:\Omega\rightarrow \mathbb N$ (oder $\mathbb Z, ...$)
     \subsubsection{Probability Mass Function (PMF/WMF)}
     Wahrscheinlichkeit eines Ergebnisses $z$
     \begin{equation*}
-        P_X^{(z)}=P(\{X = z\})
+        P_X(z)=P(\{X = z\})
     \end{equation*}
 \end{sectionbox}
 
@@ -63,4 +63,59 @@ $X:\Omega\rightarrow \mathbb N$ (oder $\mathbb Z, ...$)
         \int_a^bf_X(x)\diff x = F_X(b) - F_X(a) = P(\{a < X \le b\})
     \end{equation*}
 
+\end{sectionbox}
+
+\subsection{Mischverteilungen}
+Problem z.B.: Diskretes Ereignis für $t = 0$ und stetige Ereignisse für $t > 0$. \\
+\begin{sectionbox}
+    z.B.: Wahrscheinlichkeit, dass Gerät bei Zeit $T=t$ kaputt geht.
+    \begin{description}
+        \item[Fall 1] $P(\{T=0\}) = p_0$ für defekt beim Einschalten, diskret (es wurde vor dem Einschalten schon kaputt)
+        \item[Fall 2] Exponentielle Dichteverteilung für die Lebenszeit, vorausgesetzt das Einschalten wurde überlebt (bedingte Wahrscheinlichkeit), stetig: $f_T(t) = \lambda e^{-\lambda t} \; t \ge 0$
+    \end{description}
+
+    \begin{equation*}
+        F_T(t) = \begin{cases}
+            0 & t < 0 \\
+            p_0 & t = 0 \\
+            p_0 + (1-p_0)P(\{0 < T \le t\}) & t > 0
+        \end{cases}
+    \end{equation*}
+    mit \begin{equation*}
+        P(\{0 < T \le t\}) = \int_0^t f_T(\tau)\diff\tau
+    \end{equation*}
+\end{sectionbox}
+
+
+\subsection{Mehrdimensionale Zufallsvariablen}
+\begin{emphbox}
+    \begin{equation*}
+        F_{X_1X_2}(x_1, x_2) = P(\{X_1 \le x_1\}, \{X_2 \le x_2\})
+    \end{equation*}
+\end{emphbox}
+\begin{sectionbox}
+    \subsubsection{Stetige PDF}
+    \begin{emphbox}
+        \begin{equation*}
+            f_{X_1X_2}(x_1,x_2)=\partial_{x_1}\partial_{x_2}\left(F_{X_1X_2}(x_1, x_2)\right)
+        \end{equation*}
+        $\Updownarrow$
+        \begin{equation*}
+            F_{X_1X_2}(x_1,x_2) = \int_{-\infty}^{x_1}\int_{-\infty}^{x_2}f_{X_1X_2}(\tau_1, \tau_2)\diff\tau_1\diff\tau_2
+        \end{equation*}
+    \end{emphbox}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Marginalisierung}
+    Einschränkung auf eine Zufallsvariable. Idee: \\
+    \begin{equation*}
+        \lim_{x_2\rightarrow\infty}F_{X_1X_2}(x_1, x_2) = P(\{X_1 \le x_1\})=F_{X_1}(x_1), \; x_2 \text{ bel.}
+    \end{equation*}
+
+    \begin{emphbox}
+        \begin{equation*}
+            f_{X_1}(x_1) = \int_{-\infty}^\infty f_{X_1X_2}(x_1,x_2)\diff x_2
+        \end{equation*}
+    \end{emphbox}
 \end{sectionbox}
