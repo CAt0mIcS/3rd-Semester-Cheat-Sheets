@@ -1,7 +1,6 @@
 build/
 
 ## Core latex/pdflatex auxiliary files:
-*Bauelementephysik.pdf
 *.aux
 *.lof
 *.log
