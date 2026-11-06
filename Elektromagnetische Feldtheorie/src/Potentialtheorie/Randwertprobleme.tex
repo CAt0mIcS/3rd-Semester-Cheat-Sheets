@@ -1,34 +1,50 @@
 \subsection{Randwertprobleme der Potentialtheorie}
-Homogenes Randwertproblem: Beide Grenzen haben Potential 0.\\
-Zu lösen ist die \textsc{Poisson}-Gleichung $\div(\varepsilon \nabla \Phi) = -\rho$ auf $\interior \Omega$:\\
-\begin{tabular*}{\columnwidth}{@{\extracolsep\fill}llll@{}}
-    Nr. & RWP & Randbedingungen auf $\partial \Omega$ & Lösung\\
-    1. & Dirichlet & $\Phi\big|_{\partial\Omega} = \Phi_D$ & eindeutig $\Phi \in \mathcal C^2$\\[0.5em]
-    2. & Neumann & $\frac{\partial \Phi}{\partial \vec n}\Big|_{\partial\Omega} = F_N$ & eindeutig $(\Phi + C) \in \mathcal C^2$\\[0.5em]
-    3. & Gemischt & $\left( \Phi + k \frac{\partial \Phi}{\partial \vec n}\right)\Big|_{\partial\Omega} = F_N$ & eindeutig $\Phi \in \mathcal C^2$\\
-\end{tabular*}
-Mit Richtungsableitung $\frac{\partial \Phi}{\partial \vec n}\big|_{1/2} = \lim\limits_{\vec r - \vec r_0 \ra 0} \vec n(\vec r_0)  \nabla\Phi(\vec r)$ \quad $\vec r \in \Omega_{1/2}$\\
-\\
-Lösungsansatz: $\Phi = \Phi^{(0)} + \varphi$\\
-$\Phi^{(0)}:$ erfüllt hom. DGL und inhom. RB\\
-$\varphi:$ erfüllt inhom. DGL und hom. RB\\
-\\
-In den meisten Elektrostatischen Problemen gilt $\rho = 0$, da sich die Ladung nur auf den Grenzflächen von Leitern befindet und nicht im Gebiet $\Omega$ in dem die Lösung von $\Phi$ gesucht wird.\\
-In der Praxis sind die meisten RWPs gemischt, wie Leiterkontakte oder Wärmeleitung\\
+\begin{sectionbox}
+      \paragraph{Homogenes Randwertproblem} Beide Grenzen haben Potential 0.
+      Zu lösen ist die \textsc{Poisson}-Gleichung $\div(\varepsilon \nabla \Phi) = -\rho$ auf $\interior \Omega$:\\
 
-Mehrelektroden-Kondensator Q-RWP:\\
-$\div(\varepsilon \nabla \Phi) = 0$ in $\interior \Omega$ und $\int_{\partial \Omega_l} \varepsilon \frac{\partial \Phi}{\partial \vec n} \diff \vec a = Q_l$ und  besitz bis auf eine additive Konstante eine eindeutige Lösung
+      \subsubsection{Dirichlet Randwertproblem}
+      \paragraph{Voraussetzung} vorgegebenes Potential $\Phi_D$ auf dem Rand $\partial\Omega$
+      \begin{center}
+            \boxed{\div(\epsilon\nabla\Phi)=-\rho \text{ auf } \Omega \text{ und } \Phi(\vec r)\overset{!}{=}\Phi_D(\vec r), \; \vec r \in \partial\Omega}
+            \paragraph{Lösung} eindeutiges $\Phi \in \mathcal C^2$
+      \end{center}
+
+      \vspace{2mm}
+      \subsubsection{Neumann Randwertproblem}
+      \paragraph{Voraussetzungen} \begin{itemize}
+            \item Die Normalableitung der Lösung nimmt einen vorgegebenen Wert $F_N(\vec r)$ an (vorgegebene Oberflächenladungsdichte $\sigma(\vec r) = -\vec D(\vec r)\cdot \vec n(\vec r) = \epsilon\partial_{\vec n}\Phi(\vec r), \; \vec r \in \partial\Omega$)
+            \item $\iint_{\partial\Omega}\epsilon F_N\diff a \overset{!}{=} -\iiint_{\Omega}\rho\div V$ (Oberflächenladung kompensiert eingeschlossene Ladung, sodass $\Omega$ nach außen elektr. neutral (gesamte Feldenergie in $\interior\Omega$))
+      \end{itemize}
+      \begin{center}
+            \boxed{\div(\epsilon\nabla\Phi)=-\rho \text{ auf } \Omega \text{ und } \left.\frac{\partial\Phi}{\partial \vec n}\right|_{\partial\Omega}=F_N}
+            \paragraph{Lösung} bis auf eine Konstante eindeutiges $(\Phi + c) \in \mathcal C^2$
+      \end{center}
+
+      \paragraph{Mehrelektroden-Kondensator RWP}
+      $\div(\varepsilon \nabla \Phi) = 0$ in $\interior \Omega$ und $\int_{\partial \Omega_l} \varepsilon \frac{\partial \Phi}{\partial \vec n} \diff \vec a = Q_l$, besitzt bis auf eine additive Konstante eine eindeutige Lösung
+
+      \vspace{2mm}
+      \subsubsection{Gemischtes Randwertproblem}
+      \paragraph{Voraussetzungen} \begin{itemize}
+            \item Der Wert von $F$ ist vorgegeben
+            \item Es gilt $\sigma > 0, h\ge 0$
+      \end{itemize}
+      \begin{center}
+            \boxed{\div(\sigma\nabla\Phi) = -\Pi \text{ auf } \Omega \text{ und } \left.h\Phi + \frac{\partial\Phi}{\partial\vec n}\right|_{\partial\Omega} = F, \; \vec r\in\partial\Omega}
+      \end{center}
+\end{sectionbox}
 
 \subsubsection{Spektralzerlegung}
 Lösungsverfahren:\\
 \begin{enumerate}
-    \item Ansatz: $\Phi = \Phi^{(0)} + \varphi$\\
-          Finde hinreichend glatte Funktion $\Phi^{(0)}$ welche inhomogene Randgleichungen erfüllt
-    \item Finde Eigenfunktionen von $\varphi$: $f=-\div(\varepsilon \nabla \vec b_\nu) = \lambda_\nu \vec b_\nu$\\
-          Es gilt $\lambda_\nu > 0$.
-    \item Ansatz $\varphi(\vec r) = \sum_{\nu = 1}^\infty \alpha_\nu b_\nu(\vec r)$\\
-          Bestimmung der Entwicklungskoeffizienten: $a_\nu = \frac{<b_\nu|f>}{\lambda_\nu} = \frac{1}{\lambda_\nu}\int_\Omega b_\nu * f dv$\\
-    \item Spektraldarstellung: $G(\vec r, \vec r') = \sum_{\nu = 1}^\infty b_\nu (\vec r) \frac{1}{\lambda_\nu} b_\nu (\vec r')^*$\\
+      \item Ansatz: $\Phi = \Phi^{(0)} + \varphi$\\
+            Finde hinreichend glatte Funktion $\Phi^{(0)}$ welche inhomogene Randgleichungen erfüllt
+      \item Finde Eigenfunktionen von $\varphi$: $f=-\div(\varepsilon \nabla \vec b_\nu) = \lambda_\nu \vec b_\nu$\\
+            Es gilt $\lambda_\nu > 0$.
+      \item Ansatz $\varphi(\vec r) = \sum_{\nu = 1}^\infty \alpha_\nu b_\nu(\vec r)$\\
+            Bestimmung der Entwicklungskoeffizienten: $a_\nu = \frac{<b_\nu|f>}{\lambda_\nu} = \frac{1}{\lambda_\nu}\int_\Omega b_\nu * f dv$\\
+      \item Spektraldarstellung: $G(\vec r, \vec r') = \sum_{\nu = 1}^\infty b_\nu (\vec r) \frac{1}{\lambda_\nu} b_\nu (\vec r')^*$\\
 \end{enumerate}
 
 
@@ -45,20 +61,20 @@ Beispiel Punktladung: $G_{\text{Vac}}(\vec r, \vec r') = \frac{1}{4 \pi \varepsi
 Problem: \boxed{- \lpo \varphi = \tilde{f}}
 
 \begin{itemize}
-    \item Sperationsansatz für die Eigenfunktionen: \\
-          $b(\vec r) = b_1 (x_1) b_2(x_2) b_3(x_3)$
-    \item $- \frac{b_1''(x_1)}{b_1 (x_1)} - \frac{b_2''(x_2)}{b_2 (x_2)}  - \frac{b_3''(x_3)}{b_3 (x_3)} = \lambda$
-    \item Aufteilen des Problems: \\
-          $- \frac{b_1''(x_1)}{b_1 (x_1)} = \lambda_1$ \\
-          $- \frac{b_2''(x_2)}{b_2 (x_2)} = \lambda_2$ \\
-          $- \frac{b_3''(x_3)}{b_3 (x_3)} = \lambda_3$
-    \item Lösungsansatz für $b_1, b_2, b_3$: \\
-          $b_j (x_j) = A_j \sin(k_j x_j) + B_j \cos (k_j x_j)$ mit $k_j = \sqrt{\lambda_j}$
-    \item $\Ra B_j = 0$ und $k_j L_j = n_j \pi$
-    \item Eigenfunktionen lauten: \\
-          $b_j ( x_j ) = A_j \sin (n_j \frac{\pi}{L_j} x_j)$
-    \item Normiere die Eigenfunktionen: \\
-          $1 \overset{!}{=} \int \limits_0^{L_k} b_j (x_j)^2 \diff x_j$
+      \item Sperationsansatz für die Eigenfunktionen: \\
+            $b(\vec r) = b_1 (x_1) b_2(x_2) b_3(x_3)$
+      \item $- \frac{b_1''(x_1)}{b_1 (x_1)} - \frac{b_2''(x_2)}{b_2 (x_2)}  - \frac{b_3''(x_3)}{b_3 (x_3)} = \lambda$
+      \item Aufteilen des Problems: \\
+            $- \frac{b_1''(x_1)}{b_1 (x_1)} = \lambda_1$ \\
+            $- \frac{b_2''(x_2)}{b_2 (x_2)} = \lambda_2$ \\
+            $- \frac{b_3''(x_3)}{b_3 (x_3)} = \lambda_3$
+      \item Lösungsansatz für $b_1, b_2, b_3$: \\
+            $b_j (x_j) = A_j \sin(k_j x_j) + B_j \cos (k_j x_j)$ mit $k_j = \sqrt{\lambda_j}$
+      \item $\Ra B_j = 0$ und $k_j L_j = n_j \pi$
+      \item Eigenfunktionen lauten: \\
+            $b_j ( x_j ) = A_j \sin (n_j \frac{\pi}{L_j} x_j)$
+      \item Normiere die Eigenfunktionen: \\
+            $1 \overset{!}{=} \int \limits_0^{L_k} b_j (x_j)^2 \diff x_j$
 \end{itemize}
 
 Die Greenfunktion lautet nun: \\
@@ -68,7 +84,7 @@ $G(\vec r, \vec r') = \sum \limits_{n_1, n_2 , n_3 \in \mathbb N} b_{n_1 n_2 n_3
 Konstruktion eines Ersatzproblems durch Spiegelung der negierten Ladung an einer ebenen leitenden Randfläche\\
 %TODO S.63 Bild
 \begin{align*}
-    G_{\text{Halb}}(\vec r, \vec r_0) = \frac{1}{4 \pi \varepsilon} \left( \frac{1}{\norm{\vec r - \vec r_0}} - \frac{1}{\norm{\vec r - \vec r_0^*}}\right)
+      G_{\text{Halb}}(\vec r, \vec r_0) = \frac{1}{4 \pi \varepsilon} \left( \frac{1}{\norm{\vec r - \vec r_0}} - \frac{1}{\norm{\vec r - \vec r_0^*}}\right)
 \end{align*}
 analog für Winkelräume. Eventuell müssen die gespiegelten Ladungen wieder gespiegelt werden (möglicherweise unendlich oft), bis sich alles ausgleicht.
 
