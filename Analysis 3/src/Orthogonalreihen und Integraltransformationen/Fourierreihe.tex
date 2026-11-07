@@ -206,7 +206,8 @@ Rechenregeln wie Multiplikation
 
 \subsection{Hilberträume}
 \begin{emphbox}
-    Ein (komplexer) Hilbertraum $\mathcal H$ ist ein $\mathbb C^n$-Vektorraum mit Skalarprodukt $\langle \cdot, \cdot \rangle : \mathcal H \times \mathcal H \rightarrow \mathbb C$, so dass $\mathcal H$ bzgl. der induzierten Norm $||v|| = \sqrt{\langle v,v\rangle}$ vollständig ist.
+    Ein (komplexer) Hilbertraum $\mathcal H$ ist ein $\mathbb C^n$-Vektorraum mit Skalarprodukt $\langle \cdot, \cdot \rangle : \mathcal H \times \mathcal H \rightarrow \mathbb C$, so dass $\mathcal H$ bzgl. der induzierten Norm $||v|| = \sqrt{\langle v,v\rangle}$ vollständig ist \\
+    $\lim_{k\rightarrow\infty}u_k = u$ falls $||u_k-u||\rightarrow\infty, \; u_k\in H$
 \end{emphbox}
 
 \begin{emphbox}
@@ -234,7 +235,7 @@ Rechenregeln wie Multiplikation
     \begin{equation*}
         \langle f, g\rangle := \frac{1}{T}\int_0^T \overline{f(t)}g(t) \diff t
     \end{equation*}
-    ist ein nicht-vollständiger (Prä-)Hilbertraum
+    ist ein nicht-vollständiger (Prä-)Hilbertraum, wenn man an Unstetigkeitsstellen $f$ auf den Mittelwert der Grenzwerte setzt
 \end{emphbox}
 
 \subsection{Orthonormalsysteme}
@@ -252,26 +253,21 @@ Rechenregeln wie Multiplikation
               \end{equation*}
         \item $\forall f \in \mathcal{H}$ und jede endliche Teilmenge $\Omega \subset\mathbb Z$ gilt
               \begin{equation*}
-                  \sum_{j\in\Omega}|\langle e_j, f\rangle|^2 \le ||f||^2
+                  0 \le \sum_{j\in\Omega}|\langle e_j, f\rangle|^2 \le ||f||^2
               \end{equation*}
         \item Für $f\in\mathcal{H}$ sei
               \begin{equation*}
                   S_f^n=\sum_{k=-n}^{n}c_ke_k \qquad c_k=\langle e_k, f\rangle.
-              \end{equation*} Dann gilt
+              \end{equation*} Dann gilt die Orthogonalität $\langle f-S_F^n, g\rangle = 0$ mit $g$: Fouriersumme/-reihe
               \begin{equation*}
                   ||f||^2 = ||S_f^n||^2 + ||f-S_f^n||^2
               \end{equation*}
     \end{itemize}
 
-    \subsubsection{Vollständigkeit}
-    Ein Orthonormalsystem und Hilbertraum gilt als vollständig, wenn gilt
-    \begin{equation*}
-        \langle e_k, f \rangle = 0 \forall k \in \mathbb Z \Longrightarrow f = 0
-    \end{equation*}
-
     \textbf{Äquivalente Aussagen}
     \begin{itemize}
         \item $\{e_n\}_{n\in\mathbb Z}$ ist ein vollständiges Orthonormalsystem.
+        \item $S_n^f(t)$ ist die beste Approximation an $f$: $||f-S_n^f|| \le ||f-g||, g$ auch Fouriersumme (-reihe im Grenzwert)
         \item \begin{equation*}
                   f = \lim_{n\rightarrow\infty}\sum_{k=-n}^{n}\langle e_k, f\rangle e_k \quad \forall f \in \mathcal H
               \end{equation*}

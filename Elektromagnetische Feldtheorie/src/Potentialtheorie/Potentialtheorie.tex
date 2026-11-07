@@ -10,7 +10,8 @@ Elektromagnet. Skalarpotential $\boxed{ \Phi(\vec r, t)$: $\vec E(\vec r,t) = - 
     \item $\rot(\vec E + \frac{\partial\vec A}{\partial t}) = 0 \Rightarrow $ Ex existiert Gradientenfeld zu $\vec E + \frac{\partial A}{\partial t} \Rightarrow \vec E + \frac{\partial\vec A}{\partial t} = -\nabla \Phi$
 \end{itemize}
 
-Umeichen: $\vec A' = \vec A - \nabla \chi$ \qquad $\Phi' = \Phi + \partial_t \chi$ \\
+\paragraph{Umeichen} $\vec A' = \vec A - \nabla \chi$ \qquad $\Phi' = \Phi + \partial_t \chi$ \\
+Müssen beide gleichzeitig umgeeicht werden, damit die Maxwell-Gleichungen noch gelten \\
 
 Eichfunktion $\chi(\vec r, t)$: Riemansche Räume haben an jedem Punkt ein anderes Längenmaß. Die Eichfunktion gibt an, welches Längenmaß an welchem Punkt verwendet werden muss.\\
 
@@ -27,11 +28,14 @@ $\Rightarrow$ Wellengleichungen:
 \boxed{
     \begin{array}{lcl}
         \div\left( \varepsilon \nabla \Phi(\vec r,t) \right) = -\rho(\vec r, t) \text{ (Poisson)} \\ \\
-        \Delta\vec A - \epsilon\mu\frac{\partial^2\vec A}{\partial t^2} = -\mu\left(\vec j - \epsilon\frac{\partial}{\partial t}(\nabla \Phi)\right)
+        \Delta\vec A - \epsilon\mu\frac{\partial^2\vec A}{\partial t^2} = -\mu\underbrace{\left(\vec j - \epsilon\frac{\partial}{\partial t}(\nabla \Phi)\right)}_{\vec j_t}
     \end{array}
 }
+\paragraph{transversale Stromdichte $\vec j_t$} Divergenzfrei (reines Wirbelfeld), zu welchem $\vec j$ und $\partial_t \rho$ beitragen \\
 Die Poissongleichung folgt der Zeit instantan, beschreibt also keine Wellenausbreitung (quasistatischer Teil des $\vec E$-Feldes) \\
 Die untere Gleichung beschreibt den Ausbreitungsanteil des EM-Feldes \\
+
+TODO: Umkehroperationen von grad/div/laplace (z.B. Coulomb-Integral)
 
 \textbf{Homogene Wellengleichungen:}\\
 $\vec E$-Feld: $\epsilon \mu \frac{\partial^2}{\partial t^2} \vec E (\vec r, t) - \Delta \vec E (\vec r, t) = \vec 0$\\
