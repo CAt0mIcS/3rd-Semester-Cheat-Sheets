@@ -88,11 +88,20 @@ Problem z.B.: Diskretes Ereignis für $t = 0$ und stetige Ereignisse für $t > 0
 
 
 \subsection{Mehrdimensionale Zufallsvariablen}
-\begin{emphbox}
-    \begin{equation*}
-        F_{X_1X_2}(x_1, x_2) = P(\{X_1 \le x_1\}, \{X_2 \le x_2\})
-    \end{equation*}
-\end{emphbox}
+\begin{sectionbox}
+    \begin{emphbox}
+        \begin{equation*}
+            F_{X_1X_2}(x_1, x_2) = P(\{X_1 \le x_1\}, \{X_2 \le x_2\})
+        \end{equation*}
+    \end{emphbox}
+    
+    \subsubsection{Eigenschaften der CDF}
+    \begin{description}
+        \item[Monoton wachsend] in jeder Koordinate
+        \item[Rechtsseitig stetig] $\lim_{h\rightarrow 0^+}F_{X_1X_2}(x_1 + h, x_2 + h) = F_{X_1X_2(X_1, x_2)}$
+        \item[Verhalten im Unendlichen] $\lim_{x_1,x_2\rightarrow\infty}F_{X_1X_2}(x_1,x_2)\overset{!}{=}1$
+    \end{description}
+\end{sectionbox}
 \begin{sectionbox}
     \subsubsection{Stetige PDF}
     \begin{emphbox}
@@ -108,7 +117,7 @@ Problem z.B.: Diskretes Ereignis für $t = 0$ und stetige Ereignisse für $t > 0
 
 \begin{sectionbox}
     \subsubsection{Marginalisierung}
-    Einschränkung auf eine Zufallsvariable. Idee: \\
+    Einschränkung auf eine Zufallsvariable. Man ''schiebt'' alle Ergebnisse von $X_2$ auf die $x_1$-Achse im $f_{X_1X_2}$-Graph. Idee: \\
     \begin{equation*}
         \lim_{x_2\rightarrow\infty}F_{X_1X_2}(x_1, x_2) = P(\{X_1 \le x_1\})=F_{X_1}(x_1), \; x_2 \text{ bel.}
     \end{equation*}
@@ -116,6 +125,23 @@ Problem z.B.: Diskretes Ereignis für $t = 0$ und stetige Ereignisse für $t > 0
     \begin{emphbox}
         \begin{equation*}
             f_{X_1}(x_1) = \int_{-\infty}^\infty f_{X_1X_2}(x_1,x_2)\diff x_2
+        \end{equation*}
+        \begin{equation*}
+            P_{X_1}(x_1) = \sum_{x_2}P_{X_1X_2}(x_1,x_2)
+        \end{equation*}
+    \end{emphbox}
+\end{sectionbox}
+
+\subsubsection{Stochastische Unabhängigkeit}
+\begin{equation*}
+    f_{X_1X_2}(x_1,x_2)\overset{!}{=}f_{X_1}(x_1)f_{X_2}(x_2) \; \forall x_1,x_2
+\end{equation*}
+
+\begin{sectionbox}
+    \subsubsection{Bedingte Zuvallsvariablen}
+    \begin{emphbox}
+        \begin{equation*}
+            f_{X_1|X_2}(x_1|x_2) = \frac{\diff F_{X_1|X_2}(x_1|x_2)}{\diff x_1} = \frac{f_{X_1,X_2}(x_1,x_2)}{f_{X_2}(x_2)}
         \end{equation*}
     \end{emphbox}
 \end{sectionbox}

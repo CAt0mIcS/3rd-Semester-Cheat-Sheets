@@ -1,0 +1,63 @@
+\subsection{Komplexe Differenzierbarkeit}
+\begin{emphbox}
+    Sei $U\subset\mathbb C$ offen. Ein $f:U\rightarrow\mathbb C$ ist komplex differenzierbar (\textbf{holomorph}) bei $z_0\in U$ g.d.w. folgender Grenzwert existiert
+    \begin{equation*}
+        \lim_{z\rightarrow z_0}\frac{f(z) - f(z_0)}{z-z_0}=:f'(z_0)
+    \end{equation*}
+\end{emphbox}
+Falls $U=\mathbb C$ ist $f$ eine ganze Funktion
+
+\begin{sectionbox}
+    \subsubsection{Cauchy-Riemann Differentialgleichungen}
+    Sei $f(x+iy) = u(x,y) + iv(x,y)$ mit $u,v:\mathbb R^2 \rightarrow \mathbb R$, dann ist äquivalent
+    \begin{itemize}
+        \item $f$ ist bei $z_0 = x_0+iy_0$ komplex differenzierbar
+        \item Die Funktion $(x,y)\mapsto \begin{pmatrix}u(x,y) \\ v(x,y)\end{pmatrix}$ ist bei $(x_0,y_0)\in\mathbb R^2$ (reell) differenzierbar und $\partial_x u = \partial_y v, \qquad \partial_y u = -\partial_x v$
+        \item Es gilt die Ableitung $f'(x+iy) = \partial_x u(x,y) - i\partial_y u(x,y)=\partial_y v(x,y) + i\partial_x v(x,y)$
+    \end{itemize}
+\end{sectionbox}
+\begin{sectionbox}
+    \subsubsection{Wichtige Sätze}
+    \begin{itemize}
+        \item Sei $U$ offen und zusammenhängend und $f$ holomorph auf $U$ und $C\ge 0$ so, dass $|f(z)|=C \; \forall z\in U \Rightarrow f$ konstant auf $U$
+    \end{itemize}
+\end{sectionbox}
+
+\subsection{Potenzreihen in $\mathbb C$}
+\begin{emphbox}
+    \begin{equation*}
+        P(z) = \sum_{n=1}^{\infty}a_n(z-z_0)^n
+    \end{equation*}
+\end{emphbox}
+\begin{sectionbox}
+    \subsubsection{Konvergenz}
+    \begin{center}
+        \boxed{R = \lim\limits_{n\rightarrow \infty} \abs{\frac{a_n}{a_{n+1}}}=\frac{1}{\lim\limits_{n\rightarrow \infty}\sqrt[n]{\abs{a_n}}}} \\
+        \boxed{R = \liminf\limits_{n\rightarrow \infty} \abs{\frac{a_n}{a_{n+1}}}=\frac{1}{\limsup\limits_{n\rightarrow \infty}\sqrt[n]{\abs{a_n}}}}
+    \end{center}
+
+    \begin{itemize}
+        \item $P(z)$ konvergiert absolut für $z\in B_R(z_0) = \{z\in\mathbb C \, | \, |z-z_0| < R \}$
+        \item $P(z)$ divergiert für $z\notin \overline{B_R(z_0)} = \{z\in\mathbb C \, | \, |z-z_0| \le R \}$
+        \item $\forall \, 0 \le r < R$ ist die Konvergenz gleichmäßig. $P(z)$ ist eine stetige Funktion auf $B_R(z_0)$
+    \end{itemize}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Wichtige Sätze}
+    \begin{itemize}
+        \item $f$ heißt analytisch in $z_0\in U$ g.d.w. eine Potenzreihe $P(z)$ mit Konvergenzradius $R>0$ existiert, sodass $f(z)=P(z) \, \forall z\in B_R(z_0) \cap U$ \\
+            Jede analytische Funktion lässt sich also lokal in eine Potenzreihe entwickeln
+    \end{itemize}
+
+    \subsubsection*{Hauptzweig des Logarithmus}
+    $\log : \mathbb C\setminus\{0\} \rightarrow \mathbb R + i(-\pi, \pi], \, \log(z) = \log|z| + i\arg{z}$
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Wichtige Reihen}
+    \begin{tabular}{ll}
+        \(\displaystyle \frac{1}{\omega - z} =  \sum_{k=0}^\infty \frac{(z-z_0)^k}{(\omega-z_0)^{k+1}}\) & \(\displaystyle e^z=\sum_{k=0}^\infty \frac{z^k}{k!} \) \\
+        \(\displaystyle \sin(z) = \sum_{k=0}^\infty \frac{(-1)^k}{(2k+1)!}z^{2k+1} \) & \(\displaystyle \cos(z) = \sum_{k=0}^\infty\frac{(-1)^k}{(2k)!}z^{2k} \)
+    \end{tabular}
+\end{sectionbox}
