@@ -1,24 +1,25 @@
 \begin{emphbox}
     Die komplexe Fourierreihe eines periodischen Signals $x(t)$ lautet
     \begin{equation*}
-        \begin{array}{@{}cc@{}}
-            \text{Synthese}                                   & \text{Analyse}                                     \\
-            x(t)=\sum_{k=-\infty}^{\infty}c_ke^{jk\omega_0 t} & c_k=\frac{1}{T_0}\int_0^{T_0}x(t)e^{-jk\omega_0 t}
+        \begin{array}{@{}ll@{}}
+            \textbf{Synthese}                                 & \textbf{Analyse}                                           \\
+            x(t)=\sum_{k=-\infty}^{\infty}c_ke^{jk\omega_0 t} & c_k=\frac{1}{T_0}\int_0^{T_0}x(t)e^{-jk\omega_0 t}\diff t  \\
+            x(t) = a_0 \; +                                   & a_k = \frac{2}{T_0}\int_0^{T_0}x(t)\cos(k\omega_0t)\diff t \\
+            \qquad \sum_{k=1}^\infty a_k\cos(k\omega_0t) \; + & a_0 = \frac{1}{T_0}\int_0^{T_0}x(t)\diff t                 \\
+            \qquad\qquad\quad \;\, b_k\sin(k\omega_0 t)       & b_k = \frac{2}{T_0}\int_0^{T_0}x(t)\sin(k\omega_0t)\diff t
         \end{array}
     \end{equation*}
 \end{emphbox}
 
 \begin{sectionbox}
     \subsubsection{Umrechnungen zu $\cos$/$\sin$-Darstellung}
-    $a_k=2\Re{c_k}=c_k+c_{-k} \quad b_k=-2\Im{c_k}=c_k-c_{-k}$ \\
+    $a_0=c_0 \quad a_k=2\Re{c_k} \quad b_k=-2\Im{c_k}$ \\
     $c_k=\frac{1}{2}(a_k-jb_k) \qquad c_{-k} = c_k^*=\frac{1}{2}(a_k+jb_k)$
 \end{sectionbox}
 
 \begin{sectionbox}
     \subsubsection{Eigenschaften}
     \begin{itemize}
-        \item $f$ gerade $\Rightarrow c_k\in\mathbb R$
-        \item $f$ ungerade $\Rightarrow c_k\in\mathbb C\setminus\mathbb R$
         \item Das Fourierspektrum von $f(-t)$ ist $\{c_{-k}\}_{k\in\mathbb Z}$
         \item Das Fourierspektrum von $f(t + a)$ (Verschiebung im Zeitbereich) ist $\{e^{jk\omega a}c_k\}_{k\in\mathbb Z}$
         \item Das Fourierspektrum von $e^{jn\omega t}f(t) \quad n\in\mathbb Z$ (Amplitudenmodulation) ist $\{c_{k-n}\}_{k\in\mathbb Z}$
@@ -31,10 +32,16 @@
                       \frac{c_k}{jk\omega}             & k\ne 0
                   \end{cases}
               \end{equation*}
-        \item \textbf{Halbwellensymmetrie 1. Art}: Falls $a_0=0$ und $x(t)=-x(t-\frac{T}{2})$, so gilt $a_{2k}=b_{2k}=c_{2k}=0$. 
-            Das Signal in der zweiten Periodenhälfte sieht genauso aus wie in der ersten Periodenhälfte mit negativen Vorzeichen
-        \item $\frac{a_0}{2}=c_0$ entspricht dem konstanten Gleichanteil, um die Fourierreihe zum Signaloffset auf der y-Achse zu verschieben
+        \item \textbf{Halbwellensymmetrie 1. Art}: Falls $a_0=0$ und $x(t)=-x(t-\frac{T}{2})$, so gilt $a_{2k}=b_{2k}=c_{2k}=0$.
+              Das Signal in der zweiten Periodenhälfte sieht genauso aus wie in der ersten Periodenhälfte mit negativen Vorzeichen
+        \item $a_0=c_0$ entspricht dem konstanten Gleichanteil, um die Fourierreihe zum Signaloffset auf der y-Achse zu verschieben
     \end{itemize}
+
+    \begin{tabular*}{\columnwidth}{@{\extracolsep\fill}lll@{}}
+        $f$ & Bedingung an $c_k$ & Bedingungen an $a_k,b_k$ \\
+        gerade & $c_k\in\mathbb R$ & $b_k=0$ \\
+        ungerade & $c_k\in i\mathbb R$ & $a_k=0$
+    \end{tabular*}
 \end{sectionbox}
 
 \begin{sectionbox}
@@ -44,7 +51,7 @@
         P=\frac{1}{RT}\int_0^Tx^2(t)\diff t = \frac{1}{R}\sum_{k=-\infty}^{\infty}|c_k|^2=
     \end{equation*}
     \begin{equation*}
-        =\frac{1}{R}\left(\left(\frac{a_0}{2}\right)^2 + \frac{1}{2}\sum_{k=1}^\infty(a_k^2+b_k^2)\right)
+        =\frac{1}{R}\left(a_0^2 + \frac{1}{2}\sum_{k=1}^\infty(a_k^2+b_k^2)\right)
     \end{equation*}
     mit $\frac{1}{R} |c_k|^2$: Leistung der $k$-ten Schwingung. Mit $2$ multiplizieren, falls $|c_k|=|c_{-k}|$
 \end{sectionbox}

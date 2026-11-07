@@ -20,6 +20,7 @@
         \item $\omega$ ist für alle Summanden gleich, $k$ variiert
     \end{itemize}
     TODO: trigonometr. Polynome
+    TODO: Bekante Fourierreihen von bekannten Funktionen und deren Periodizität
 \end{sectionbox}
 
 \subsection{Fourierreihe}
@@ -64,23 +65,24 @@ Jedes Fourierpolynom ist gleichzeitig eine Fourierreihe, wenn man alle nicht ben
     \subsubsection{Umrechnung zu sin-/cos-Darstellung}
     \begin{emphbox}
         \begin{equation*}
-            S_f(t)=\frac{a_0}{2}+\lim_{n\rightarrow\infty}\sum_{k=1}^{n}(a_k\cos(k\omega t) + b_k\sin(k\omega t))
+            S_f(t)=\frac{a_0}{2}+\sum_{k=1}^{\infty}(a_k\cos(k\omega t) + b_k\sin(k\omega t))
         \end{equation*}
     \end{emphbox}
-    mit $k\in\mathbb N$:
-    \begin{equation*}
-        a_0=2c_0 \quad a_k=c_k+c_{-k} \quad b_k=i(c_k-c_{-k})
-    \end{equation*}
+    \begin{align*}
+        a_0=2c_0 \quad a_k=c_k+c_{-k} \quad b_k=i(c_k-c_{-k}) \\
+        c_{\pm k} = \frac{1}{2}(a_k \mp ib_k) \qquad\qquad\qquad k\in\mathbb N
+    \end{align*}
     bzw.
     \begin{align*}
         a_k=\frac{2}{T}\int_0^Tf(t)\cos(k\omega t)\diff t \quad k \in \mathbb N_0 \\
         b_k=\frac{2}{T}\int_0^Tf(t)\sin(k\omega t)\diff t \quad k \in \mathbb N
     \end{align*}
 
-    Falls $f$ reel: $c_{-k} = \overline{c_k}$,
-    \begin{equation*}
-        a_0=2c_0 \quad a_k=2\Re{c_k} \quad b_k=-2\Im{c_k}
-    \end{equation*}
+    Falls $f$ reell:
+    \begin{center}
+        $a_k=2\Re{c_k} \qquad b_k=-2\Im{c_k}$
+    \end{center}
+
 \end{sectionbox}
 
 \begin{sectionbox}
@@ -91,8 +93,6 @@ Jedes Fourierpolynom ist gleichzeitig eine Fourierreihe, wenn man alle nicht ben
     Seien $f,g:\mathbb R \rightarrow\mathbb C \; T$-periodisch. Sei $\{c_k\}_{k\in\mathbb Z}$ das Fourierspektrum von $f$ und $\{d_k\}_{k\in\mathbb Z}$ von $g$
     \subsubsection{Eigenschaften}
     \begin{itemize}
-        \item $f$ gerade $\Rightarrow c_k=c_{-k}$ bzw. $b_k=0 \; \forall k \in\mathbb N$. Fourierreihe besteht nur aus $\cos$-Termen
-        \item $f$ ungerade $\Rightarrow c_k=-c_{-k}$ bzw. $a_k=0 \; \forall k \in\mathbb N_0$. Fourierreihe besteht nur aus $\sin$-Termen
         \item Das Fourierspektrum von $\alpha f(t) + \beta g(t)$ ist $\{\alpha c_k + \beta d_k\}_{k\in\mathbb Z}$
         \item Das Fourierspektrum von $\overline{f(t)}$ ist $\{\overline{c_{-k}}\}_{k\in\mathbb Z}$
         \item Das Fourierspektrum von $f(-t)$ ist $\{c_{-k}\}_{k\in\mathbb Z}$
@@ -112,11 +112,15 @@ Jedes Fourierpolynom ist gleichzeitig eine Fourierreihe, wenn man alle nicht ben
               \end{equation*}
     \end{itemize}
 
-    Falls $f:\mathbb R \rightarrow \mathbb R$ gilt
-    \begin{itemize}
-        \item $f$ gerade $\Rightarrow c_k\in\mathbb R$
-        \item $f$ ungerade $\Rightarrow c_k\in\mathbb C\setminus\mathbb R$
-    \end{itemize}
+    \begin{tabular*}{\columnwidth}{@{\extracolsep\fill}llll@{}}
+        $f$ & Bedingung an $c_k$ & Bed. an $a_k,b_k$ & gilt für \\
+        reellwertig & $c_{-k}=\overline{c_k}$ & $a_k,b_k\in\mathbb R$ \\
+        rein imag. & $c_{-k} = -\overline{c_k}$ & $a_k,b_k\in i\mathbb R$ \\
+        gerade & $c_{-k} = c_k$ & $b_k=0$ \\
+                & $c_k\in\mathbb R$ & $b_k=0$ & $f$ reell \\
+        ungerade & $c_{-k}=-c_{k}$ & $a_k=0$ \\
+                & $c_k\in i\mathbb R$ & $a_k=0$ & $f$ reell
+    \end{tabular*}
 \end{sectionbox}
 
 \begin{sectionbox}
