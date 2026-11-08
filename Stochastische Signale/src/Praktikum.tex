@@ -1,0 +1,30 @@
+\subsection{Grundlegende Befehle}
+\begin{sectionbox}
+    \begin{tabularx}{\linewidth}{@{}>{\slshape}l@{\hspace{1em}}X@{}}
+        np.arange(start=0, stop, step=1) & Zeilenvektor mit (\textsl{stop} $-$ \textsl{start}) / \textsl{step} Elementen. \textsl{stop}-exclusive                    \\
+        np.linspace(start, stop, num)    & Erzeugt \textsl{num} gleichmäßig verteilte Werte zwischen \textsl{start} und \textsl{stop} (inclusive)                    \\
+        x.reshape(row, col)              & \textsl{x} wird zu \textsl{row $\times$ col} Matrix. Für \textsl{row $=-1$} wird die Menge an Zeilen automatisch bestimmt \\
+        x.T                              & Transponiert \textsl{x}. Keine Wirkung bei Spaltenvektoren                                                                \\
+        x.shape                          & Gibt Tupel mit (\textsl{rows}, \textsl{cols}) von \textsl{x} zurück                                                       \\
+    \end{tabularx}
+\end{sectionbox}
+
+\subsection{Operatoren}
+\begin{sectionbox}
+    \begin{tabularx}{\linewidth}{@{}>{\slshape}l@{\hspace{1em}}X@{}}
+        a * b  & Elementweise Multiplikation \\
+        a @ b  & Matrixmultiplikation        \\
+        a ** 2 & Elementweise Potenz         \\
+        a / b  & Elementweise Division
+    \end{tabularx}
+\end{sectionbox}
+
+\subsection{Graphen}
+\begin{sectionbox}
+    \begin{tabularx}{\linewidth}{@{}>{\slshape}l@{\hspace{1em}}X@{}}
+        plt.hist(x, bins, \\
+        density=False)    & Erstellt (für \textsl{density = False}) nicht-normiertes Histogram von \textsl{x}. \textsl{bins} ist ein Vektor (z.B. $[0, 0.1, 0.2, ..., 1]$), wobei ein \textsl{x}-Wert in einen der Bereiche eingeordnet wird $\rightarrow$ Menge an Balken \\
+        pdf = scipy.stats.                                                                                                                                                                                                                                                     \\
+        Verteilung.pdf(edges) & Erstellt die $y$-Werte für eine bestimmte Wahrscheinlichkeitsverteilung (z.B. \textsl{uniform}). \textsl{edges} ist der Bereich (analog zum $t$-Vektor in MATLAB)
+    \end{tabularx}
+\end{sectionbox}
