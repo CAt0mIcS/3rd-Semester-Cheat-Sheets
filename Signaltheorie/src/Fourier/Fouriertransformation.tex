@@ -65,8 +65,11 @@
         \ftgroup{Multiplikationssatz (Faltung im Frequenzbereich)}                                                  \\
         $x_1(t)\,x_2(t)$       & $X_1(f)*X_2(f)$                       & $\tfrac{1}{2\pi}X_1(\omega)*X_2(\omega)$   \\
         \ftgroup{Symmetrie reeller Signale $x(t)$: Realt. achsensym., Imag.t. punktsym.}                            \\
-        $x(t) \in \mathbb R$   & $X(f) = X(-f)^*$                      & $X(\omega) = X(-\omega)^*$
-    \end{tabularx}
+        $x(t) \in \mathbb R$   & $X(f) = X(-f)^*$                      & $X(\omega) = X(-\omega)^*$                 \\
+    \end{tabularx} \\
+    {\color{black!60}\textit{Zuordnungssatz: Aufteilung zu Real- und Imaginärteil}} \\
+    $x(t) = x_g(t) + x_u(t) \FT X(f) = \Re{X(f)} + j\Im{X(f)}$                            \\
+    $x_g(t) = \frac{1}{2}(x(t) + x(-t))\quad x_u(t) = \frac{1}{2}(x(t) - x(-t))$ \\
     \textbf{Modulation mit reellem Träger} (Spektrum wird nach $\pm f_0$ verschoben; mit $\omega$ analog, $f_0\to\omega_0$):
     \begin{align*}
         x(t)\cos(2\pi f_0t) & \;\FT\;\tfrac{1}{2}\big[X(f-f_0)+X(f+f_0)\big]  \\
@@ -145,8 +148,16 @@
     \subsubsection{äquivalente Impulsdauer}
     Dauer eines Rechtecksimpuls mit gleicher Amplitude und Fläche wie ein gegebenes impulsförmiges Signal $x(t)$
     \begin{equation*}
-        \Delta t = \frac{1}{A}\int_{-\infty}^\infty x(t)\diff t
+        \Delta t = \frac{1}{x(t=0)}\int_{-\infty}^\infty x(t)\diff t
     \end{equation*}
+
+    \subsubsection{äquivalente Bandbreite}
+    Breite des flächengleichen Rechtecks mit gleicher Höhe wie das Spektrum $X(f)$
+    \begin{equation*}
+        \Delta f = \frac{1}{X(f=0)}\int_{-\infty}^\infty X(f)\diff f
+    \end{equation*}
+
+    \paragraph{Unschärferelation} $\Delta f \Delta t = 1$
 \end{sectionbox}
 
 % ---------------------------------------------------------------------
@@ -161,3 +172,5 @@
     \end{align*}
     $\frac{|X(f)|^2}{R}$ ist das Energiedichtespektrum in $\frac{\mathrm{J}}{\mathrm{Hz}}$
 \end{emphbox}
+
+TODO: Betragspektrum (Amplitudenspektrum), Phasendiagram/Phasenspektrum von Funktionen in $X(f)$ zeichnen
