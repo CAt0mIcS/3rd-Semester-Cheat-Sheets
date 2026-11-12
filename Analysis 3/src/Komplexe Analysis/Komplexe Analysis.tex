@@ -1,13 +1,13 @@
 \subsection{Komplexe Differenzierbarkeit}
 \begin{emphbox}
-    Sei $U\subset\mathbb C$ offen. Ein $f:U\rightarrow\mathbb C$ ist komplex differenzierbar (\textbf{holomorph}) bei $z_0\in U$ g.d.w. folgender Grenzwert existiert
+    Sei $U\subset\mathbb C$ offen. Ein $f:U\rightarrow\mathbb C$ ist komplex differenzierbar (\textbf{holomorph}) bei $z_0\in U$ g.d.w. folgender Grenzwert ezetastiert
     \begin{equation*}
         \lim_{z\rightarrow z_0}\frac{f(z) - f(z_0)}{z-z_0}=:f'(z_0)
     \end{equation*}
 
     Sei $U$ ein einfach zusammenhängendes Gebiet und $z_0\in U$ bel. Sei $f:U\rightarrow\mathbb C$ holomorph auf $U$, dann ist
     \begin{equation*}
-        F(z) = \int_\gamma f(\xi)\diff\xi
+        F(z) = \int_\gamma f(\zeta)\diff\zeta
     \end{equation*}
     die Stammfunktion von $f$, wobe $\gamma[a,b]\rightarrow U$ eine bel. Kurve mit $\gamma(a) = z_0, \gamma(b) = z$
 \end{emphbox}
@@ -52,7 +52,7 @@ Falls $U=\mathbb C$ ist $f$ eine ganze Funktion
 \begin{sectionbox}
     \subsubsection{Wichtige Sätze}
     \begin{itemize}
-        \item $f$ heißt analytisch in $z_0\in U$ g.d.w. eine Potenzreihe $P(z)$ mit Konvergenzradius $R>0$ existiert, sodass $f(z)=P(z) \, \forall z\in B_R(z_0) \cap U$ \\
+        \item $f$ heißt \textbf{analytisch} in $z_0\in U$ g.d.w. eine Potenzreihe $P(z)$ mit Konvergenzradius $R>0$ existiert, sodass $f(z)=P(z) \, \forall z\in B_R(z_0) \cap U$ \\
               Jede analytische Funktion lässt sich also lokal in eine Potenzreihe entwickeln
     \end{itemize}
 
@@ -87,9 +87,12 @@ Falls $U=\mathbb C$ ist $f$ eine ganze Funktion
 
     \subsubsection{Eigenschaften}
     \begin{itemize}
-        \item Ist $\hat \gamma(t) = \gamma(b-(t-a))$ die Kurve $\gamma$ umgekehrt durchlaufen, dann gilt: $\int_{\hat \gamma}f(z)\diff z = -\int_\gamma f(z)\diff z$
         \item $\oint_{|z-z_0|=r} f(z)\diff z=\oint_\gamma f(z)\diff z$ mit $\gamma(t) = z_0 + re^{it}$ ist die Kurve mit Mittelpunkt $z_0$, die einen Kreis mit Radius $r$ durchläuft
         \item $\int_{[z_0,z_1]}f(z)\diff z = \int_\gamma f(z)\diff z$ mit $\gamma(t) = z_0 + t(z_1-z_0)$ ist die Kurve, welche die Gerade zwischen $z_0$ und $z_1$ beschreibt
+        \item Ist $\hat \gamma(t) = \gamma(b-(t-a))$ die Kurve $\gamma$ umgekehrt durchlaufen, dann gilt: $\int_{\hat \gamma}f(z)\diff z = -\int_\gamma f(z)\diff z$
+        \item \begin{equation*}
+                  \left|\int_\gamma f(z)\diff z\right| \le \max_{a \le t \le b}|f(\gamma(t))|L(\gamma)
+              \end{equation*}
     \end{itemize}
 
     \paragraph{Bogenlänge} $L(\gamma) = \int_a^b |\gamma'(t)|\diff t$
@@ -104,7 +107,7 @@ Falls $U=\mathbb C$ ist $f$ eine ganze Funktion
 \end{sectionbox}
 
 \subsection{Integralsatz von Cauchy}
-\paragraph{$U\subset\mathbb C$ wegzusammenhängend} Falls $\forall z_0,z_1\in U$ die Verbindungslinie $[z_0,z_1]$ existiert
+\paragraph{$U\subset\mathbb C$ wegzusammenhängend} Falls $\forall z_0,z_1\in U$ die Verbindungslinie $[z_0,z_1]$ ezetastiert
 \paragraph{einfach wegzusammenhängend} Falls jede geschlosse Kurve in $U$ sich zu einem Punkt zusammenziehen lässt
 
 \begin{emphbox}
@@ -114,3 +117,133 @@ Falls $U=\mathbb C$ ist $f$ eine ganze Funktion
         \oint_\gamma f(z)\diff z = 0
     \end{equation*}
 \end{emphbox}
+
+\subsection{Cauchy-Integralformel}
+Erlaubnis, eine beliebig große Kurve auf Stellen zusammenzuziehen, die interessieren.
+\begin{emphbox}
+    Sei $U\subset \mathbb C$ offen, $r>0, z_0\in U$ so, dass $\overline{B_r(z_0)}\subset U$.
+    Sei $f:U\rightarrow\mathbb C$ holomorph. Dann gilt \begin{equation*}
+        f^{(k)}(\zeta) = \frac{k!}{2\pi i}\oint_{\partial B_r(z_0)}\frac{f(z)}{(z-\zeta)^{k+1}}\diff z \quad \forall\zeta\in B_r(z_0)
+    \end{equation*}
+    Für die $k$-te Ableitung von $f$ mit $k=0 \Leftrightarrow f^{(0)}=f$
+\end{emphbox}
+
+\begin{sectionbox}
+    \begin{emphbox}
+        Sei $U\subset C$ offen, $z_0\in U, r > 0$ so, dass $\overline{B_r(z_0)}\subset U$. Sei $\alpha \in B_r(z_0), \epsilon > 0$ so, dass $\overline{B_\epsilon(\alpha)}\subset B_r(z_0)$.
+        Sei $f:U\setminus\{\alpha\}\rightarrow\mathbb C$ auf $U\setminus\{\alpha\}$ holomorph.
+        Dann gilt \begin{equation*}
+            \oint_{\partial B_r(z_0)}f(z)\diff z = \oint_{\partial B_\epsilon(\alpha)}f(z)\diff z
+        \end{equation*}
+    \end{emphbox}
+    \begin{emphbox}
+        Für $\gamma_1, \gamma_2$ in einer offenen Menge $U$, und jede in $U$ holomorphe Funktion $f$ gilt
+        \begin{equation*}
+            \oint_{\gamma_1}f(z)\diff z = \oint_{\gamma 2}f(z)\diff z
+        \end{equation*}
+    \end{emphbox}
+
+    \subsubsection{Mittelwertsatz}
+    Sei $U\subset\mathbb C$ offen, $f:U\rightarrow\mathbb C$ holomorph auf $U, r>0$ und $z_0\in U$ so, dass $\overline{B_r(z_0)}\subset U$.
+    Dann gilt \begin{equation*}
+        f(z_0) = \frac{1}{2\pi}\int_0^{2\pi}f(z_0+re^{it})\diff t
+    \end{equation*}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Wichtige Sätze}
+    \begin{itemize}
+        \item Jede beschränkte ganze Funktion ist konstant
+    \end{itemize}
+\end{sectionbox}
+
+
+\subsubsection{Taylor-Entwicklung}
+\begin{emphbox}
+    Sei $U\subset\mathbb C$ und $f:U\rightarrow\mathbb C$ holomorph auf $U$. Sei $B_r(z_0)\subset U$.
+    Dann ist $f\, \forall\rho\in(0,r)$ in $B_\rho(z_0)$ entwickelbar und unendl. oft komplex diffb.
+    \begin{equation*}
+        f(z) = \sum_{k=0}^{\infty}a_k(z-z_0)^k=\sum_{k=0}^{\infty}\frac{f^{(k)}(z_0)}{k!}(z-z_0)^k
+    \end{equation*}
+    $\forall z\in\mathbb C, \, |z-z_0|<\rho<r$ \\
+    mit
+    \begin{equation*}
+        a_k=\frac{1}{2\pi i}\oint_{|\zeta - z_0|=r}\frac{f(\zeta)}{(\zeta - z_0)^{k+1}}\diff\zeta
+    \end{equation*}
+\end{emphbox}
+
+TODO: 2.8.2 - 2.9 (exclusive)
+
+
+\subsection{Laurent-Reihen}
+Darstellung von Funktionen auf offenen Kreisringen
+\begin{center}
+    $A_{r,R}(z_0) = \{z\in\mathbb C \, | \, r < |z-z_0| < R\}$
+\end{center}
+
+\begin{emphbox}
+    $Q(z)$ konvergiert auf $A_{r,R}(z_0)$ und stellt dort eine holomorphe Funktion $f$ dar.
+    \begin{equation*}
+        Q(z) = \underbrace{\sum_{k=1}^{\infty}c_{-k}(z-z_0)^k}_{\text{Hauptteil } H(z)} + \underbrace{\sum_{k=0}^\infty c_k(z-z_0)^k}_{\text{Nebenteil } N(z)}
+    \end{equation*}
+    mit den Koeffizienten
+    \begin{equation*}
+        c_k=\frac{1}{2\pi i}\oint_{|z-z_0|=\rho}\frac{f(z)}{(z-z_0)^{k+1}}\diff z \quad \rho\in(r,R)
+    \end{equation*}
+\end{emphbox}
+
+\paragraph{Konvergenzradius des Hauptteils} $\frac{1}{r}$
+\paragraph{Konvergenzradius des Nebenteils} $R$
+
+\begin{sectionbox}
+    Sei $g:B_R(z_0)\rightarrow\mathbb C$ holomorph und $m\in\mathbb N_0$, dann gilt
+    \begin{equation*}
+        \frac{g(z)}{(z-z_0)^m}=\sum_{k=-m}^{\infty}\frac{g^{(k+m)}(z_0)}{(k+m)!}(z-z_0)^k
+    \end{equation*}
+    auf $A_{0,R}(z_0)=\{z\in\mathbb C\setminus\{z_0\} \, | \, |z-z_0| < R\}$
+\end{sectionbox}
+
+\begin{sectionbox}
+    Sei $g:B_R(0)\rightarrow\mathbb C$ holomorph, dann ist
+    \begin{equation*}
+        g\left(\frac{1}{z-z_0}\right)=\sum_{k=0}^\infty \frac{g^{(k)}(0)}{k!}(z-z_0)^{-k}
+    \end{equation*}
+    auf $A_{1/R,\infty}(z_0)$
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Ableitung und Integral}
+    \begin{itemize}
+        \item Ableitung klar
+        \item Ist $c_{-1}=0$, so ist die Stammfunktion definiert
+    \end{itemize}
+\end{sectionbox}
+
+
+\subsection{Isolierte Singularitäten}
+\begin{sectionbox}
+    \begin{emphbox}
+        Sei $U\subset\mathbb C$ offen und $f:U\rightarrow\mathbb C$ holomorph. Zei $z_0\notin U$, sodass $B_r(z_0)\setminus\{z_0\} \subset U$ für $r>0$.
+        Dann ist $z_0$ eine \textbf{isolierte Singularität} von $f$
+    \end{emphbox}
+
+    \paragraph{hebbar} falls eine holomorphe Funktion $\tilde f:U\cup\{z_0\}\rightarrow\mathbb C$ existiert (also auf der Singularität von $f$ auch definiert ist).
+    \begin{itemize}
+        \item Genau dann, wenn der $H(z)=0$
+        \item Genau dann, wenn $|f(z)| \le C \quad \forall z\in A_{0,r}(z_0)$ mit $C,r>0$
+    \end{itemize}
+    \vspace{1em}
+
+    \paragraph{ein Pol} falls $z_0$ nicht hebbar ist, aber $\exists m\in\mathbb N:z_0$ hebbare Singularität der Funktion $(z-z_0)^mf(z)$. $m$ heißt \textbf{Ordnung} des Pols.
+    \begin{itemize}
+        \item Genau dann, wenn der Hauptteil für Indices $< -m$ abbricht
+              \vspace{-.8em}
+              \begin{equation*}
+                  \resizebox{.95\hsize}{!}{$f(z) = \underbrace{\overbrace{\dots + \frac{c_{-(m+1)}}{(z-z_0)^{m+1}}}^{=0}+\frac{c_{-m}}{(z-z_0)^m} + \dots + \frac{c_{-1}}{z-z_0}}_{H(z)} + N(z)$}
+              \end{equation*}
+        \item Genau dann, wenn $|f(z)|\rightarrow\infty$ für $z\rightarrow z_0$
+    \end{itemize}
+
+    \vspace{1em}
+    \paragraph{wesentlich} falls sie weder hebbar noch ein Pol ist. Genau dann, wenn der Hauptteil nicht abbricht: $\forall m \in\mathbb N \, \exists k > m: c_{-k}\ne 0$
+\end{sectionbox}
