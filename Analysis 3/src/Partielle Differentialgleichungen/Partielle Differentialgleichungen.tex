@@ -1,0 +1,24 @@
+\subsection{Wärmeleitungsgleichung}
+\begin{emphbox}
+    Sei $\Omega\subset\mathbb R^n$ ein Körper mit Massendichte $\rho(x)$, spezifischer Wärme $c(x)$, Wärmeleitfähigkeit $\kappa(x)$, Wärmezufuhr ($f>0$)/-abfuhr ($f<0$) $f(x,t)$
+    \begin{equation*}
+        c(x)\rho(x)u_t(x,y) - \div(\kappa(x)\nabla u(x,t)) = f(x,t)
+    \end{equation*}
+\end{emphbox}
+
+\subsection{Randbedingungen}
+\begin{sectionbox}
+    \subsubsection{Dirichlet-Problem}
+    Dirichlet-Randbedingungen legen die Temperatur am Rand des Körpers fest. Gegeben $u^D:\partial\Omega \times [0,T]\rightarrow\mathbb R$.
+    Gesucht eine Lösung, so dass \begin{equation*}
+        u(x,t) = u^D(x,t) \quad \forall (x,t) \in \partial\Omega\times [0,T]
+    \end{equation*}
+
+    \subsubsection{Neumann-Problem}
+    Neumann-Randbedingungen schreiben den Wärmefluss nach außen vor. Gegeben $g^N:\partial\Omega\times [0,T]\rightarrow\mathbb R$.
+    Gesucht eine Lösung, so dass \begin{equation*}
+        \kappa(x)\frac{\partial}{\partial n}u(x,t) = g^N(x,t) \quad \forall (x,t)\in\partial\Omega \times [0,T]
+    \end{equation*}
+\end{sectionbox}
+
+\subsection{Poisson-Gleichung}
