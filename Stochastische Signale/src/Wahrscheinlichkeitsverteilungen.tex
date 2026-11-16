@@ -15,7 +15,7 @@
     \subsubsection{Eigenschaften}
     \begin{itemize}
         \item $F_X(x)$ monoton wachsend und rechtsseitig stetig: \\
-        $\lim_{h\rightarrow 0^+}F_X(x + h)=F_X(x)$
+              $\lim_{h\rightarrow 0^+}F_X(x + h)=F_X(x)$
         \item $F_X(x) \ge 0$
     \end{itemize}
 \end{sectionbox}
@@ -76,8 +76,8 @@ Problem z.B.: Diskretes Ereignis für $t = 0$ und stetige Ereignisse für $t > 0
 
     \begin{equation*}
         F_T(t) = \begin{cases}
-            0 & t < 0 \\
-            p_0 & t = 0 \\
+            0                               & t < 0 \\
+            p_0                             & t = 0 \\
             p_0 + (1-p_0)P(\{0 < T \le t\}) & t > 0
         \end{cases}
     \end{equation*}
@@ -94,7 +94,7 @@ Problem z.B.: Diskretes Ereignis für $t = 0$ und stetige Ereignisse für $t > 0
             F_{X_1X_2}(x_1, x_2) = P(\{X_1 \le x_1\}, \{X_2 \le x_2\})
         \end{equation*}
     \end{emphbox}
-    
+
     \subsubsection{Eigenschaften der CDF}
     \begin{description}
         \item[Monoton wachsend] in jeder Koordinate
@@ -132,10 +132,12 @@ Problem z.B.: Diskretes Ereignis für $t = 0$ und stetige Ereignisse für $t > 0
     \end{emphbox}
 \end{sectionbox}
 
-\subsubsection{Stochastische Unabhängigkeit}
-\begin{equation*}
-    f_{X_1X_2}(x_1,x_2)\overset{!}{=}f_{X_1}(x_1)f_{X_2}(x_2) \; \forall x_1,x_2
-\end{equation*}
+\begin{sectionbox}
+    \subsubsection{Stochastische Unabhängigkeit}
+    \begin{equation*}
+        f_{X_1X_2}(x_1,x_2)\overset{!}{=}f_{X_1}(x_1)f_{X_2}(x_2) \; \forall x_1,x_2
+    \end{equation*}
+\end{sectionbox}
 
 \begin{sectionbox}
     \subsubsection{Bedingte Zuvallsvariablen}
@@ -144,4 +146,36 @@ Problem z.B.: Diskretes Ereignis für $t = 0$ und stetige Ereignisse für $t > 0
             f_{X_1|X_2}(x_1|x_2) = \frac{\diff F_{X_1|X_2}(x_1|x_2)}{\diff x_1} = \frac{f_{X_1,X_2}(x_1,x_2)}{f_{X_2}(x_2)}
         \end{equation*}
     \end{emphbox}
+\end{sectionbox}
+
+\subsection{Stetige Funktionen von Zufallsvariablen}
+\begin{sectionbox}
+    \subsubsection{Streng monoton steigende/fallende Funktion $Y=g(X)$}
+    \begin{equation*}
+        f_Y(y) = \left.\frac{f_X(x)}{|g'(x)|}\right|_{x=g^{-1}(y)}
+    \end{equation*}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Stetige Funktion $Y=g(X)$}
+    Man summiert über alle Wurzeln von $y$, also über alle $x$, welche den gleichen $y$-Wert ergeben
+    \begin{equation*}
+        f_Y(y)=\sum_{i=1}^{n}\left.\frac{f_X(x_i)}{|g'(x_i)|}\right|_{x_i:g(x_i)=y}
+    \end{equation*}
+
+    \paragraph{Singularitäten} Bei Intervallen $[a,b]$ wo $g'(x)=0$ wird es in $f_Y(y)$ Singularitäten geben $\Longrightarrow$ diskreter Anteil in der ZV $Y$, da $y=g(x)$ beobachtet wird, wenn irgendein Wert $x$ im Intervall $[a,b]$ getroffen wird
+    \begin{equation*}
+        P(\{Y=g(x)\})=\int_a^b f_X(x)\diff x
+    \end{equation*}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Summe von 2 statistisch unabh. ZVs}
+    $X,Y$ mit $f_{XY}(x,y)=f_X(x)f_Y(y)$. Gesucht $Z=X+Y$.
+    \begin{equation*}
+        F_Z(z)=P(\{Z\le z\}) = P(\{X+Y\le x\})
+    \end{equation*}
+    \begin{equation*}
+        f_Z(z)=(f_X * f_Y)(z)=\int_{-\infty}^\infty f_Y(y)f_X(z-y)\diff y
+    \end{equation*}
 \end{sectionbox}

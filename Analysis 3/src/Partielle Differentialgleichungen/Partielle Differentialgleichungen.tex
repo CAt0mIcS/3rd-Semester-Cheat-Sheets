@@ -1,3 +1,15 @@
+\begin{sectionbox}
+    Beispielhaft für Gleichungen 2. Ordnung $p=2$
+    \begin{description}
+        \item[linear] Die Koeffizienten vor den höchsten Ableitungen und die rechte Seiten hängen nur von $(x,y)$ ab. \\
+              $a_{11}(x,y)u_{xx} + a_{12}(x,y)u_{xy} + a_{22}(x,y)u_{yy} + \dots = h(x,y)$
+        \item[semilinear] Die Koeffizienten vor den höchsten Ableitungen hängen nur von $(x,y)$ ab, die rechte Seite bel. \\
+              $a_{11}(x,y)u_{xx} + a_{12}(x,y)u_{xy} + a_{22}(x,y)u_{yy} + \dots = G(x,y,u,u_x,u_y)$
+        \item[quasilinear] Sowohl die Koeffizienten vor den höchsten Ableitungen als auch die rechte Seite sind bel., jedoch kein $u_{xx}u_{xy}$ z.B. \\
+              $a_{11}(x,y,u,u_x,u_y)u_{xx} + a_{12}(x,y,u,u_x,u_y)u_{xy} + \dots = G(x,y,u,u_x,u_y)$
+    \end{description}
+\end{sectionbox}
+
 \subsection{Wärmeleitungsgleichung}
 \begin{emphbox}
     Sei $\Omega\subset\mathbb R^n$ ein Körper mit Massendichte $\rho(x)$, spezifischer Wärme $c(x)$, Wärmeleitfähigkeit $\kappa(x)$, Wärmezufuhr ($f>0$)/-abfuhr ($f<0$) $f(x,t)$
@@ -19,6 +31,131 @@
     Gesucht eine Lösung, so dass \begin{equation*}
         \kappa(x)\frac{\partial}{\partial n}u(x,t) = g^N(x,t) \quad \forall (x,t)\in\partial\Omega \times [0,T]
     \end{equation*}
+    \begin{equation*}
+        \text{stat.: } (A(x,y)\nabla u(x,y))\cdot n(x,y) = g^N(x,y) \quad \forall (x,y)\in\partial\Omega
+    \end{equation*}
+
+    \subsubsection{Energiemethode - Eindeutigkeit der Lösung}
+    \begin{itemize}
+        \item Für zwei Lösungen $u_1,u_2$ gilt $v=u_1-u_2$, $v(x,t)=0\,\forall (x,t)\in\partial\Omega\times[0,T]$, da beide die gleichen Randbedingungen besitzen
+        \item Die Energie ist $E(t) = \frac{1}{2}\int_\Omega v^2(x,t)\diff x \ge 0$
+        \item Falls $\partial_x E(t) \le 0$, so muss $E(t)=0 \Rightarrow v(x,t) = 0$ gelten $\Rightarrow$ Lösung eindeutig
+    \end{itemize}
 \end{sectionbox}
 
-\subsection{Poisson-Gleichung}
+\subsection{stationärer Fall}
+Zeitunabhängige Funktionen und Lösungen
+\subsubsection{Poisson-Gleichung}
+\begin{emphbox}
+    \begin{equation*}
+        -\div(\kappa(x)\nabla u(x)) = f(x); \qquad -k\Delta u = f
+    \end{equation*}
+\end{emphbox}
+
+\subsubsection{Laplace-Gleichung}
+\begin{emphbox}
+    \begin{equation*}
+        -\div(\kappa(x)\nabla u(x)) = 0; \qquad -k\Delta u = 0
+    \end{equation*}
+\end{emphbox}
+
+TODO: Separationsansatz
+
+\subsection{Partielle Differentialgleichungen zweiter Ordnung}
+\begin{sectionbox}
+    \begin{emphbox}
+        \begin{equation*}
+            a_{11}u_{xx}+a_{22}u_{yy}+2a_{12}u_{xy}=h(x,y,u,u_x,u_y)
+        \end{equation*}
+        mit $a_{ij}$ abhängig von $x,y$ ergibt sich die Matrixwerte Funktion
+        \begin{equation*}
+            A(x,y) = \mat{a_{11}(x,y) & a_{12}(x,y) \\ a_{12}(x,y) & a_{22}(x,y)}
+        \end{equation*}
+        welche symmetrisch und somit diagonalisierbar ist mit $\lambda_1(x,y) \ge \lambda_2(x,y)$
+    \end{emphbox}
+
+    Die PDGL heißt
+    \begin{description}
+        \item[elliptisch bei $(x,y)$] falls $\lambda_1(x,y)\lambda_2(x,y) > 0$
+        \item[hyperbolisch bei $(x,y)$] falls $\lambda_2(x,y) < 0 < \lambda_1(x,y)$
+        \item[parabolisch bei $(x,y)$] falls $\lambda_1(x,y)\lambda_2(x,y) = 0$
+    \end{description}
+
+    \subsubsection{Elliptische PDGL in Divergenzform}
+    \begin{equation}\label{1}
+        \div(A(x,y)\nabla u(x,y)) = f(x,y) \quad \forall (x,y) \in \Omega
+    \end{equation}
+    Falls $A(x,y)$ symmetr. $\forall (x,y)\in\Omega$ und $\exists \gamma >0: v^TA(x,y)v \ge \gamma||v||^2 \; \forall v\in\mathbb R^2$, dann ist (\ref{1}) elliptisch.
+
+    \subsubsection{Tranformationen}
+    Seien $\xi=\xi(x,y), \eta=\eta(x,y) \; \mathcal C^1$ mit Umkehrfunktion auch $\mathcal C^1$.
+    Es gilt \begin{equation*}
+        \tilde A(\xi(x,y), \eta(x,y)) = \left(\mat{\xi_x & \xi_y \\ \eta_x & \eta_y}A\mat{\xi_x & \xi_y \\ \eta_x & \eta_y}^T\right)(x,y)
+    \end{equation*} mit $\tilde a_{11} = a_{11}\xi_x^2 + 2a_{12}\xi_x\xi_y+a_{22}\xi_y^2$ \\
+    $\tilde a_{12} = a_{11}\xi_x\eta_x + a_{12}(\xi_x\eta_y + \xi_y\eta_x) + a_{22}\xi_y\eta_y$ \\
+    $\tilde a_{22} = a_{22}\eta_x^2 + 2a_{12}\eta_x\eta_y + a_{22}\eta_y^2$
+    \begin{description}
+        \item[elliptische PDGL] Trafo so, dass $\tilde A=I$ \\
+              $\Longrightarrow u_{\xi\xi} + u_{\eta\eta} = \hat h(\xi,\eta,u_\xi,u_\eta)$
+        \item[parabolische PDGL] Trafo so, dass $\tilde a_{11}=1, \tilde a_{12} = \tilde a_{22} = 0$ \\
+              $\Longrightarrow u_{\xi\xi} = \hat h(\xi,\eta,u_\xi,u_\eta)$
+        \item[hyperbolische PDGL] Trafo so, dass $\tilde a_{12}=1/2, \tilde a_{11}=\tilde a_{22} = 0$ \\
+              $\Longrightarrow u_{\xi\eta} = \hat h(\xi,\eta,u_\xi,u_\eta)$
+    \end{description}
+\end{sectionbox}
+TODO: 3.4.1, 3.4.2
+
+\subsection{Lokaler Fluss}
+\begin{sectionbox}
+    Sei $v:\Omega\rightarrow\mathbb R^n$ stetig partiell diffb.
+    Dann gilt für jedes $z\in\Omega\subset\mathbb R^n$ gibt es eine maximal lange Kurve, die entlang der Vektoren von $v$ läuft
+    \begin{flalign*}
+        &x'(t) = v(x(t)) \quad \forall t\in(t_-,t_+) \\
+        &x(0) = z
+    \end{flalign*}
+    Die Kurve $x$ beschreibt, wie ein Teilchen in der Geschwindigkeitsströmung von $v$ sich bewegen würde
+\end{sectionbox}
+
+\subsubsection{Phasen-Differentialgleichung}
+TODO: S. 119-120
+
+\subsection{Partielle Differentialgleichungen erster Ordnung}
+\begin{equation*}
+    \sum_{i=1}^{n} a_i(x)u_{x_i}(x) + b(x)u(x) = h(x), \; x=\vect{x_1 \\ \vdots \\ x_n}\in\Omega\subset\mathbb R^n
+\end{equation*}
+
+\begin{sectionbox}
+    \subsubsection{Superpositionsprinzip}
+    \begin{itemize}
+        \item $u_1,u_2$ Lösungen der homogenen PDGL $\Rightarrow u=\alpha u_1 +\beta u_2$ auch Lösung
+        \item $u_p$ Partikulärlösung der inhomog. PDGL $L[u_p]=h$ und $u$ eine Lösung der homog. PDGL. Dann ist $u+u_p$ auch eine Lösung der inhomog. DGL
+        \item $L[u_1]=h_1, \, L[u_2]=h_2$, dann ist $u=\alpha u_1+\beta u_2$ eine Lösung von $L[u]=\alpha h_1 + \beta h_2$
+    \end{itemize}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Charakteristikenverfahren für PDGLs 1. Ordnung}
+    Reduktion der Lösung einer PDGL 1. Ordnung auf (unendl. viele) gewöhnliche DGLs. 
+    Lösung ist entlang von (noch zu bestimmenden) Kurven zu finden. 
+
+    \paragraph{Charakteristik} Bildmenge einer Kurve $X:(s^-,s^+)\rightarrow\mathbb R^n$,
+    \begin{equation*}
+        \Gamma := \{X(s) \, | \, s\in(s^-,s^+)\}
+    \end{equation*}
+    die das System $X_j'(s)=a_j(X(s)) \; \forall s\in(s^-,s^+)$ erfüllt. Lokaler Fluss von $a:\Omega\rightarrow\mathbb R$
+    \begin{itemize}
+        \item Für jede Wahl von $c\in\mathbb R^{n-1}$ gibt es genau eine Charakteristik $\Gamma(c)\subset\mathbb R^{n-1}$
+        \item Die verschiedenen Charakteristiken schneiden sich nicht
+        \item Die Charakteristiken überdecken $\mathbb R^n \rightarrow \bigcup_{c\in\mathbb R^{n-1}}\Gamma(c)=\mathbb R^n$
+    \end{itemize}
+
+    Für die eindeutige Lösung $u:\mathbb R^n\rightarrow \mathbb R$ von \\
+    $\sum_{i=1}^{n}a_i(x)u_{x_i}(x) + b(x)u(x)=h(x)$ gilt
+    \begin{itemize}
+        \item $\frac{\diff}{\diff s}u(X(s)) + b(X(s))u(X(s))=h(X(s))$
+        \item Falls $h(x)=0$ gilt $\frac{\diff}{\diff s}u(X(s)) = 0$
+    \end{itemize}
+
+    \paragraph{Lösung homog. PDGLs} $u(x) = f(F(x))$ für eine bel. diffb. Funktion $f$ und eine Funktion $F$, welche die $\Gamma(c)=\{x\in\mathbb R^n \, | \, F(x)=c\}$ beschreibt
+\end{sectionbox}
+TODO: Letzten Teil zu Lösungen
