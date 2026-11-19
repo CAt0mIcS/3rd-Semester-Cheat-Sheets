@@ -17,7 +17,7 @@
             \item $\iint_{\partial\Omega}\epsilon F_N\diff a \overset{!}{=} -\iiint_{\Omega}\rho\div V$ (Oberflächenladung kompensiert eingeschlossene Ladung, sodass $\Omega$ nach außen elektr. neutral (gesamte Feldenergie in $\interior\Omega$))
       \end{itemize}
       \begin{center}
-            \boxed{\div(\epsilon\nabla\Phi)=-\rho \text{ auf } \Omega \text{ und } \left.\frac{\partial\Phi}{\partial \vec n}\right|_{\partial\Omega}=F_N}
+            \boxed{\div(\epsilon\nabla\Phi)=-\rho \text{ auf } \Omega \text{ und } \left.\frac{\partial\Phi}{\partial \vec n}\right|_{\partial\Omega}=F_N=\frac{\sigma}{\epsilon}}
             \paragraph{Lösung} bis auf eine Konstante eindeutiges $(\Phi + c) \in \mathcal C^2$
       \end{center}
 
@@ -43,13 +43,13 @@ Lösungsverfahren:\\
       \item Finde Eigenfunktionen von $\varphi$: $f=-\div(\varepsilon \nabla \vec b_\nu) = \lambda_\nu \vec b_\nu$\\
             Es gilt $\lambda_\nu > 0$.
       \item Ansatz $\varphi(\vec r) = \sum_{\nu = 1}^\infty \alpha_\nu b_\nu(\vec r)$\\
-            Bestimmung der Entwicklungskoeffizienten: $a_\nu = \frac{<b_\nu|f>}{\lambda_\nu} = \frac{1}{\lambda_\nu}\int_\Omega b_\nu * f dv$\\
+            Bestimmung der Entwicklungskoeffizienten: $a_\nu = \frac{\langle b_\nu,f\rangle}{\lambda_\nu} = \frac{1}{\lambda_\nu}\iiint_\Omega b_\nu^* f dv$\\
       \item Spektraldarstellung: $G(\vec r, \vec r') = \sum_{\nu = 1}^\infty b_\nu (\vec r) \frac{1}{\lambda_\nu} b_\nu (\vec r')^*$\\
 \end{enumerate}
 
 
 
-\subsection{Greenfunktion $G$}
+\subsection{Greenfunktion $G$ - Umkehrung von $\div(\epsilon \nabla\cdot)$}
 Def: Lösung des RWP mit hom. Randbed. und Störung $\rho(\vec r) = \delta(\vec r - \vec r')$ (Einheitspunktladung bei $\vec r'$)\\
 Poissongleichung $\Delta\varphi = -\frac{\rho}{\varepsilon_0}$ wird durch das Coulomb-Integral gelöst.
 Allg. Lösung: $\Phi(\vec r) = \varphi(\vec r)+\psi(\vec r) = \int_\Omega G(\vec r, \vec r')\rho(\vec r') \diff^3 \vec r' + \psi(\vec r)$\\
