@@ -164,7 +164,7 @@ Rechenregeln wie Multiplikation
     \subsubsection{Eigenschaften}
     \begin{itemize}
         \item $(e^{ik\omega t} * f)(t)=c_ke^{ik\omega t} \Rightarrow k$-te Teilschwingung der Fourierreihe von $f$
-        \item $(f * g)(t)$ ist stetig
+        \item $f,g$ stückweise stetig $\Rightarrow (f * g)(t)$ ist stetig
         \item Das Fourierspektrum von $(f * g)(t)$ ist $\{c_kd_k\}_{k\in\mathbb Z}$
     \end{itemize}
 \end{sectionbox}
@@ -273,6 +273,8 @@ Rechenregeln wie Multiplikation
               \end{equation*}
     \end{itemize}
 
+    TODO: Satz des Pythagoras
+
     \textbf{Äquivalente Aussagen}
     \begin{itemize}
         \item $\{e_n\}_{n\in\mathbb Z}$ ist ein vollständiges Orthonormalsystem.
@@ -291,7 +293,7 @@ Rechenregeln wie Multiplikation
     \subsubsection{Fourierreihenkonvergenz im quadratischen Mittel}
     Für vollständige Orthonormalsysteme gilt, dass jede stückweise stetige, $T$-periodische Funktion
     \begin{equation*}
-        \lim_{n\rightarrow\infty}\frac{1}{T}\int_0^T|f(t) - \sum_{k=-n}^{n}c_ke^{ik\omega t}|^2\diff t = 0
+        \lim_{n\rightarrow\infty}\frac{1}{T}\int_0^T\left|f(t) - \sum_{k=-n}^{n}c_ke^{ik\omega t}\right|^2\diff t = 0
     \end{equation*}
     Nach Parseval-Bessel-Gleichung gilt dann
     \begin{equation*}
