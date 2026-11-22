@@ -1,0 +1,79 @@
+\begin{sectionbox}
+    \subsubsection{Dirac-Folge}
+    Diracimpulse im Abstand $T_s$ voneinander entfernt $\FT$ Diracimpulse im Abstand $f_s=\frac{1}{T_s}$ voneinander entfernt.
+    \begin{equation*}
+        s(t) = \sum_{n=-\infty}^{\infty}\delta(t-nT_s) \FT S(f) = \frac{1}{T_s}\sum_{k=-\infty}^{\infty}\delta(f - kf_s)
+    \end{equation*}
+    $s(t)$ dimensionslos
+\end{sectionbox}
+
+\subsection{Abtasttheorem}
+\begin{sectionbox}
+    \begin{emphbox}
+        \begin{equation*}
+            x_s(t) = x(t)s(t)=\sum_{n=-\infty}^{\infty}x(nT_s)\delta(t - nT_s)
+        \end{equation*}
+        \begin{equation*}
+            \FT
+        \end{equation*}
+        \begin{equation*}
+            X_s(f) = X(f) * S(f) = \frac{1}{T_s}\sum_{k=-\infty}^{\infty}X(f-kf_s)
+        \end{equation*}
+    \end{emphbox}
+
+    \subsubsection{Eigenschaften}
+    \begin{itemize}
+        \item $X_s(f)$ ist periodisch mit Abtastrate $f_s$ als Periode
+        \item $[x_s(t)]=\frac{V}{s}$
+    \end{itemize}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Rekonstruktion - Voraussetzungen}
+    Das Gesamtspektrum der Folge $x_s(t)$ überlappen sich nicht, wenn gilt (TODO: Genauer) (TODO: Bild VL 6 Teil 2: Diracs und $X(f)$ und $X_s(f)$)
+    \begin{itemize}
+        \item $X(f)$ ist bandbegrenzt (TODO: Was heißt das?)
+        \item $T_s$ wird genügend klein gewählt $\Leftrightarrow f_s$ wird genügend groß gewählt
+    \end{itemize}
+
+    \begin{emphbox}
+        Sei $x(t)$ bandbegrenztes Signal und $X(f) = 0 \forall |f|>f_g$, dann ist $x$ durch seine Abtastwerte eindeutig rekonstruierbar, wenn gilt
+        \begin{equation*}
+            f_s =\frac{1}{T_s} > 2f_g
+        \end{equation*}
+    \end{emphbox}
+    \begin{description}
+        \item[$f_g$]: Nyquist-Frequenz, maximale Frequenz in $X(f)$
+        \item[$2f_g$]: Nyquist-Rate
+    \end{description}
+
+    \paragraph{Aliasing} Z.B.: Hochfrequenter Sinus wird mit zu niedrigem $f_s$ abgetastet $\Rightarrow$ Es entsteht ein niedrigfrequenter Sinus, welcher eigentlich nicht in $X(f)$ vorhanden ist
+
+    \subsubsection{Rekonstruktion}
+    Tiefpassfilter filtert das Spektrum aus $X_s(f)$ mit $k=0$ heraus
+    \begin{equation*}
+        x_k(t) = \int_{-f_g}^{f_g}X(f)e^{j2\pi ft}\diff f
+    \end{equation*}
+    TODO: Formel genauer + extra im Zeitbereich, dirac dimensionslos
+\end{sectionbox}
+
+\subsection{Diskrete Fourierreihe}
+\begin{sectionbox}
+    \begin{tabular*}{\columnwidth}{lcl}
+        $t$ & $\rightarrow$ & $nT_s$ \\
+        $\tilde x(nT_s)$ & $\rightarrow$ & $\tilde x[n]$ \\
+        $\diff t$ & $\rightarrow$ & $T_s$ \\
+        $T_0$ & $\rightarrow$ & $NT_s$ \\
+    \end{tabular*}
+    \begin{emphbox}
+        \begin{align*}
+             & \tilde X[k]=\frac{1}{NT_s}\sum_{n=0}^{N_1}\tilde x[n]e^{-j\frac{2\pi kn}{N}}T_s & \text{Analyse}  \\
+             & \tilde x[n] = \sum_{k=0}^{N-1}\tilde X[k]e^{j\frac{2\pi kn}{N}}                 & \text{Synthese}
+        \end{align*}
+    \end{emphbox}
+
+    \subsubsection{Eigenschaften}
+    \begin{itemize}
+        \item $\tilde X[k + N] = \tilde X[k]$
+    \end{itemize}
+\end{sectionbox}

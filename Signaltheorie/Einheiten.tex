@@ -1,0 +1,103 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage[margin=2cm]{geometry}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{threeparttable}
+\sisetup{per-mode=symbol}
+
+\DeclareMathOperator{\sinc}{sinc}
+\DeclareMathOperator{\sign}{sign}
+
+\begin{document}
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \renewcommand{\arraystretch}{1.6}
+    \setlength{\tabcolsep}{4pt}
+    \begin{threeparttable}
+        \caption{Einheiten spezieller Funktionen im Zeit- und Frequenzbereich}
+        \label{tab:einheiten}
+        \begin{tabular}{@{}l l l l l@{}}
+            \toprule
+            \textbf{Funktion} & \textbf{Zeitbereich}                                                       & \textbf{Einheit}                           & \textbf{Frequenzbereich} & \textbf{Einheit} \\
+            \midrule
+            \multicolumn{5}{@{}l}{\textit{Dimensionslose Grundfunktionen}}                                                                                                                            \\
+            Dirac-Impuls
+                              & $\delta(t)$                                                                & $\si{\per\second}$
+                              & $1$                                                                        & $1$                                                                                      \\
+            Konstante
+                              & $1$                                                                        & $1$
+                              & $\delta(f)$                                                                & $\si{\per\hertz} = \si{\second}$                                                         \\
+            Komplexe Schwingung
+                              & $e^{j2\pi f_0 t}$                                                          & $1$
+                              & $\delta(f-f_0)$                                                            & $\si{\second}$                                                                           \\
+            Einheitssprung
+                              & $u(t)$                                                                     & $1$
+                              & $\frac{1}{2}\delta(f) + \frac{1}{j2\pi f}$                                 & $\si{\second}$                                                                           \\
+            Signumfunktion
+                              & $\sign(t)$                                                                 & $1$
+                              & $\frac{1}{j\pi f}$                                                         & $\si{\second}$                                                                           \\
+            Rechteckimpuls
+                              & $u(t+\frac{T}{2}) - u(t-\frac{T}{2})$                                      & $1$
+                              & $T\sinc(\pi f T)$                                                          & $\si{\second}$                                                                           \\
+            Dirac-Impulsfolge
+                              & $\sum_{n} \delta(t-nT)$                                                    & $\si{\per\second}$
+                              & $\frac{1}{T}\sum_{k} \delta\!\left(f-\frac{k}{T}\right)$                   & $1$                                                                                      \\
+            \midrule
+            \multicolumn{5}{@{}l}{\textit{Signale (Beispiel: Spannung)}}                                                                                                                              \\
+            Energiesignal
+                              & $x(t)$                                                                     & $\si{\volt}$
+                              & $X(f)$                                                                     & $\si{\volt\per\hertz} = \si{\volt\second}$                                               \\
+            Periodisches Signal\tnote{a}
+                              & $\sum_{k} c_k\, e^{j2\pi k f_0 t}$                                         & $\si{\volt}$
+                              & $\sum_{k} c_k\, \delta(f-kf_0)$                                            & $\si{\volt\per\hertz}$                                                                   \\
+            Energie-AKF
+                              & $\varphi_{xx}(\tau) = \int x(t)\,x(t+\tau)\,\mathrm{d}t$                   & $\si{\volt\squared\second}$
+                              & $|X(f)|^2$                                                                 & $\si{\volt\squared\second\per\hertz}$                                                    \\
+            \midrule
+            \multicolumn{5}{@{}l}{\textit{LTI-System (Ein- und Ausgang in \si{\volt})}\tnote{b}}                                                                                                      \\
+            Impulsantwort
+                              & $h(t)$                                                                     & $\si{\per\second}$
+                              & $H(f)$                                                                     & $1$                                                                                      \\
+            Sprungantwort
+                              & $s(t) = \int_{-\infty}^{t} h(\tau)\,\mathrm{d}\tau$                        & $1$
+                              & $\frac{H(f)}{j2\pi f} + \frac{1}{2}H(0)\,\delta(f)$                        & $\si{\second}$                                                                           \\
+            Ausgangssignal
+                              & $y(t) = x(t) * h(t)$                                                       & $\si{\volt}$
+                              & $Y(f) = X(f)\,H(f)$                                                        & $\si{\volt\per\hertz}$                                                                   \\
+            \midrule
+            \multicolumn{5}{@{}l}{\textit{Zeitdiskret (DTFT, $\Omega$ dimensionslos)}\tnote{c}}                                                                                                       \\
+            Einheitsimpuls
+                              & $\delta[n]$                                                                & $1$
+                              & $1$                                                                        & $1$                                                                                      \\
+            Sprungfolge
+                              & $u[n]$                                                                     & $1$
+                              & $\frac{1}{1-e^{-j\Omega}} + \pi\sum_{k}\delta(\Omega-2\pi k)$              & $1$                                                                                      \\
+            Signal
+                              & $x[n]$                                                                     & $\si{\volt}$
+                              & $X(\Omega) = \sum_{n} x[n]\,e^{-j\Omega n}$                                & $\si{\volt}$                                                                             \\
+            Impulsantwort
+                              & $h[n]$                                                                     & $1$
+                              & $H(\Omega)$                                                                & $1$                                                                                      \\
+            Sprungantwort
+                              & $g[n] = \sum_{m=-\infty}^{n} h[m]$                                         & $1$
+                              & $\frac{H(\Omega)}{1-e^{-j\Omega}} + \pi H(0)\sum_{k}\delta(\Omega-2\pi k)$ & $1$                                                                                      \\
+            \bottomrule
+        \end{tabular}
+        \begin{tablenotes}\footnotesize
+            \item[] Faustregel: $[X(f)] = [x(t)]\cdot\si{\second}$, da das Fourier-Integral über $\mathrm{d}t$ läuft.
+            In $\omega$-Darstellung bleiben die SI-Einheiten gleich (rad ist dimensionslos), es gilt aber $\delta(f) = 2\pi\,\delta(\omega)$.
+            \item[a] Die Fourier-Koeffizienten $c_k$ und damit die Impulsgewichte im Spektrum haben die Einheit \si{\volt}.
+            \item[b] Allgemein (Eingang in $[x]$, Ausgang in $[y]$):
+            $[h(t)] = \frac{[y]}{[x]\cdot\si{\second}}$, \quad $[H(f)] = [s(t)] = \frac{[y]}{[x]}$, \quad $[S(f)] = \frac{[y]}{[x]}\cdot\si{\second}$.
+            \item[c] Die DTFT ist eine Summe ohne $\mathrm{d}t$, daher keine zusätzliche Einheit.
+            Wird $h[n]$ aus einer zeitkontinuierlichen Impulsantwort gewonnen, gilt $h[n] = T_\mathrm{s}\, h(nT_\mathrm{s})$ (dimensionslos).
+        \end{tablenotes}
+    \end{threeparttable}
+\end{table}
+
+\end{document}

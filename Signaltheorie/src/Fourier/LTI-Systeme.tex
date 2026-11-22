@@ -1,0 +1,53 @@
+Ein System ist ein LTI-System (Linear, Time Invariant), wenn für beliebige Eingangssignale $x_1(t), x_2(t)$ und Ausgänge $y_1(t), y_2(t)$ gilt:
+\begin{description}
+    \item[Linearität] $\mathcal{T}(ax_1(t) + bx_2(t)) = ay_1(t) + by_2(t)$
+    \item[Zeitinvarianz] $\mathcal{T}(x(t-t_0))=y(t-t_0)$
+\end{description}
+
+\textbf{Eigenschaften}
+\begin{description}
+    \item[stabil] falls $\int_{-\infty}^\infty h(t)\diff t < \infty$
+    \item[kausal] Wert des Ausgangssignals hängt nur vom Eingangssignal ab $\Leftrightarrow h(t)=0 \, \forall t<0$. Es gibt nicht kausale LTI-Systeme
+\end{description}
+
+\subsection{Graphische Faltung}
+\begin{sectionbox}
+    $t>0$ schiebt nach rechts! \\
+    Faltung stückw. konst. Funktionen ergibt stück. lineare Funktionen $\Rightarrow$ Wert am Ende jedes Bereichs ausrechnen und mit Geraden verbinden
+    \begin{enumerate}
+        \item $h(\tau)$ zeichnen mit $\tau$-Achse
+        \item Schnittpunkte von $h(\tau)$ mit der $\tau$-Achse mit dem $\tau$-Wert beschriften
+        \item $h(-\tau)$ auf Glassichtfolie zeichnen. Horizontale Achse hat Ursprung bei $t$ anstatt $0$
+        \item Für $t=0$ liegen die Schnittpunkte von $h(t-\tau)$ bei $\tau_i \Rightarrow$ für $t$ variabel liegen sie bei $t+\tau_i$. Diese an die Schnittpunkte auf der Glassichtfolie zeichnen
+        \item Folie von links nach rechts über $h(\tau)$ ziehen. Jede Überschneidung einer sich bewegenden Kante (Folie) mit einer stat. Kante ($h(\tau)$) ergibt einen Bereich
+        \item Bewegte Kante $=$ stat. Kante setzen und nach $t$ auflösen (z.B. $t+1s=-2s$)
+        \item In Bereiche einteilen und für jeden Bereich eine feste und eine von $t$ abh. Grenze finden. Hierzu einfach den Integrationsbereich anschauen
+    \end{enumerate}
+\end{sectionbox}
+
+\subsection{Bode-Diagramm}
+\subsubsection{Logarithmische Rechnung}
+\begin{description}
+    \item[Maß] logarithmiertes positives Verhältnis zweier Leistungen jeweils gleicher Dimensionen, wobei die Bezugsgröße keinen festen Wert hat.
+          z.B. $100W$ in den Lautsprecher hinein, $0.1W$ akustisches Signal heraus $\rightarrow \log_{10}(\frac{100W}{0.1W})=3dB$
+\end{description}
+
+\begin{sectionbox}
+    \begin{emphbox}
+        Das Dämpfungsmaß (wie stark ein Signal gedämpft wird) ist mit Eingangsleistung $P_1$ und Ausgangsleistung $P_2$ gegeben durch
+        \begin{equation*}
+            A=10\log_{10}\left(\frac{P_1}{P_2}\right)\text{dB}
+        \end{equation*}
+
+        Das Verstärkungsmaß $G$ ist das negative Dämpfungsmaß. Dieses wird z.B. bei Bode-Diagrammen aufgetragen
+    \end{emphbox}
+
+    Für Spannungen gilt $P=\dfrac{x_{eff}^2}{R}$ und somit \begin{equation*}
+        L_V=20\log_{10}\left(\frac{x_{1eff}}{x_{0eff}}\right) \text{dB}
+    \end{equation*}
+\end{sectionbox}
+
+\subsection{System erster Ordnung}
+\subsection{System zweiter Ordnung}
+TODO: Graph von h, s und Übertragungsfkt.
+TODO: Normierung auf Q (Qualitätsfaktor)
