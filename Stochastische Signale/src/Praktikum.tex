@@ -19,10 +19,17 @@
     \end{tabularx}
 \end{sectionbox}
 
+\subsection{Random}
+\begin{sectionbox}
+    \begin{tabularx}{\linewidth}{@{}>{\slshape}l@{\hspace{1em}}X@{}}
+        np.random.randint(start, stop, size) & Vektor mit gleichverteilten random Werten zwischen start und stop (exclusive)
+    \end{tabularx}
+\end{sectionbox}
+
 \subsection{Graphen}
 \begin{sectionbox}
     \begin{tabularx}{\linewidth}{@{}>{\slshape}l@{\hspace{1em}}X@{}}
-        plt.hist(x, bins, \\
+        plt.hist(x, bins(=edges evtl.), \\
         density=False)    & Erstellt (für \textsl{density = False}) nicht-normiertes Histogram von \textsl{x}. \textsl{bins} ist ein Vektor (z.B. $[0, 0.1, 0.2, ..., 1]$), wobei ein \textsl{x}-Wert in einen der Bereiche eingeordnet wird $\rightarrow$ Menge an Balken \\
         pdf = scipy.stats.                                                                                                                                                                                                                                                     \\
         Verteilung.pdf(edges) & Erstellt die $y$-Werte für eine bestimmte Wahrscheinlichkeitsverteilung (z.B. \textsl{uniform}). \textsl{edges} ist der Bereich (analog zum $t$-Vektor in MATLAB)
