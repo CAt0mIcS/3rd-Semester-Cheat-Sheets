@@ -1,0 +1,115 @@
+\begin{sectionbox}
+    \subsection{Grundlagen}
+    \begin{description}
+        \item[Allgemein] $v=\lambda f \quad E=\frac{p^2}{2m}$
+        \item[Quantisierte Energiewerte] Energiewerte sind diskret \\ $E=hf = \hbar\omega=m_{\ir ph}c^2=\frac{hc}{\lambda}$
+        \item[Impuls] $p=m\vec v=\hbar \vec k$
+        \item[De-Broglie-Wellenlänge] Wellenlänge massebehafteter Teilchen $\lambda = \dfrac{2\pi}{k}=\dfrac{2\pi\hbar}{p}=\dfrac{h}{mv}$
+        \item[Heisenberg'sche Unschärferelation] $\Delta x \Delta p = \Delta E \Delta t \ge \frac{\hbar}{2}$
+    \end{description}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsection{Dispersionsrelation}
+    Zusammenhang zwischen der Kreisfrequenz $\omega$ und der Wellenzahl $k$.
+
+    \paragraph{freies Teilchen der Masse $m$} Aus $E=\frac{p^2}{2m}=\hbar\omega$ folt mit $p=\hbar k$: $\omega(k) = \dfrac{\hbar k^2}{2m}$
+\end{sectionbox}
+
+\subsection{Wellenfunktion}
+Wahrscheinlichkeitsamplitude, ein Teilchen in einem bestimmten Bereich zu finden. Die WDF ist $|\psi(\vec r, t)|^2$
+\begin{sectionbox}
+    \paragraph{Ebene Welle} $\psi(\vec r, t) = \phi_0e^{i(\vec k\vec r - \omega t)}$
+
+    \paragraph{Phasengeschwindigkeit} $v_{\ir ph} = \frac{\omega}{k}=\frac{v_{\text{klassisch}}}{2}$
+    \paragraph{Gruppengeschwindigkeit} Beschreibt die Bewegung des Wellenpakets, also der einhüllenden vieler sich überlagernden Wellen. $v_{\ir gr} = \omega'(k)=v_{\text{klassisch}}$
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Eigenschaften}
+    \begin{itemize}
+        \item $\int_V|\Psi(\vec r, t)|^2d\vec r = 1$
+        \item Beschränkt, stetig, stetig differenzierbar
+    \end{itemize}
+\end{sectionbox}
+
+\subsection{Schrödinger-Gleichung}
+Beschreibung der ebenen Welle eines Teilchens.
+\begin{sectionbox}
+    \begin{emphbox}
+        \subsubsection{Allgemeine, zeitabhängige Schrödingergleichung}
+        \begin{equation*}
+            i\hbar \frac{\partial}{\partial t}\psi(\vec r, t) = \underbrace{-\frac{\hbar^2}{2m}\Delta_{\vec r}\psi(\vec r, t)}_{E_{\ir kin}} + \underbrace{V(\vec r, t)\psi(\vec r, t)}_{E_{\ir pot}}
+        \end{equation*}
+    \end{emphbox}
+
+    \begin{emphbox}
+        \subsubsection{Zeitunabhängige Schrödingergleichung}
+        \begin{equation*}
+            E\varphi(\vec r) = H\varphi(\vec r) \qquad H=-\frac{\hbar^2}{2m}\Delta + V(\vec r)
+        \end{equation*}
+        mit Hamilton-Operator $H$.
+        TODO: Entartung(sgrad)
+    \end{emphbox}
+
+    Lösung mit Separationsansatz $\psi(\vec r, t) = \varphi(\vec r)e^{-i\omega t}$
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Korrespondenzprinzip}
+    Assoziation klassischer Größen (Observablen) mit quantenmechanischen Operatoren \\
+    \begin{tabular*}{\columnwidth}{@{\extracolsep\fill}ll||l@{}}
+        klass. & qm & 3D \\ \hline
+        $x$ & $x$ & $\vec r$ \\
+        $p_x$ & $-i\hbar\frac{\partial}{\partial x}$ & $-i\hbar \vec\nabla$ \\
+        $E$ & $i\hbar\frac{\partial}{\partial t}$ \\
+        $H$ & $-\frac{\hbar^2}{2m}\frac{\partial}{\partial x} + V(x)$ & $-\frac{\hbar^2}{2m}\Delta + V(\vec r)$
+    \end{tabular*}
+
+    \subsubsection{Erwartungswert}
+    \begin{equation*}
+        \overline B = \int_V \psi^*B\psi \diff V
+    \end{equation*}
+
+    \subsubsection{Unschärfe (Streuung) um den Erwartungswert}
+    \begin{equation*}
+        (\Delta B)^2=\overline{(B-\overline{B})^2}=\int_V\psi^*(B-\overline B)^2\psi\diff V
+    \end{equation*}
+\end{sectionbox}
+
+\subsection{Potentialtopf}
+\begin{center}
+    \includegraphics[width=5cm]{./img/potentialtopf.png}  \\
+\end{center}
+
+\begin{sectionbox}
+    \subsubsection{Unendlich hoher Potentialtopf}
+    \paragraph{Energiewerte} $E_n = \dfrac{\hbar^2}{2m}k_n^2=\dfrac{\hbar^2}{2m}\dfrac{\pi^2}{L^2}n^2=E_1n^2$ mit Quantenzahl/Energieniveau $n$
+    \paragraph{Lösung}\begin{equation*}
+        \varphi_n(x) = \sqrt{\frac{2}{L}}\sin(k_n x) \qquad k_n=\frac{n\pi}{L}
+    \end{equation*}
+    \begin{equation*}
+        \psi(x, t)=\sum_{n} c_n\varphi_n(x)e^{-i\omega_n t} \qquad \omega_n = \frac{E_n}{\hbar}
+    \end{equation*}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Konstantes Potential $V_i$}
+
+    \paragraph{Klassisch verbotene Zone} $E<V_i \rightarrow$ exponentiell abklingende Wellenfunktion
+    \begin{equation*}
+        \varphi_i(x) = A_ie^{\kappa_ix} + B_ie^{-\kappa_ix} \qquad \kappa_i = \sqrt{\frac{2m}{\hbar^2}(V_i-E)}
+    \end{equation*}
+
+    \paragraph{Klassisch erlaubte Zone} $E>V_i \rightarrow$ schwingende Wellenfunktion
+    \begin{equation*}
+        \varphi_i(x) = A_ie^{ik_ix} + B_ie^{-ik_ix} \qquad k_i = \sqrt{\frac{2m}{\hbar^2}(E-V_i)}
+    \end{equation*}
+
+    \paragraph{Randbedingungen} Es gilt an einem Übergang von Gebiet $1$ auf Gebiet $2$ im Punkt $x_s$
+    \begin{itemize}
+        \item $\varphi_1(x_s) = \varphi_2(x_s)$
+        \item $\varphi_1'(x_s) = \varphi_2'(x_s)$
+        \item Die exponentielle Lösung muss abklingen $\rightarrow$ Terme, die gegen $\infty$ gehen haben Vorfaktor $0$
+    \end{itemize}
+\end{sectionbox}
