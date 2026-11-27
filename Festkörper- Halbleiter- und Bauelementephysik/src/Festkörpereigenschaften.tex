@@ -1,0 +1,78 @@
+\begin{sectionbox}
+    \subsection{Dichte}
+    \paragraph{Dichte} $\rho = \frac{\diff m}{\diff V} = \frac{m P}{\frac{4}{3} \pi r^3} = \frac{m N}{a_0^3} = \frac{1}{V} \frac{N}{N_A} A_r$ \\
+\end{sectionbox}
+
+
+\subsection{Mechanische Eigenschaften}
+\begin{description}
+    \item[Verschiebungsfeld $\vec u(\vec r)$] Ein Materialpunkt, welcher vor Verformung bei $\vec r$ sitzt, ist nach Verformung bei $\vec r' = \vec r + \vec u(\vec r)$
+\end{description}
+\begin{sectionbox}
+    \subsubsection{Elastische Verformung}
+    mit Gitterpunkt $\vec u$ \\
+    \parbox{2.8cm}{ $\epsilon = \mat{ \varepsilon_{xx} & \varepsilon_{xy} & \varepsilon_{xz} \\ \varepsilon_{yx} & \varepsilon_{yy} & \varepsilon_{yz} \\ \varepsilon_{zx} & \varepsilon_{zy} & \varepsilon_{zz} }$ }
+    \parbox{1.5cm}{ \textbf{Dehnung} \\
+        $\epsilon_{xx} = \frac{\partial u_x}{\partial x}$ \\
+        $\epsilon_{yy} = \frac{\partial u_y}{\partial y}$ \\
+        $\epsilon_{zz} = \frac{\partial u_z}{\partial z}$
+    }
+    \parbox{2.2cm}{ \textbf{Scherdeformation} \\
+        $\epsilon_{xy} = \frac{\partial u_x}{\partial y} +  \frac{\partial u_y}{\partial x}$ \\
+        $\epsilon_{yz} = \frac{\partial u_y}{\partial z} + \frac{\partial u_z}{\partial y}$ \\
+        $\epsilon_{xz} = \frac{\partial u_x}{\partial z}+  \frac{\partial u_z}{\partial x}$
+    }
+    Dehnung: $\epsilon_{ii} > 0$, Stauchung: $\epsilon_{ii} < 0$ \\
+    Scherung: $\epsilon_{ij}$ beschreibt Winkeländerung in Radians
+    \paragraph{Volumenänderung bei Dehnung} $\frac{\Delta V}{V}=(1+\epsilon_{xx})(1+\epsilon_{yy})(1+\epsilon_{zz})-1\approx \epsilon_{xx} + \epsilon_{yy} + \epsilon_{zz}$
+
+    \subsubsection{Spannungstensor}
+    Kraft pro Fläche $\frac{N}{m^2}=Pa$ \\
+    \parbox{2.8cm}{ $\sigma = \mat{ \sigma_{xx} & \sigma_{xy} & \sigma_{xz} \\ \sigma_{yx} & \sigma_{yy} & \sigma_{yz} \\ \sigma_{zx} & \sigma_{zy} & \sigma_{zz} }$ } \\
+    Für $\sigma_{ij}$ ist $i$ die Richtung der Kraft und $j$ die Fläche, an der die Kraft angreift (Normalkomponente der Fläche zeigt in $j$-Richtung)
+    \begin{description}
+        \item[Normalspannung ($i=j$, Diagonale)] Die Kraft steht senkrecht auch der Fläche. $\sigma_{xx}>0$ ist Zug, $\sigma_{xx}<0$ ist Druck. Sie erzeugt Dehnung
+        \item[Tangentialspannung] Die Kraft wirkt parallel zur Fläche. $\sigma_{yx}$ ist z.B. eine Kraft in $y$-Richtung auf die Fläche, dessen Normale in $x$-Richtung zeigt. Sie erzeugt Scherung
+    \end{description}
+
+    \subsubsection{Hookesches Gesetz}
+    \begin{equation*}
+        \sigma = c\epsilon, \quad \sigma_{ij}=\sum_{kl}c_{ijkl}\epsilon_{kl} \quad \text{analog zu} \quad F=k\Delta x
+    \end{equation*}
+    mit Elastizitätstensor $c$ (Tensor 4. Stufe $\rightarrow 81$ Einträgen aber $6\times 6$ unabh. Komponenten)
+    \paragraph{Kompressionsmodul} $K = - V_0 \frac{\diff p}{\diff V} \overset{\text{isotrop}}{=} \frac{E}{3-6\nu}$ \quad Metall $\nu \approx 0.3$ (TODO)
+    \paragraph{Bewegungsgleichung} $\frac{\partial \sigma_{xx}}{\partial x} = \rho\frac{\partial^2 u_x}{\partial t^2}$ analog zu $F=ma$
+
+    \subsubsection{Wellen in Festkörpern}
+    $v_{||} = \sqrt{\frac{c}{\rho}}$ akustisch, in Phase, longitudinal \\
+    $v_{\perp} = \sqrt{\frac{\mu}{\rho}}$ optisch, gegenphasig, transversal \\
+    Gitterschwingungen / Phononen: (Für kleine $k$, $\omega_1$ optisch, $\omega_2$ akustisch)\\
+    $\omega_1 = \sqrt{2 c (\frac{1}{M_1} + \frac{1}{M_2})}$ \qquad $\omega_2 = ka\sqrt{ \frac{2 c}{M_1 + M_2}}$
+\end{sectionbox}
+
+
+\subsection{Thermische Eigenschaften}
+\begin{symbolbox}
+    \begin{tabular*}{\columnwidth}{@{}lll@{}}
+        Stoffmenge & $n=\frac{N}{N_A}$ & $\si{\mol}$ \\
+        Wärmekap. & $C=\frac{\Delta Q}{\Delta T}=cm=c\rho V=$ \\
+        & $c_mn=3nN_Ak_B$ & $\si{\joule \per \kelvin}$ \\
+        spez. Wärmekap. & $c$ & $\si{\joule \per \kilogram\kelvin}$ \\
+        mol. Wärmekap. & $c_m$ & $\si{\joule \per \mol\kelvin}$ \\
+        Wärmeleitf. & $\lambda = \frac{1}{3}Cvl$ & $\si{\watt \per \meter\kelvin}$ \\
+        Wärmestrom & $W=\frac{dQ}{dt}=C\frac{dT}{dt}=\lambda A\frac{dT}{dx}$ & $\si{\joule \per \second}$ \\
+        mittl. freie Weglänge & $l=v\tau$ &
+    \end{tabular*}
+\end{symbolbox}
+
+\begin{sectionbox}
+    \paragraph{Dulong-Petit} $c_m=3R=24,9\si{\joule\per\mole\kelvin}$, $c_m$ jedes Festkörpers nähert sich für hohe Temperaturen diesem Wert an
+    \subsubsection{Wärmeleitfähigkeit}
+    Phonon: $\lambda_{\ir phon}=\frac{1}{3}C_{\ir phon}v_{\ir Schall}l_{\ir phon}$ \quad Elektron: $\lambda_{\ir el} = \frac{1}{3}C_{\ir el}v_{\ir el}l_{\ir el}$ \\
+    mit $C_{\ir el} \approx 6nk_B^2\frac{T}{E_F}$
+
+    \subsubsection{Adiabatisch}
+    kein Wärmeverlust \begin{equation*}
+        \underbrace{C_A(T_A-T_\infty)}_{\text{Abgabe}}=\underbrace{C_B(T_\infty - T_B)}_{\text{Aufnahme}}
+    \end{equation*}
+\end{sectionbox}

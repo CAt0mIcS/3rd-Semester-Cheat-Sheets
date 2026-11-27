@@ -1,10 +1,88 @@
-\subsection{Stetige Verteilungen}
+\begin{description}
+    \item[gedächtnislos] Verteilung ist gedächtnislos, wenn TODO
+\end{description}
+
+\subsection{Diskrete Verteilungen}
 \begin{sectionbox}
-    \subsubsection{Gamma-Vertielung}
-    \begin{emphbox}
-        \begin{equation*}
-            f_G(\psi) = \underbrace{\frac{1}{\Gamma(k)}t^k}_{=c}\psi^{k-1}e^{-\frac{\psi}{t}} \quad \psi > 0
-        \end{equation*}
-        Mit \textit{shape}-Parameter $k>0$ und \textit{scale}-Parameter $t>0$
-    \end{emphbox}
+    \subsubsection{Bernoulli-Verteilung}
+    Beschreibt eine Ergebnis als Erfolg ($1$) und das andere als nicht-Erfolg. Grundverteilung, aus welcher alle anderen Verteilungen gebaut werden. \\
+    ZV $X$ kann nur zwei bel., aber komplementäre Werte annehmen, z.B. $X\in\{0,1\}$ \begin{equation*}
+        p_X(k) = \begin{cases}
+            p   & k=1 \quad (\text{Erfolg}) \\
+            1-p & k=0
+        \end{cases}
+    \end{equation*}
+    $E[X] = p$
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Binomialverteilung}
+    Wiederholte Durchführung des Bernoulli-Experiments. Summe bernoulliverteilter ZVs ist binomialverteilt \\
+    $X \widehat{=}$ Anzahl der Erfolge bei $n$-fachen stat. unabh. Wiederholungen des Experiments. Z.B.: Senden von $n$ Bits, wie viele sind $1$?
+    \begin{equation*}
+        p_X(k) = \begin{cases}
+            \vect{n \\ k} p^k (1-p)^{n-k} & x\in\{0,\dots,n\} \\
+            0                             & \text{sonst}
+        \end{cases}
+    \end{equation*}
+
+    $E[X] = np$
+
+    \textbf{Berechnung des Binomialkoeffizienten}
+    \begin{equation*}
+        \vect{10 \\ 4} = \frac{10\cdot 9 \cdot 8\cdot 7}{1\cdot 2\cdot 3\cdot 4}
+    \end{equation*}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Poisson-Verteilung}
+    Eine große Anzahl an Versuche $n$ kompensiert eine sehr kleine Erfolgswahrscheinlichkeit $p$: $\lambda=np$. $X\in\mathbb N_0$ mit höheren Zahlen immer unwahrscheinlicher.
+    \begin{equation*}
+        p_X(k) = \begin{cases}
+            e^{-\lambda}\frac{\lambda^k}{k!} & k \ge 0      \\
+            0                                & \text{sonst}
+        \end{cases}
+    \end{equation*}
+
+    $E[X]=\lambda$
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Geometrische Verteilung - gedächtnislos}
+    $X \widehat{=}$ Anzahl der stat. unabh. Wiederholungen des Bernoulli-Experiments bis der erste Erfolg auftritt. Mit der Einzelwahrscheinlichkeit $p$ eines Erfolgs:
+    \begin{equation*}
+        P(\{X=k\})=(1-p)^{k-1}p \quad P(\{X > k\})=(1-p)^k
+    \end{equation*}
+\end{sectionbox}
+
+\subsection{Stetige Verteilungen}
+\subsubsection{Gleichverteilung}
+$E[X] = \frac{a+b}{2}$ mit $f_X(x) = \frac{1}{b-a}, \; x\in[a,b]$
+
+\begin{sectionbox}
+    \subsubsection{Exponentialverteilung - gedächtnislos}
+    Stetige geometr. Verteilung.
+    \begin{equation*}
+        f_T(t) = \begin{cases}
+            \lambda e^{-\lambda t} & t \ge 0 \\
+            0                      & t < 0
+        \end{cases}
+    \end{equation*}
+    $E[X] = \frac{1}{\lambda}$
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Gauß-/Normalverteilung}
+    \begin{equation*}
+        f_X(x) = \frac{1}{\sqrt{2\pi}\sigma_X}e^{-\frac{(x-\mu_X)^2}{2\sigma_X^2}}
+    \end{equation*}
+    Symmetrisch um den Erwartungswert $\mu_X$ mit Maximum dort
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Gamma-Verteilung}
+    \begin{equation*}
+        f_G(\psi) = \underbrace{\frac{1}{\Gamma(k)}t^k}_{=c}\psi^{k-1}e^{-\frac{\psi}{t}} \quad \psi > 0
+    \end{equation*}
+    Mit \textit{shape}-Parameter $k>0$ und \textit{scale}-Parameter $t>0$
 \end{sectionbox}

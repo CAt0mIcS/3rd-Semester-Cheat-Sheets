@@ -1,0 +1,23 @@
+\subsection{Erwartungwert}
+\begin{sectionbox}
+    \subsubsection{Diskrete ZVs}
+    \begin{emphbox}
+        Summe über alle möglichen Ergebnisse für $X$ gewichtet mit ihrer Wahrscheinlichkeit.
+        \begin{equation*}
+            \mu_X = E[X] = \sum_{x\in\Omega_X}xp_X(x)
+        \end{equation*}
+    \end{emphbox}
+
+    \subsubsection{Stetige ZVs}
+    \begin{emphbox}
+        \begin{equation*}
+            \mu_X = E[X] = \int_{-\infty}^\infty x f_X(x)dx
+        \end{equation*}
+    \end{emphbox}
+
+    \subsubsection{Eigenschaften}
+    \begin{itemize}
+        \item Falls $Y \ge X \Rightarrow E[Y] \ge E[X]$. Wobei $Y\ge X$ bedeutet, dass für jede Realisierung von $X$ alle verbleibenden möglichen $Y$-Realisierungen größer sind (im $2D$-Graph $f_{XY}(x,y)$)
+        \item $E[g(X)]=\int_{-\infty}^\infty g(x)f_X(x)dx$ mit $Y=g(X)$
+    \end{itemize}
+\end{sectionbox}
