@@ -1,23 +1,76 @@
+\begin{sectionbox}
+    \subsubsection{Korrelation}
+    Man sagt, dass $\E[XY]$ die \textbf{Korrelation} von $X$ und $Y$ ist. 
+    $X,Y$ sind unkorreliert, g.d.w $\E[XY]=\E[X]\E[Y] \Leftrightarrow \Cov[X,Y]=0$ \\
+    \begin{tabular*}{\linewidth}{ll}
+        $X,Y$ sto. unabh. & $\Rightarrow \Cov[X,Y]=0$ \\
+                          & $\Rightarrow \E[X,Y]=\E[X]\E[Y]$
+    \end{tabular*}
+    Die Umkehrungen gelten nicht!
+\end{sectionbox}
+
 \subsection{Erwartungwert}
 \begin{sectionbox}
     \subsubsection{Diskrete ZVs}
     \begin{emphbox}
         Summe über alle möglichen Ergebnisse für $X$ gewichtet mit ihrer Wahrscheinlichkeit.
         \begin{equation*}
-            \mu_X = E[X] = \sum_{x\in\Omega_X}xp_X(x)
+            \mu_X = \E[X] = \sum_{x\in\Omega_X}xp_X(x)
         \end{equation*}
     \end{emphbox}
 
     \subsubsection{Stetige ZVs}
     \begin{emphbox}
         \begin{equation*}
-            \mu_X = E[X] = \int_{-\infty}^\infty x f_X(x)dx
+            \mu_X = \E[X] = \int_{-\infty}^\infty x f_X(x)dx
         \end{equation*}
     \end{emphbox}
 
     \subsubsection{Eigenschaften}
     \begin{itemize}
-        \item Falls $Y \ge X \Rightarrow E[Y] \ge E[X]$. Wobei $Y\ge X$ bedeutet, dass für jede Realisierung von $X$ alle verbleibenden möglichen $Y$-Realisierungen größer sind (im $2D$-Graph $f_{XY}(x,y)$)
-        \item $E[g(X)]=\int_{-\infty}^\infty g(x)f_X(x)dx$ mit $Y=g(X)$
+        \item Falls $Y \ge X \Rightarrow \E[Y] \ge \E[X]$. Wobei $Y\ge X$ bedeutet, dass für jede Realisierung von $X$ alle verbleibenden möglichen $Y$-Realisierungen größer sind (im $2D$-Graph $f_{XY}(x,y)$)
+        \item $\E[g(X)]=\int_{-\infty}^\infty g(x)f_X(x)dx$ mit $Y=g(X)$
+        \item $\E[X-\E[X]] = 0$, da $\E[X]$ eine Konstante ist, kann man es rausziehen. Hiermit macht man $X$ mittelwertfrei
+        \item Falls $X,Y$ unkorreliert oder sto. unabh. $\Rightarrow \E[XY]=\E[X]\E[Y]$. Die Umkehrung gilt nicht
     \end{itemize}
 \end{sectionbox}
+
+\subsection{Varianz}
+Streuung um den Erwartungswert. Mittlere quadratische Abweichung um den Erwartungswert.
+\begin{emphbox}
+    \begin{equation*}
+        \sigma_X^2 = \Var[X] = \E[(X-\E[X])^2]=\E[X^2]-\E[X]^2
+    \end{equation*}
+\end{emphbox}
+
+\begin{sectionbox}
+    \subsubsection{Eigenschaften}
+    \begin{itemize}
+        \item $\Var[X] \ge 0 \qquad \Var[c] = 0$ für $c=$ const.
+        \item $\Var[X+c] = \Var[X]$
+        \item $\Var[cX] = x^2\Var[X]$
+        \item $\Var[X+Y] = \Var[X] + 2\Cov[X,Y] + \Var[Y]$
+        \item $\Var[X]=\Cov[X,X]$
+    \end{itemize}
+\end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{Kovarianz}
+    \begin{emphbox}
+        \begin{equation*}
+            \Cov[X,Y]=\E[(X-\E[X])(Y-\E[Y])]=\E[XY]-\E[X]\E[Y]
+        \end{equation*}
+    \end{emphbox}
+
+    \textbf{Eigenschaften}
+    \begin{itemize}
+        \item $X=Y \Rightarrow \Cov[X,Y]=\Var[X]=\Var[Y]$ (TODO: Beide Richtungen?)
+        \item $X,Y$ unkorreliert oder sto. unabh. $\Rightarrow \Cov[X,Y]=0$
+        \item $\Cov[X,Y]=\Cov[Y,X]$
+        \item $\Cov[\alpha X + \beta, \gamma Y + \delta]=\alpha\gamma\Cov[X,Y]$
+        \item $\Cov[X+U, Y+V] = \Cov[X,Y] + \Cov[X,V] + \Cov[U,Y] + \Cov[U,V]$
+    \end{itemize}
+    
+
+\end{sectionbox}
+
