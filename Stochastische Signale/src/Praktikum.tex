@@ -6,6 +6,7 @@
         x.reshape(row, col)              & \textsl{x} wird zu \textsl{row $\times$ col} Matrix. Für \textsl{row $=-1$} wird die Menge an Zeilen automatisch bestimmt \\
         x.T                              & Transponiert \textsl{x}. Keine Wirkung bei Spaltenvektoren                                                                \\
         x.shape                          & Gibt Tupel mit (\textsl{rows}, \textsl{cols}) von \textsl{x} zurück                                                       \\
+        np.sign(num/vect)                          & Gibt $+1$ für positive Werte und $-1$ für negative Werte zurück \\
     \end{tabularx}
 \end{sectionbox}
 
@@ -28,10 +29,11 @@
 
 \subsection{Graphen}
 \begin{sectionbox}
+    \textsl{edges = np.arange(-128, 129) / 128}: Erstellt Klassengrenzen von $-1$ bis $1$ mit Klassenbreite $1/128$ \\ \\
     \begin{tabularx}{\linewidth}{@{}>{\slshape}l@{\hspace{1em}}X@{}}
-        plt.hist(x, bins(=edges evtl.), \\
-        density=False)    & Erstellt (für \textsl{density = False}) nicht-normiertes Histogram von \textsl{x}. \textsl{bins} ist ein Vektor (z.B. $[0, 0.1, 0.2, ..., 1]$), wobei ein \textsl{x}-Wert in einen der Bereiche eingeordnet wird $\rightarrow$ Menge an Balken \\
+        plt.hist(x, bins(=edges evtl.),                                                                                                                                                                                                                                        \\
+        density=False)        & Erstellt (für \textsl{density = False}) nicht-normiertes Histogram von \textsl{x}. \textsl{bins} ist ein Vektor (z.B. $[0, 0.1, 0.2, ..., 1]$), wobei ein \textsl{x}-Wert in einen der Bereiche eingeordnet wird $\rightarrow$ Menge an Balken. Diese Variante schätzt Verteilungn \\
         pdf = scipy.stats.                                                                                                                                                                                                                                                     \\
-        Verteilung.pdf(edges) & Erstellt die $y$-Werte für eine bestimmte Wahrscheinlichkeitsverteilung (z.B. \textsl{uniform}). \textsl{edges} ist der Bereich (analog zum $t$-Vektor in MATLAB)
+        Verteilung.pdf(edges) & Erstellt die $y$-Werte für eine bestimmte Wahrscheinlichkeitsverteilung (z.B. \textsl{uniform}). \textsl{edges} ist der Bereich (analog zum $t$-Vektor in MATLAB). Diese Variante gibt uns den Graph der exakten Verteilung
     \end{tabularx}
 \end{sectionbox}

@@ -1,0 +1,69 @@
+\subsection{Freies Elektronengas}
+Valenzelektronen sind in einfachen Metallen quasi frei beweglich und nicht mehr vom Coloumbpotential beeinflusst
+\begin{sectionbox}
+    \begin{emphbox}
+        \textbf{Energie-Eigenwerte}
+        \begin{equation*}
+            E_{\vec n} = \frac{\hbar^2\pi}{2mL^2}(n_x^2+n_y^2+n_z^2) = \frac{\hbar^2}{2m}(k_x^2+k_y^2+k_z^2)
+        \end{equation*}
+    \end{emphbox}
+    mit $k=\frac{n\pi}{L}, \Delta k = \frac{\pi}{L}$ Abstand zwischen zwei Zuständen im $k$-Raum \\
+
+    \begin{itemize}
+        \item $E_n \, 3$-fach entartet: $E_{112} = E_{121} = E_{211}$
+        \item Lösungen der SG sind invariant gegenüber Verschiebungen um reziproken Gittervektor
+        \item $E_F=\frac{1}{2}mv_F^2 \quad v_F \widehat{=} v_{\ir el}$ der $e^-$, die beim therm. Ausgleich mitwirken (TODO, was heißt das?)
+    \end{itemize}
+\end{sectionbox}
+
+\subsection{Zustandsdichte}
+Beschreibt, wie dicht (auf der Energieskala) erlaubte Zustände gepackt werden können
+\begin{sectionbox}
+    \begin{emphbox}
+        \begin{align*}
+            D(E) = \frac{1}{V}\frac{d}{dE}Z(E) & \overset{3\text{D}}{=} \frac{1}{2\pi^2}\left(\frac{2m_{\ir el}}{\hbar}\right)^{3/2}\sqrt{E} \quad \left[\si{1 \per \joule \cubic\meter}\right] \\
+                                               & \overset{2\text{D}}{=}\frac{m_{\ir el}}{\pi\hbar^2} \overset{1\text{D}}{=} \sqrt{\frac{2m_{\ir el}}{E}}\frac{1}{\pi\hbar}
+        \end{align*}
+    \end{emphbox}
+
+    \begin{align*}
+        Z(E) & = 2\cdot \text{\#Zustände im }k\text{-Raum} = 2\frac{\frac{1}{8}V_{\text{Kugelschale}}}{\Delta V_{\text{Zustand}}} \\
+             & = 2\frac{\frac{1}{2}\pi k^3}{\Delta k_x\Delta k_y\Delta k_z}
+    \end{align*} TODO
+
+    \begin{equation*}
+        D(E_F) \approx \frac32 n_{\rho\ir el} \frac{1}{E_F} \Rightarrow n_{\rho\ir el,eff} = \frac32 n_{\rho\ir el} \frac{2k_BT}{E_F}
+    \end{equation*}
+\end{sectionbox}
+
+\subsection{Fermi-Verteilung}
+Besetzungswahrscheinlichkeitsdichte für Elektronen im Gleichgewicht bei einem bestimmten Energiewert
+\begin{sectionbox}
+    \begin{emphbox}
+        \begin{equation*}
+            f(E,T) = \left[\exp\left(\frac{E-E_F}{k_BT}\right) + 1\right]^{-1} \approx \exp\left(-\frac{E-E_F}{k_BT}\right)
+        \end{equation*}
+        für $E-E_F \gg k_BT$
+    \end{emphbox}
+
+    \subsubsection{Elektronendichte}
+    \begin{align*}
+        n_{\rho\ir el} & = \int_0^\infty D(E)f(E,T)dE \overset{T=0}{=} \frac{1}{3\pi^2}\left(\frac{2mE_F}{\hbar^2}\right)^{\frac32} \\
+                       & \Rightarrow E_F = \frac{\hbar^2}{2m}(3\pi^2 n_{\rho\ir el})^\frac23=k_BT_F                                 \\
+        n_{\rho\ir el} & = \text{\# Valenzel.}\cdot\frac{\rho N_A}{A_r} \quad \left[\si{1\per\cubic\meter}\right]
+    \end{align*}
+    \parbox{2.5cm}{\includegraphics[width=\linewidth]{img/fDDf.jpg}}
+    \parbox{\linewidth}{TODO: Rechts von Bild was schreiben}
+\end{sectionbox}
+
+\subsection{Energiebänder}
+Bestimmung einer Relation zwischen Wellenzahl k und Energie E durch Schrödingergleichung und periodische Randbedingungen\\
+$\cos(ka) = \underbrace{\cos(ga) + \frac{m\beta a}{\hbar^2} \frac{\sin(ga)}{ga}}_{-1 \leq \hdots \leq 1}$ mit $g = \frac{\sqrt{2mE}}{\hbar}$\\
+Nur bestimme Bereiche/Werte für $ga$ sind erlaubt $\Rightarrow$ Energiebänder\\
+Physikalische Deutung: stehende Welle, keine fortschreitende Ausbreitung in eine Raumrichtung\\
+
+\subsection{Reziproker Raum (k-Raum)}
+$\vec a_1^* = 2\pi \frac{\vec a_2 \times \vec a_3}{\vec a_1(\vec a_2 \times \vec a_3)}$ \quad $\vec a_2^* = 2\pi \frac{\vec a_3 \times \vec a_1}{\vec a_1(\vec a_2 \times \vec a_3)}$ \quad $\vec a_3^* = 2\pi \frac{\vec a_1 \times \vec a_2}{\vec a_1(\vec a_2 \times \vec a_3)}$ \\
+Reziproker Gittervektor: $\vec G = h\vec a_1^* + k\vec a_2^* + l\vec a_3^*$ mit $h, k, l \in \N$
+\paragraph{Brillouinzone} Einheitszelle des reziproken Gitters (1. Zone von $-\frac{\pi}{a}$ bis $\frac{\pi}{a}$ enthält gesamte Information).
+An den Grenzen der Brillouinzonen wird $v_{\ir gr}=0 \Rightarrow$ Energie-/Bandlücken

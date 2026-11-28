@@ -179,3 +179,12 @@ Problem z.B.: Diskretes Ereignis für $t = 0$ und stetige Ereignisse für $t > 0
         f_Z(z)=(f_X * f_Y)(z)=\int_{-\infty}^\infty f_Y(y)f_X(z-y)\diff y
     \end{equation*}
 \end{sectionbox}
+
+\begin{sectionbox}
+    \subsubsection{$\mu$-law-Verfahren}
+    Jeder Abtastwert $x$ eines Audiosignals wird mit folgender Transformation vor und invers nach der Quantisierung abgebildet. 
+    Die Unterscheidung von niedrigeren Werten wird genauer.
+    \begin{equation*}
+        y=T_\mu(x) = \sgn(x)\frac{\ln(1+\mu|x|)}{\ln(1+\mu)} \qquad \mu=255
+    \end{equation*}
+\end{sectionbox}

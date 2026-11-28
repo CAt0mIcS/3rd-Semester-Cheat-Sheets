@@ -51,28 +51,80 @@
 \end{sectionbox}
 
 
+% \subsection{Thermische Eigenschaften}
+% \begin{symbolbox}
+%     \begin{tabular*}{\columnwidth}{@{}lll@{}}
+%         Stoffmenge & $n=\frac{N}{N_A}$ & $\si{\mol}$ \\
+%         Wärmekap. von Phon. & $C=\frac{\Delta Q}{\Delta T}=cm=c\rho V=$ \\
+%         & $c_mn\rightarrow3nN_Ak_B$ & $\si{\joule \per \kelvin}$ \\
+%         spez. Wärmekap. & $c$ & $\si{\joule \per \kilogram\kelvin}$ \\
+%         mol. Wärmekap. & $c_m$ & $\si{\joule \per \mol\kelvin}$ \\
+%         Wärmeleitf. & $\lambda = \frac{1}{3}Cvl$ & $\si{\watt \per \meter\kelvin}$ \\
+%         Wärmestrom & $W=\frac{dQ}{dt}=C\frac{dT}{dt}=\lambda A\frac{dT}{dx}$ & $\si{\joule \per \second}$ \\
+%         mittl. freie Weglänge & $l=v\tau$ &
+%     \end{tabular*}
+% \end{symbolbox}
+
+% \begin{sectionbox}
+%     \paragraph{Dulong-Petit} $c_m=3R=24,9\si{\joule\per\mole\kelvin}$, $c_m$ jedes Festkörpers nähert sich für hohe Temperaturen diesem Wert an
+%     \subsubsection{Wärmeleitfähigkeit}
+%     Phonon: $\lambda_{\ir phon}=\frac{1}{3}C_{\ir phon}v_{\ir Schall}l_{\ir phon}$ \quad Elektron: $\lambda_{\ir el} = \frac{1}{3}C_{\ir el}v_{\ir el}l_{\ir el}$ \\
+%     mit $C_{\ir el} \approx 6nk_B^2\frac{T}{E_F}$
+
+%     \subsubsection{Adiabatisch}
+%     kein Wärmeverlust \begin{equation*}
+%         \underbrace{C_A(T_A-T_\infty)}_{\text{Abgabe}}=\underbrace{C_B(T_\infty - T_B)}_{\text{Aufnahme}}
+%     \end{equation*}
+% \end{sectionbox}
+
+
 \subsection{Thermische Eigenschaften}
 \begin{symbolbox}
     \begin{tabular*}{\columnwidth}{@{}lll@{}}
-        Stoffmenge & $n=\frac{N}{N_A}$ & $\si{\mol}$ \\
-        Wärmekap. & $C=\frac{\Delta Q}{\Delta T}=cm=c\rho V=$ \\
-        & $c_mn=3nN_Ak_B$ & $\si{\joule \per \kelvin}$ \\
-        spez. Wärmekap. & $c$ & $\si{\joule \per \kilogram\kelvin}$ \\
-        mol. Wärmekap. & $c_m$ & $\si{\joule \per \mol\kelvin}$ \\
-        Wärmeleitf. & $\lambda = \frac{1}{3}Cvl$ & $\si{\watt \per \meter\kelvin}$ \\
-        Wärmestrom & $W=\frac{dQ}{dt}=C\frac{dT}{dt}=\lambda A\frac{dT}{dx}$ & $\si{\joule \per \second}$ \\
-        mittl. freie Weglänge & $l=v\tau$ &
+        Stoffmenge & $n=\frac{N}{N_A}=\frac{m}{M}$ & $\si{\mol}$ \\
+        Molmasse & $M$ & $\si{\kilogram\per\mol}$ \\
+        Wärmekap. & $C=\frac{\Delta Q}{\Delta T}=cm=c\rho V$ & \\
+        & $\phantom{C}=c_m n$ & $\si{\joule\per\kelvin}$ \\
+        spez. Wärmekap. & $c$ & $\si{\joule\per\kilogram\kelvin}$ \\
+        mol. Wärmekap. & $c_m$ & $\si{\joule\per\mol\kelvin}$ \\
+        Wärmekap./Vol. & $\frac{C}{V}=c\rho=\frac{c_m\rho}{M}$ & $\si{\joule\per\kelvin\cubic\meter}$ \\
+        Wärmeleitf. & $\lambda=\frac{1}{3}\frac{C}{V}\,v\,l$ & $\si{\watt\per\meter\kelvin}$ \\
+        mittl. freie Weglänge & $l=v\tau$ & $\si{\meter}$ \\
+        Wärmestrom & $\dot Q=\frac{dQ}{dt}=-\lambda A\frac{dT}{dx}$ & $\si{\watt}$ \\
+        Wärmestromdichte & $W=\frac{\dot Q}{A}=-\lambda\frac{dT}{dx}$ & $\si{\watt\per\square\meter}$
     \end{tabular*}
 \end{symbolbox}
 
 \begin{sectionbox}
-    \paragraph{Dulong-Petit} $c_m=3R=24,9\si{\joule\per\mole\kelvin}$, $c_m$ jedes Festkörpers nähert sich für hohe Temperaturen diesem Wert an
-    \subsubsection{Wärmeleitfähigkeit}
-    Phonon: $\lambda_{\ir phon}=\frac{1}{3}C_{\ir phon}v_{\ir Schall}l_{\ir phon}$ \quad Elektron: $\lambda_{\ir el} = \frac{1}{3}C_{\ir el}v_{\ir el}l_{\ir el}$ \\
-    mit $C_{\ir el} \approx 6nk_B^2\frac{T}{E_F}$
+    \subsubsection{Phononen (Gitterschwingungen)}
+    \paragraph{Dulong-Petit} ($T\gtrsim\Theta$): $c_m=3N_Ak_B=3R\approx24{,}9\,\si{\joule\per\mol\kelvin}$ \\
+    $\Rightarrow C_{\ir ph}=3nN_Ak_B$ \\
+    $c_m$ vieler Festkörper nähert sich für hohe $T$ diesem Wert an \\
+    Tiefe $T$: $C_{\ir ph}\propto T^3\to0$ für $T\to0$ (Debye) \\
+    Debye-Temp.: $k_B\Theta=\hbar\omega_D$ \\
+    Wärmeleitf.: $\lambda_{\ir ph}=\frac{1}{3}\frac{C_{\ir ph}}{V}\,v_{\ir Schall}\,l_{\ir ph}$
 
-    \subsubsection{Adiabatisch}
-    kein Wärmeverlust \begin{equation*}
-        \underbrace{C_A(T_A-T_\infty)}_{\text{Abgabe}}=\underbrace{C_B(T_\infty - T_B)}_{\text{Aufnahme}}
+    \subsubsection{Elektronen (Metalle, $T\ll T_F$)}
+    Nur Elektronen in einem Fenster von $\approx\pm 2k_BT$ um $E_F$ können therm. angeregt werden. \\
+    Fermi-Temp.: $k_BT_F=E_F$ \quad Fermi-Geschw.: $E_F=\frac{1}{2}mv_F^2$ \\
+    Wärmekap.: $\frac{C_{\ir el}}{V}\approx6\,n_{\rho\ir el}k_B\frac{k_BT}{E_F}$ \\
+    Wärmeleitf.: $\lambda_{\ir el}=\frac{1}{3}\frac{C_{\ir el}}{V}\,v_F\,l_{\ir el}$, \quad $l_{\ir el}=v_F\tau$ \\
+    $\Rightarrow\lambda_{\ir el}\approx\frac{4n_{\rho\ir el}k_B^2T\tau}{m}$ \\
+    Wiedemann-Franz: $\frac{\lambda_{\ir el}}{\sigma T}=\frac{\pi^2}{3}\frac{k_B^2}{e^2}=L=2{,}44\cdot10^{-8}\,\si{\volt\squared\per\kelvin\squared}$
+
+    \subsubsection{Gesamt}
+    $C=C_{\ir ph}+C_{\ir el}$ \quad $\lambda=\lambda_{\ir ph}+\lambda_{\ir el}$ \\
+    Metall bei RT: $C_{\ir el}\approx1\,\%$ von $C_{\ir ph}$, aber $\lambda_{\ir el}\gg\lambda_{\ir ph}$ \\
+    Tiefe $T$ (wenige K): $C_{\ir el}\propto T$ überwiegt $C_{\ir ph}\propto T^3$
+
+    \subsubsection{Wärmebilanz}
+    Körper heizt sich auf: $\dot Q=C\frac{dT}{dt}$ \\
+    Kontakt zweier Körper, adiabatisch (kein Austausch mit Umgebung):
+    \begin{equation*}
+        \underbrace{C_A(T_A-T_\infty)}_{\text{Abgabe}}=\underbrace{C_B(T_\infty-T_B)}_{\text{Aufnahme}}
     \end{equation*}
+    \begin{equation*}
+        \Rightarrow\quad T_\infty=\frac{C_AT_A+C_BT_B}{C_A+C_B}
+    \end{equation*}
+    gilt für $C\approx$ konst.\ im betrachteten $T$-Bereich
 \end{sectionbox}
